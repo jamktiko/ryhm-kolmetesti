@@ -4,6 +4,7 @@
 			name: string;
 			version: string;
 			description: string;
+			logo: string;
 		};
 	}
 	let { appInfo }: Props = $props();
