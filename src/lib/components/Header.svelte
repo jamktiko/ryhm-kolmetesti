@@ -1,9 +1,16 @@
 <script lang="ts">
-	let company = 'My Company';
+	interface Props {
+		appInfo: {
+			name: string;
+			version: string;
+			description: string;
+		};
+	}
+	let { appInfo }: Props = $props();
 </script>
 
 <header>
-	<h1>{company}</h1>
+	<h1>{appInfo.name}</h1>
 </header>
 
 <style>

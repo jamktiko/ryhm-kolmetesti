@@ -1,9 +1,16 @@
 <script lang="ts">
-	let company = 'My Company';
+	interface Props {
+		appInfo: {
+			name: string;
+			version: string;
+			description: string;
+		};
+	}
+	let { appInfo }: Props = $props();
 </script>
 
 <footer>
-	Copyright by {company}, 2025
+	Copyright by {appInfo.name}, 2025
 </footer>
 
 <style>
