@@ -43,7 +43,7 @@
 </script>
 
 <h2>Hae säätiedot</h2>
-<p>Syötä kaupunki ja paina nappia</p>
+<p>Syötä kaupunki hakukenttään ja paina nappia</p>
 <UserInput type="text" placeholder="Hae kaupunki" bind:value={selectedCity} disabled={false} />
 <Button
 	onclick={() => {
