@@ -1,4 +1,16 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
-<h2>Jarkon hieno h2 headeri</h2>
-<p>Ja myös Jarkon hieno kappale</p>
+<script>
+	import Button from '$lib/components/Button.svelte';
+	import UserInput from '$lib/components/UserInput.svelte';
+
+	let city = $state('');
+</script>
+
+<h2>Hae säätiedot</h2>
+<UserInput type="text" placeholder="Hae kaupunki" bind:value={city} disabled={false} />
+<Button
+	onclick={() => {
+		console.log('Nappia painettu');
+	}}
+	text="Hae"
+	disabled={false}
+/>
