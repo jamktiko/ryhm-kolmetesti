@@ -74,3 +74,10 @@
 	disabled={false}
 />
 <WeatherMain {weather} {returnedCity} />
+
+<style>
+	p {
+		color: black;
+		background: none;
+	}
+</style>
