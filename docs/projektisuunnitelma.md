@@ -18,21 +18,20 @@
 
 ## Projektin tiedot
 
-\<Sääappi>
+Sääappi
 
-Tekijät:
 
 
 ## Projektin sisältö
--Sää-webapin luominen
--Ensimmäisenä vuonna opitun tiedon hyödyntäminen käytännössä
+Sää-webapin luominen
+Ensimmäisenä vuonna opitun tiedon hyödyntäminen käytännössä
 
 
 ### Kuvaus
 
--Sääapplikaatio, joka näyttää halutun maan tai paikkakunnan sään.
--Hakee ip-osoitteen kautta käyttäjän paikkakunnan ja hakee apin kautta kaupungin nimellä koordinaatteja.
--Koordinaateilla toisen apin kautta säätietoja.
+Sääapplikaatio, joka näyttää halutun maan tai paikkakunnan sään.
+Hakee ip-osoitteen kautta käyttäjän paikkakunnan ja hakee apin kautta kaupungin nimellä koordinaatteja.
+Koordinaateilla toisen apin kautta säätietoja.
 
 ### Projektiryhmä
 
@@ -46,8 +45,8 @@ Tekijät:
 
 ### Tavoite
 
--Saada tehtyä toimintavalmis applikaatio ja saada kurssi hyväksytysti läpi.
--Toimia ryhmänä yhteisen tavoitteen eteen.
+Saada tehtyä toimintavalmis applikaatio ja saada kurssi hyväksytysti läpi.
+Toimia ryhmänä yhteisen tavoitteen eteen.
 
 ## Aikataulu
 
@@ -64,30 +63,30 @@ Tekijät:
 
 ### Raportointi
 
--Ryhmän jäsenet raportoivat viikkoraportin kirjoittajalle omista tekemistään viikkopalaverissa.
+Ryhmän jäsenet raportoivat viikkoraportin kirjoittajalle omista tekemistään viikkopalaverissa tai muutoin sopivalla hetkellä.
 
 ### Tuntikirjaukset
 
--Jokainen pitää henkilökohtaista tuntikirjanpitoa excelissä, joka palautetaan Moodleen.
--Tehtäväkohtaista tuntityömäärää voidaan pohtia yhteisesti.
+Jokainen pitää henkilökohtaista tuntikirjanpitoa excelissä, joka palautetaan Moodleen.
+Tehtäväkohtaista tuntityömäärää voidaan pohtia yhteisesti.
 
 ### Palaverikäytänteet
 
--Projektin viikkopalaveri pidetään perjantaisin luokassa AP10 ja dokumentaatio-päällikkö kirjoittaa palaveripöytäkirjan.
+Projektin viikkopalaveri pidetään perjantaisin iltapäivällä luokassa AP10 ja dokumentaatio-päällikkö kirjoittaa palaveripöytäkirjan.
 
 ### Kommunikointitavat
 
--Yleiset ryhmän kommunikointikanavat ovat Teams, trello ja Whatsapp.
+Yleiset ryhmän kommunikointikanavat ovat Teams, trello ja Whatsapp.
 
 ### Dokumentointi
 
--Viikoittain kirjataan tekemiset teksitnä, joka ladataan Githubin projekti repositorion /docs kansioon.
--Lisäksi viikkopalavereistä koostetaan palaveripöytäkirjat.
+Viikoittain kirjataan tekemiset tekstinä, joka ladataan Githubin projekti repositorion /docs kansioon.
+Lisäksi viikkopalavereistä koostetaan palaveripöytäkirjat.
 
 ### Dokumenttien hallinta
 
--Avoimuuden nimissä kaikilla ryhmän jäsenillä on pääsy projektin dokumentteihin.
--Backupit löytyy paikallisesti dokumentaatio-päällikkön koneelta.
+Avoimuuden nimissä kaikilla ryhmän jäsenillä on pääsy projektin dokumentteihin.
+Backupit löytyy paikallisesti dokumentaatio-päällikkön koneelta.
 
 ## Riskien hallinta
 
