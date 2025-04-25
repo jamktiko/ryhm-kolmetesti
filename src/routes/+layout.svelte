@@ -25,6 +25,7 @@
 	:root {
 		--main-color: #d4f3ff;
 		--sec-color: #ecf0f1;
+		--text-decoration-color: black;
 	}
 	main {
 		text-align: center;

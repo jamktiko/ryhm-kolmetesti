@@ -34,7 +34,7 @@
 		color: var(--main-color);
 	}
 	p {
-		color: var(--main-color);
+		color: var(--text-decoration-color);
 		background-color: var(--sec-color);
 	}
 </style>
