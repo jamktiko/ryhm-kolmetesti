@@ -23,7 +23,7 @@
 
 <style>
 	:root {
-		--main-color: #2c3e50;
+		--main-color: #d4f3ff;
 		--sec-color: #ecf0f1;
 	}
 	main {
