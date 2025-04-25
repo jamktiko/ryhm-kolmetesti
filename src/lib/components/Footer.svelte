@@ -1,13 +1,5 @@
 <script lang="ts">
-	interface Props {
-		appInfo: {
-			name: string;
-			version: string;
-			description: string;
-			logo: string;
-		};
-	}
-	let { appInfo }: Props = $props();
+	import { appInfo } from '$lib/appInfo';
 </script>
 
 <footer>
