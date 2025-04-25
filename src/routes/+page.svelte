@@ -1,4 +1,5 @@
 <script lang="ts">
+	import WeatherMain from '$lib/components/WeatherMain.svelte';
 	import Button from '$lib/components/Button.svelte';
 	import UserInput from '$lib/components/UserInput.svelte';
 	import { onMount } from 'svelte';
@@ -13,7 +14,7 @@
 	} from '$lib/types/weather';
 
 	let selectedCity: string = $state('');
-	let returndedCity: string = $state('');
+	let returnedCity: string = $state('');
 	let weather: Weather | null = $state(null);
 
 	// Hakee kaupungin koordinaatit kaupungin nimen perusteella
@@ -29,9 +30,9 @@
 	// Hakee sään kaupungin koordinaattien perusteella
 	async function haeSaa() {
 		const kaupunki = await haeKaupunki();
-		returndedCity = kaupunki.name;
+		returnedCity = kaupunki.name;
 		await fetch(
-			`https://api.open-meteo.com/v1/forecast?latitude=${kaupunki.latitude}&longitude=${kaupunki.longitude}&current=temperature_2m,rain,precipitation,showers,snowfall,relative_humidity_2m,apparent_temperature,is_day`
+			`https://api.open-meteo.com/v1/forecast?latitude=${kaupunki.latitude}&longitude=${kaupunki.longitude}&daily=temperature_2m_max,temperature_2m_min,wind_speed_10m_max,wind_direction_10m_dominant,uv_index_max,precipitation_probability_max,temperature_2m_mean,cloud_cover_mean&hourly=temperature_2m,relative_humidity_2m,precipitation_probability,precipitation,wind_speed_10m,cloud_cover,wind_direction_10m,uv_index,is_day,sunshine_duration&current=temperature_2m,rain,precipitation,showers,snowfall,relative_humidity_2m,apparent_temperature,is_day,wind_speed_10m,wind_direction_10m,cloud_cover&temporal_resolution=hourly_3`
 		).then((vastaus) => {
 			vastaus.json().then((data) => {
 				weather = data;
@@ -72,9 +73,11 @@
 	text="Hae"
 	disabled={false}
 />
-<h2>{returndedCity}</h2>
-{#if weather}
-	<p>{weather.current.temperature_2m} °C</p>
-{:else}
-	<p>Ei säätietoja</p>
-{/if}
+<WeatherMain {weather} {returnedCity} />
+
+<style>
+	p {
+		color: black;
+		background: none;
+	}
+</style>
