@@ -5,26 +5,20 @@
 	interface Props {
 		children: Snippet;
 	}
-
 	let { children }: Props = $props();
-	const appInfo = {
-		name: 'CloudCast',
-		version: '0.0.1',
-		description: 'Sovellus, joka hakee säätiedot kaupungin nimen perusteella.',
-		logo: '/logo.png'
-	};
 </script>
 
-<Header {appInfo} />
+<Header />
 <main>
 	{@render children()}
 </main>
-<Footer {appInfo} />
+<Footer />
 
 <style>
 	:root {
-		--main-color: #2c3e50;
+		--main-color: #d4f3ff;
 		--sec-color: #ecf0f1;
+		--text-decoration-color: black;
 	}
 	main {
 		text-align: center;
