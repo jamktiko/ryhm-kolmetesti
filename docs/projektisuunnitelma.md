@@ -57,6 +57,7 @@ Toimia ryhmänä yhteisen tavoitteen eteen.
 | Idean valinta    | 24.04.2025 | Valitaan tuotantoon menevä projekti-idea 
 | Projektisuunnitelma | 25.04.2025 | Esitellään projektisuunnitelma |
 | Projektin tuotanto | Viikot 18-19 | Projektin tuotannollinen osa         |
+| Projektin lopullinen julkaisu | 09.05.2025 | Sovelluksen pitäisi olla valmis |
 | Projekti päättyy | 16.05.2025 | Ohjelmistoprojekti 1 päättyy + sovelluksen esittely |
 
 ## Raportointi, kommunikointi ja dokumentointi
