@@ -12,7 +12,7 @@
 		color: var(--text-decoration-color);
 		text-align: center;
 		padding: 1rem;
-		position: fixed;
+		position: relative;
 		bottom: 0;
 		width: 100%;
 	}

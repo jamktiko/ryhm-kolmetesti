@@ -15,17 +15,31 @@
 	let { returnedCity }: Props = $props();
 </script>
 
+<link
+	rel="stylesheet"
+	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,400,0,0&icon_names=cloud"
+/>
+<link
+	rel="stylesheet"
+	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=air"
+/>
+
 <div>
 	<h2>{returnedCity}</h2>
-	{#if weather}
-		<p>Lämpötila {weather.current.temperature_2m} °C</p>
-		<p>Tuntuu kuin {weather.current.apparent_temperature} °C</p>
-		<p>Suhteellinen kosteus {weather.current.relative_humidity_2m} %</p>
-		<p>Tuulen nopeus {weather.current.wind_speed_10m} m/s</p>
-		<p>Tuulen suunta {weather.current.wind_direction_10m} °</p>
-		<p>Pilvisyys {weather.current.cloud_cover} %</p>
-		<p>Nyt on {weather.current.is_day ? 'Päivä' : 'Yö'}</p>
-		<p>Sade {weather.current.rain} mm</p>
+	{#if weatherGlobal.weather}
+		<p><strong>{weatherGlobal.weather.current.temperature_2m} °C</strong></p>
+		<p>Tuntuu kuin {weatherGlobal.weather.current.apparent_temperature} °C</p>
+		<p>
+			Tuulen nopeus {weatherGlobal.weather.current.wind_speed_10m} m/s<span
+				class="material-symbols-outlined">air</span
+			>
+		</p>
+		<p>
+			Pilvisyys {weatherGlobal.weather.current.cloud_cover} %<span class="material-symbols-outlined"
+				>cloud</span
+			>
+		</p>
+		<p>Sade {weatherGlobal.weather.current.rain} mm</p>
 	{:else}
 		<p>Ei säätietoja</p>
 	{/if}
