@@ -17,7 +17,7 @@
 <style>
 	footer {
 		background-color: var(--main-color);
-		color: var(--sec-color);
+		color: var(--text-decoration-color);
 		text-align: center;
 		padding: 1rem;
 		position: fixed;
