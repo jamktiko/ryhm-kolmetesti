@@ -3,6 +3,7 @@
 	import Button from '$lib/components/Button.svelte';
 	import UserInput from '$lib/components/UserInput.svelte';
 	import { onMount } from 'svelte';
+	import type { IpGeo } from '$lib/types/ip';
 	import type {
 		Weather,
 		CurrentUnits,
@@ -42,7 +43,7 @@
 
 	// Hakee kaupungin nimen IP-osoitteen perusteella
 	onMount(async () => {
-		const kaupunki = await fetch('http://ip-api.com/json/?fields=city').then((vastaus) => {
+		const kaupunki: IpGeo = await fetch('https://ipapi.co/json/').then((vastaus) => {
 			return vastaus.json();
 		});
 		selectedCity = kaupunki.city;
