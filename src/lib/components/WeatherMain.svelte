@@ -1,4 +1,5 @@
 <script lang="ts">
+	import WeatherHourList from '$lib/components/WeatherHourList.svelte';
 	import type {
 		Weather,
 		CurrentUnits,
@@ -9,6 +10,7 @@
 		Daily
 	} from '$lib/types/weather';
 	import { weatherGlobal } from '$lib/weatherGlobal.svelte';
+	import WeatherHour from './WeatherHour.svelte';
 	interface Props {
 		returnedCity: string;
 	}
@@ -29,6 +31,7 @@
 	{:else}
 		<p>Ei säätietoja</p>
 	{/if}
+	<WeatherHourList />
 </div>
 
 <style>

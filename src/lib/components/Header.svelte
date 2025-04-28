@@ -14,6 +14,10 @@
 		float: left;
 	}
 	header {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
 		background-color: var(--main-color);
 		color: var(--text-decoration-color);
 		padding: 1em;
