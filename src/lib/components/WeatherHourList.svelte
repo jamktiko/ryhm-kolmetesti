@@ -16,12 +16,17 @@
 	let weatherHours: Hour[] = $derived(weatherGlobal.weatherHours(day));
 </script>
 
-<button
-	onclick={() => {
-		//weatherHours = weatherGlobal.weatherHours(day);
-		console.log(weatherHours);
-	}}>Log</button
->
+{#each weatherHours as weatherHour}
+	<div class="weather-hour">
+		<p>{weatherHour.time.slice(weatherHour.time.length - 5, weatherHour.time.length)}</p>
+		<p>Rain {weatherHour.precipitation_probability} %</p>
+		<p>{weatherHour.temperature_2m} °C</p>
+	</div>
+{/each}
 
 <style>
+	.weather-hour {
+		border: 1px solid black;
+		display: inline-block;
+	}
 </style>
