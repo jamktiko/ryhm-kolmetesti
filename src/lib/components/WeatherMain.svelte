@@ -8,11 +8,11 @@
 		DailyUnits,
 		Daily
 	} from '$lib/types/weather';
+	import { weatherGlobal } from '$lib/weatherGlobal.svelte';
 	interface Props {
-		weather: Weather | null;
 		returnedCity: string;
 	}
-	let { weather, returnedCity }: Props = $props();
+	let { returnedCity }: Props = $props();
 </script>
 
 <<<<<<< HEAD
@@ -32,15 +32,15 @@
 =======
 <div>
 	<h2>{returnedCity}</h2>
-	{#if weather}
-		<p>Temperature {weather.current.temperature_2m} °C</p>
-		<p>Apparent temperature {weather.current.apparent_temperature} °C</p>
-		<p>Relative humidity {weather.current.relative_humidity_2m} %</p>
-		<p>Wind speed {weather.current.wind_speed_10m} m/s</p>
-		<p>Wind Direction {weather.current.wind_direction_10m} °</p>
-		<p>Cloud cover {weather.current.cloud_cover} %</p>
-		<p>Now is {weather.current.is_day ? 'Day' : 'Night'}</p>
-		<p>Rain {weather.current.rain} mm</p>
+	{#if weatherGlobal.weather}
+		<p>Temperature {weatherGlobal.weather.current.temperature_2m} °C</p>
+		<p>Apparent temperature {weatherGlobal.weather.current.apparent_temperature} °C</p>
+		<p>Relative humidity {weatherGlobal.weather.current.relative_humidity_2m} %</p>
+		<p>Wind speed {weatherGlobal.weather.current.wind_speed_10m} m/s</p>
+		<p>Wind Direction {weatherGlobal.weather.current.wind_direction_10m} °</p>
+		<p>Cloud cover {weatherGlobal.weather.current.cloud_cover} %</p>
+		<p>Now is {weatherGlobal.weather.current.is_day ? 'Day' : 'Night'}</p>
+		<p>Rain {weatherGlobal.weather.current.rain} mm</p>
 	{:else}
 		<p>Ei säätietoja</p>
 	{/if}
