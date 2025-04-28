@@ -19,17 +19,6 @@
 
 <div>
 	<h2>{returnedCity}</h2>
-<<<<<<< HEAD
-	{#if weather}
-		<p>Lämpötila {weather.current.temperature_2m} °C</p>
-		<p>Tuntuu kuin {weather.current.apparent_temperature} °C</p>
-		<p>Suhteellinen kosteus {weather.current.relative_humidity_2m} %</p>
-		<p>Tuulen nopeus {weather.current.wind_speed_10m} m/s</p>
-		<p>Tuulen suunta {weather.current.wind_direction_10m} °</p>
-		<p>Pilvisyys {weather.current.cloud_cover} %</p>
-		<p>Nyt on {weather.current.is_day ? 'Päivä' : 'Yö'}</p>
-		<p>Sade {weather.current.rain} mm</p>
-=======
 	{#if weatherGlobal.weather}
 		<p>Temperature {weatherGlobal.weather.current.temperature_2m} °C</p>
 		<p>Apparent temperature {weatherGlobal.weather.current.apparent_temperature} °C</p>
@@ -39,7 +28,6 @@
 		<p>Cloud cover {weatherGlobal.weather.current.cloud_cover} %</p>
 		<p>Now is {weatherGlobal.weather.current.is_day ? 'Day' : 'Night'}</p>
 		<p>Rain {weatherGlobal.weather.current.rain} mm</p>
->>>>>>> 0489604765cd46372954d48dceb17a6646986724
 	{:else}
 		<p>Ei säätietoja</p>
 	{/if}
