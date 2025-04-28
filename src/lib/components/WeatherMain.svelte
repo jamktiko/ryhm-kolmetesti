@@ -17,8 +17,34 @@
 	let { returnedCity }: Props = $props();
 </script>
 
+<link
+	rel="stylesheet"
+	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=swap"
+/>
+
 <div>
 	<h2>{returnedCity}</h2>
+<<<<<<< HEAD
+	<h3>Tänään, juuri nyt</h3>
+	{#if weatherGlobal.weather}
+		<h2><strong>{weatherGlobal.weather.current.temperature_2m} °C</strong></h2>
+		<p>Tuntuu kuin {weatherGlobal.weather.current.apparent_temperature} °C</p>
+		<p>
+			Tuulen nopeus {weatherGlobal.weather.current.wind_speed_10m} m/s
+			<span class="material-symbols-outlined">air</span>
+		</p>
+		<p>
+			Pilvisyys {weatherGlobal.weather.current.cloud_cover} %
+			<span class="material-symbols-outlined">cloud</span>
+		</p>
+		<p>
+			Sade {weatherGlobal.weather.current.rain} mm
+			<span class="material-symbols-outlined">rainy</span>
+		</p>
+	{:else}
+		<p>Ei säätietoja</p>
+	{/if}
+=======
 	<div>
 		<h3>Juuri nyt</h3>
 		{#if weatherGlobal.weather}
@@ -38,11 +64,15 @@
 		<h3>3 tunnin välein</h3>
 	</div>
 	<WeatherHourList />
+>>>>>>> origin/develop
 </div>
 
 <style>
 	:global(:root) {
 		font-family: 'Inter', sans-serif;
+	}
+	h3 {
+		color: var(--third-color);
 	}
 
 	div {
@@ -50,6 +80,7 @@
 	}
 	h2 {
 		color: var(--text-decoration-color);
+		font-size: xx-large;
 	}
 	p {
 		color: var(--text-decoration-color);
