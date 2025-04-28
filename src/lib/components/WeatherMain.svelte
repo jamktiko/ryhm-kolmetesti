@@ -15,21 +15,6 @@
 	let { returnedCity }: Props = $props();
 </script>
 
-<<<<<<< HEAD
-<h2>{returnedCity}</h2>
-{#if weather}
-	<p>Lämpötila {weather.current.temperature_2m} °C</p>
-	<p>Tuntuu kuin {weather.current.apparent_temperature} °C</p>
-	<p>Suhteellinen ilmankosteus {weather.current.relative_humidity_2m} %</p>
-	<p>Tuulennopeus {weather.current.wind_speed_10m} m/s</p>
-	<p>Tuulensuunta {weather.current.wind_direction_10m} °</p>
-	<p>Pilvisyys {weather.current.cloud_cover} %</p>
-	<p>{weather.current.is_day ? 'Päivä' : 'Yö'}</p>
-	<p>Sateen määrä {weather.current.rain} mm</p>
-{:else}
-	<p>Ei säätietoja</p>
-{/if}
-=======
 <div>
 	<h2>{returnedCity}</h2>
 	{#if weatherGlobal.weather}
@@ -45,7 +30,6 @@
 		<p>Ei säätietoja</p>
 	{/if}
 </div>
->>>>>>> f75faeccff4cf5ef738145a60dab3bc598691b98
 
 <style>
 	div {
