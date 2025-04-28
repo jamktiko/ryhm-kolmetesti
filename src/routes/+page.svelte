@@ -1,4 +1,5 @@
 <script lang="ts">
+	import WeatherDayList from '$lib/components/weatherDayList.svelte';
 	import WeatherMain from '$lib/components/WeatherMain.svelte';
 	import Button from '$lib/components/Button.svelte';
 	import UserInput from '$lib/components/UserInput.svelte';
