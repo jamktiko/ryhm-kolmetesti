@@ -57,17 +57,30 @@ export interface HourlyUnits {
 	sunshine_duration: string;
 }
 export interface Hourly {
-	time?: string[] | null;
-	temperature_2m?: number[] | null;
-	relative_humidity_2m?: number[] | null;
-	precipitation_probability?: number[] | null;
-	precipitation?: number[] | null;
-	wind_speed_10m?: number[] | null;
-	cloud_cover?: number[] | null;
-	wind_direction_10m?: number[] | null;
-	uv_index?: number[] | null;
-	is_day?: number[] | null;
-	sunshine_duration?: number[] | null;
+	time: string[];
+	temperature_2m: number[];
+	relative_humidity_2m: number[];
+	precipitation_probability: number[];
+	precipitation: number[];
+	wind_speed_10m: number[];
+	cloud_cover: number[];
+	wind_direction_10m: number[];
+	uv_index: number[];
+	is_day: number[];
+	sunshine_duration: number[];
+}
+export interface Hour {
+	time: string;
+	temperature_2m: number;
+	relative_humidity_2m: number;
+	precipitation_probability: number;
+	precipitation: number;
+	wind_speed_10m: number;
+	cloud_cover: number;
+	wind_direction_10m: number;
+	uv_index: number;
+	is_day: number;
+	sunshine_duration: number;
 }
 export interface DailyUnits {
 	time: string;
@@ -81,13 +94,13 @@ export interface DailyUnits {
 	cloud_cover_mean: string;
 }
 export interface Daily {
-	time?: string[] | null;
-	temperature_2m_max?: number[] | null;
-	temperature_2m_min?: number[] | null;
-	wind_speed_10m_max?: number[] | null;
-	wind_direction_10m_dominant?: number[] | null;
-	uv_index_max?: number[] | null;
-	precipitation_probability_max?: number[] | null;
-	temperature_2m_mean?: number[] | null;
-	cloud_cover_mean?: number[] | null;
+	time: string[];
+	temperature_2m_max: number[];
+	temperature_2m_min: number[];
+	wind_speed_10m_max: number[];
+	wind_direction_10m_dominant: number[];
+	uv_index_max: number[];
+	precipitation_probability_max: number[];
+	temperature_2m_mean: number[];
+	cloud_cover_mean: number[];
 }
