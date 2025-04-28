@@ -56,6 +56,7 @@
 	}
 	h2 {
 		color: var(--text-decoration-color);
+		font-size: xx-large;
 	}
 	p {
 		color: var(--text-decoration-color);
