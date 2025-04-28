@@ -8,15 +8,16 @@
 		DailyUnits,
 		Daily
 	} from '$lib/types/weather';
+	import { weatherGlobal } from '$lib/weatherGlobal.svelte';
 	interface Props {
-		weather: Weather | null;
 		returnedCity: string;
 	}
-	let { weather, returnedCity }: Props = $props();
+	let { returnedCity }: Props = $props();
 </script>
 
 <div>
 	<h2>{returnedCity}</h2>
+<<<<<<< HEAD
 	{#if weather}
 		<p>Lämpötila {weather.current.temperature_2m} °C</p>
 		<p>Tuntuu kuin {weather.current.apparent_temperature} °C</p>
@@ -26,6 +27,17 @@
 		<p>Pilvisyys {weather.current.cloud_cover} %</p>
 		<p>Nyt on {weather.current.is_day ? 'Päivä' : 'Yö'}</p>
 		<p>Sade {weather.current.rain} mm</p>
+=======
+	{#if weatherGlobal.weather}
+		<p>Temperature {weatherGlobal.weather.current.temperature_2m} °C</p>
+		<p>Apparent temperature {weatherGlobal.weather.current.apparent_temperature} °C</p>
+		<p>Relative humidity {weatherGlobal.weather.current.relative_humidity_2m} %</p>
+		<p>Wind speed {weatherGlobal.weather.current.wind_speed_10m} m/s</p>
+		<p>Wind Direction {weatherGlobal.weather.current.wind_direction_10m} °</p>
+		<p>Cloud cover {weatherGlobal.weather.current.cloud_cover} %</p>
+		<p>Now is {weatherGlobal.weather.current.is_day ? 'Day' : 'Night'}</p>
+		<p>Rain {weatherGlobal.weather.current.rain} mm</p>
+>>>>>>> 0489604765cd46372954d48dceb17a6646986724
 	{:else}
 		<p>Ei säätietoja</p>
 	{/if}
