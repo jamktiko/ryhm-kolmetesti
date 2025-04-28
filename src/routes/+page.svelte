@@ -51,7 +51,7 @@
 		haeSaa();
 	});
 
-	function handlekeydown(event: KeyboardEvent) {
+	function handleKeydown(event: KeyboardEvent) {
 		if (event.key === 'Enter') {
 			haeSaa();
 		}
@@ -61,20 +61,16 @@
 <h2>Hae säätiedot</h2>
 <p>Syötä kaupunki hakukenttään ja paina nappia</p>
 <UserInput
+	onkeydown={handleKeydown}
 	type="text"
-	placeholder="Hae kaupunki"
+	placeholder="Etsi..."
 	bind:value={selectedCity}
 	disabled={false}
-	on:keydown={handlekeydown}
-/>
-<Button
-	onclick={() => {
-		console.log('Nappia painettu');
+	search={() => {
 		haeSaa();
 	}}
-	text="Hae"
-	disabled={false}
 />
+
 <WeatherMain {returnedCity} />
 
 <WeatherDayList />
