@@ -1,13 +1,5 @@
 <script lang="ts">
-	interface Props {
-		appInfo: {
-			name: string;
-			version: string;
-			description: string;
-			logo: string;
-		};
-	}
-	let { appInfo }: Props = $props();
+	import { appInfo } from '$lib/appInfo';
 </script>
 
 <footer>
@@ -17,10 +9,11 @@
 <style>
 	footer {
 		background-color: var(--main-color);
-		color: var(--sec-color);
+		color: var(--text-decoration-color);
 		text-align: center;
 		padding: 1rem;
 		position: fixed;
+		left: 0;
 		bottom: 0;
 		width: 100%;
 	}

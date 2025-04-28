@@ -1,13 +1,5 @@
 <script lang="ts">
-	interface Props {
-		appInfo: {
-			name: string;
-			version: string;
-			description: string;
-			logo: string;
-		};
-	}
-	let { appInfo }: Props = $props();
+	import { appInfo } from '$lib/appInfo';
 </script>
 
 <header>
@@ -22,8 +14,12 @@
 		float: left;
 	}
 	header {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
 		background-color: var(--main-color);
-		color: var(--sec-color);
+		color: var(--text-decoration-color);
 		padding: 1em;
 	}
 </style>
