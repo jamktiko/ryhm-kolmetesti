@@ -10,10 +10,10 @@
 		DailyUnits,
 		Daily
 	} from '$lib/types/weather';
+
 	import { weatherGlobal } from '$lib/weatherGlobal.svelte';
 	import WeatherHour from '$lib/components/WeatherHour.svelte';
-	let day = 1;
-	let weatherHours: Hour[] = $derived(weatherGlobal.weatherHours(day));
+	let weatherHours: Hour[] = $derived(weatherGlobal.weatherHours(weatherGlobal.selectedDay));
 </script>
 
 {#each weatherHours as weatherHour}
