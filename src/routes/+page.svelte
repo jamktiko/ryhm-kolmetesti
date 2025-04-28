@@ -1,9 +1,6 @@
 <script lang="ts">
-<<<<<<< HEAD
 	import WeatherDayList from '$lib/components/weatherDayList.svelte';
-=======
 	import { weatherGlobal } from '$lib/weatherGlobal.svelte';
->>>>>>> 243228cad462d26f675e2f0cf8aabd3f20e26f00
 	import WeatherMain from '$lib/components/WeatherMain.svelte';
 	import Button from '$lib/components/Button.svelte';
 	import UserInput from '$lib/components/UserInput.svelte';
