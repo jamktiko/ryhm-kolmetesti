@@ -9,7 +9,7 @@
     }
     li {
       padding: 8px;
-      background: #f0f0f0;
+      background: #000000;
       margin-bottom: 4px;
       border-radius: 4px;
     }
