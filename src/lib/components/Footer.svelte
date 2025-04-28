@@ -13,6 +13,7 @@
 		text-align: center;
 		padding: 1rem;
 		position: fixed;
+		left: 0;
 		bottom: 0;
 		width: 100%;
 	}
