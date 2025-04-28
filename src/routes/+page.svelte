@@ -77,6 +77,8 @@
 />
 <WeatherMain {weather} {returnedCity} />
 
+<WeatherDayList />
+
 <style>
 	p {
 		color: black;
