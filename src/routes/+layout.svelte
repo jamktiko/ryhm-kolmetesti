@@ -18,6 +18,7 @@
 	:root {
 		--main-color: #d4f3ff;
 		--sec-color: #ecf0f1;
+		--third-color: #777777;
 		--text-decoration-color: black;
 	}
 	main {
