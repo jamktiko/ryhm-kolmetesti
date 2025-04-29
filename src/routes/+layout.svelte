@@ -13,7 +13,7 @@
 		// Ladataan Vanta.js dynaamisesti
 		Promise.all([
 			import('three'),
-			import('vanta/dist/vanta.clouds.min.js')
+			import('vanta/dist/vanta.clouds.min')
 		]).then(([THREE, VANTA]) => {
 			VANTA.default({
 				el: '#background',
