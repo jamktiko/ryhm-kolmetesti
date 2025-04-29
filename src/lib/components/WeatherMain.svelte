@@ -1,21 +1,14 @@
 <script lang="ts">
 	import WeatherHourList from '$lib/components/WeatherHourList.svelte';
-	import type {
-		Weather,
-		CurrentUnits,
-		Current,
-		HourlyUnits,
-		Hourly,
-		DailyUnits,
-		Daily
-	} from '$lib/types/weather';
+	import type { Weather } from '$lib/types/weather';
+	import type { Parameters } from '$lib/types/parameters';
 	import { weatherGlobal } from '$lib/weatherGlobal.svelte';
 	import WeatherHour from './WeatherHour.svelte';
 	import weatherDayList from './weatherDayList.svelte';
 	interface Props {
-		returnedCity: string;
+		city: string;
 	}
-	let { returnedCity }: Props = $props();
+	let { city }: Props = $props();
 </script>
 
 <link
@@ -24,20 +17,53 @@
 />
 <div class="rectangle-14">
 	<div class="rivi">
-		<div><h2>{returnedCity}</h2></div>
+		<div><h2>{city}</h2></div>
 		<div><h3>Juuri nyt</h3></div>
 	</div>
 	<div>
 		<div>
-			{#if weatherGlobal.weather}
-				<h2><strong>{weatherGlobal.weather.current.temperature_2m} °C</strong></h2>
-				<p>Tuntuu kuin {weatherGlobal.weather.current.apparent_temperature} °C</p>
-				<p>Suhteellinen kosteus {weatherGlobal.weather.current.relative_humidity_2m} %</p>
-				<p>Tuulen nopeus {weatherGlobal.weather.current.wind_speed_10m} m/s</p>
-				<p>Tuulen suunta {weatherGlobal.weather.current.wind_direction_10m} °</p>
-				<p>Pilvisyys {weatherGlobal.weather.current.cloud_cover} %</p>
-				<p>Nyt on {weatherGlobal.weather.current.is_day ? 'Päivä' : 'Yö'}</p>
-				<p>Sade {weatherGlobal.weather.current.rain} mm</p>
+			{#if weatherGlobal.saatietoTaulukko}
+				<h2>
+					<strong
+						>{weatherGlobal.saatietoTaulukko[weatherGlobal.selectedDay - 1][
+							weatherGlobal.selectedHour - 1
+						].Temperature} °C</strong
+					>
+				</h2>
+				<p>
+					Ilmankosteus {weatherGlobal.saatietoTaulukko[weatherGlobal.selectedDay - 1][
+						weatherGlobal.selectedHour - 1
+					].Humidity}%
+				</p>
+				<p>
+					Tuulen nopeus {weatherGlobal.saatietoTaulukko[weatherGlobal.selectedDay - 1][
+						weatherGlobal.selectedHour - 1
+					].WindSpeedMS} m/s
+				</p>
+				<p>
+					Tuulen suunta {weatherGlobal.saatietoTaulukko[weatherGlobal.selectedDay - 1][
+						weatherGlobal.selectedHour - 1
+					].WindDirection} °
+				</p>
+				<p>
+					Pilvisyys {weatherGlobal.saatietoTaulukko[weatherGlobal.selectedDay - 1][
+						weatherGlobal.selectedHour - 1
+					].TotalCloudCover} %
+				</p>
+				<p>
+					Sateen todennäköisyys {weatherGlobal.saatietoTaulukko[weatherGlobal.selectedDay - 1][
+						weatherGlobal.selectedHour - 1
+					].Precipitation1h} %
+				</p>
+				<p>
+					Sateen määrä {weatherGlobal.saatietoTaulukko[weatherGlobal.selectedDay - 1][
+						weatherGlobal.selectedHour - 1
+					].Precipitation1h} mm
+				</p>
+				<img
+					alt="Sääkuvake"
+					src={`/WeatherSymbol3/${weatherGlobal.saatietoTaulukko[weatherGlobal.selectedDay - 1][weatherGlobal.selectedHour - 1].WeatherSymbol3}.svg`}
+				/>
 			{:else}
 				<p>Ei säätietoja</p>
 			{/if}
