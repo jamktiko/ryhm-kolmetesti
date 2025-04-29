@@ -5,7 +5,8 @@
 	import { Tween } from 'svelte/motion';
 	import { onMount } from 'svelte';
 	import * as THREE from 'three';
-	import FOG from 'vanta/dist/vanta.fog.min.js';
+	//import FOG from 'vanta/dist/vanta.fog.min.js';
+	import CLOUDS from 'vanta/dist/vanta.clouds.min.js';
 
 	interface Props {
 		children: Snippet;
@@ -47,80 +48,114 @@
 		duration: kesto
 	});
 
-	// Taivaan aloitusvärit rgb-arvoina. High, Mid, Low, Base
+	// Taivaan aloitusvärit rgb-arvoina. sky, cloud, shadow, sun
 	const startColors = [
 		{ r: 104, g: 126, b: 140 },
 		{ r: 95, g: 95, b: 95 },
 		{ r: 210, g: 210, b: 210 },
-		{ r: 210, g: 210, b: 210 }
+		{ r: 210, g: 210, b: 210 },
+		{ r: 123, g: 211, b: 211 },
+		{ r: 76, g: 231, b: 123 }
 	];
 
-	// High värin rgb transitiot
-	let highrTween = new Tween(startColors[0].r, {
+	// sky värin rgb transitiot
+	let skyrTween = new Tween(startColors[0].r, {
 		duration: kesto
 	});
-	let highgTween = new Tween(startColors[0].g, {
+	let skygTween = new Tween(startColors[0].g, {
 		duration: kesto
 	});
-	let highbTween = new Tween(startColors[0].b, {
-		duration: kesto
-	});
-
-	// Mid värin rgb transitiot
-	let midrTween = new Tween(startColors[1].r, {
-		duration: kesto
-	});
-	let midgTween = new Tween(startColors[1].g, {
-		duration: kesto
-	});
-	let midbTween = new Tween(startColors[1].b, {
+	let skybTween = new Tween(startColors[0].b, {
 		duration: kesto
 	});
 
-	// Low värin rgb transitiot
-	let lowrTween = new Tween(startColors[2].r, {
+	// cloud värin rgb transitiot
+	let cloudrTween = new Tween(startColors[1].r, {
 		duration: kesto
 	});
-	let lowgTween = new Tween(startColors[2].g, {
+	let cloudgTween = new Tween(startColors[1].g, {
 		duration: kesto
 	});
-	let lowbTween = new Tween(startColors[2].b, {
+	let cloudbTween = new Tween(startColors[1].b, {
 		duration: kesto
 	});
 
-	// Base värin rgb transitiot
-	let baserTween = new Tween(startColors[3].r, {
+	// shadow värin rgb transitiot
+	let shadowrTween = new Tween(startColors[2].r, {
 		duration: kesto
 	});
-	let basegTween = new Tween(startColors[3].g, {
+	let shadowgTween = new Tween(startColors[2].g, {
 		duration: kesto
 	});
-	let basebTween = new Tween(startColors[3].b, {
+	let shadowbTween = new Tween(startColors[2].b, {
+		duration: kesto
+	});
+
+	// sun värin rgb transitiot
+	let sunrTween = new Tween(startColors[3].r, {
+		duration: kesto
+	});
+	let sungTween = new Tween(startColors[3].g, {
+		duration: kesto
+	});
+	let sunbTween = new Tween(startColors[3].b, {
+		duration: kesto
+	});
+
+	// glare värin rgb transitiot
+	let sunGlarerTween = new Tween(startColors[3].r, {
+		duration: kesto
+	});
+	let sunGlaregTween = new Tween(startColors[3].g, {
+		duration: kesto
+	});
+	let sunGlarebTween = new Tween(startColors[3].b, {
+		duration: kesto
+	});
+
+	// sunlight värin rgb transitiot
+	let sunLightrTween = new Tween(startColors[3].r, {
+		duration: kesto
+	});
+	let sunLightgTween = new Tween(startColors[3].g, {
+		duration: kesto
+	});
+	let sunLightbTween = new Tween(startColors[3].b, {
 		duration: kesto
 	});
 
 	// Muuttaa taivaan värit transitioden avulla
 	const rgbTrans = (
-		high: { r: number; g: number; b: number },
-		mid: { r: number; g: number; b: number },
-		low: { r: number; g: number; b: number },
-		base: { r: number; g: number; b: number }
+		sky: { r: number; g: number; b: number },
+		cloud: { r: number; g: number; b: number },
+		shadow: { r: number; g: number; b: number },
+		sun: { r: number; g: number; b: number },
+		glare: { r: number; g: number; b: number },
+		light: { r: number; g: number; b: number }
 	) => {
-		highrTween.target = high.r;
-		highgTween.target = high.g;
-		highbTween.target = high.b;
+		skyrTween.target = sky.r;
+		skygTween.target = sky.g;
+		skybTween.target = sky.b;
 
-		midrTween.target = mid.r;
-		midgTween.target = mid.g;
-		midbTween.target = mid.b;
+		cloudrTween.target = cloud.r;
+		cloudgTween.target = cloud.g;
+		cloudbTween.target = cloud.b;
 
-		lowrTween.target = low.r;
-		lowgTween.target = low.g;
-		lowbTween.target = low.b;
+		shadowrTween.target = shadow.r;
+		shadowgTween.target = shadow.g;
+		shadowbTween.target = shadow.b;
 
-		baserTween.target = base.r;
-		basegTween.target = base.g;
-		basebTween.target = base.b;
+		sunrTween.target = sun.r;
+		sungTween.target = sun.g;
+		sunbTween.target = sun.b;
+
+		sunGlarerTween.target = glare.r;
+		sunGlaregTween.target = glare.g;
+		sunGlarebTween.target = glare.b;
+
+		sunLightrTween.target = light.r;
+		sunLightgTween.target = light.g;
+		sunLightbTween.target = light.b;
 	};
 
 	// Muuttaa taivaan liikkumisnopeuden transitioilla
@@ -130,42 +165,81 @@
 
 	// Asettaa taivas efektin taivas -muuttujaan
 	onMount(() => {
-		taivas = FOG({
+		taivas = CLOUDS({
 			el: '#background',
 			THREE: THREE,
-			mouseControls: false,
-			touchControls: false,
+			mouseControls: true,
+			touchControls: true,
 			gyroControls: false,
 			minHeight: 200.0,
 			minWidth: 200.0,
-			highlightColor: rgbToHex(highrTween.current, highgTween.current, highbTween.current),
-			midtoneColor: rgbToHex(midrTween.current, midgTween.current, midbTween.current),
-			lowlightColor: rgbToHex(lowrTween.current, lowgTween.current, lowbTween.current),
-			baseColor: rgbToHex(baserTween.current, basegTween.current, basebTween.current),
-			blurFactor: 0.61,
-			speed: 0.5,
-			zoom: 1.2
+			skyColor: 0xd2e2e8,
+			cloudColor: 0xa4aebe,
+			cloudShadowColor: 0xc7c8ca,
+			sunColor: 0xf7952a,
+			sunGlareColor: 0xd75d35,
+			sunlightColor: 0xf58618
 		});
+		// FOG efekti
+		// taivas = FOG({
+		// 	el: '#background',
+		// 	THREE: THREE,
+		// 	mouseControls: false,
+		// 	touchControls: false,
+		// 	gyroControls: false,
+		// 	minHeight: 200.0,
+		// 	minWidth: 200.0,
+		// 	highlightColor: rgbToHex(highrTween.current, highgTween.current, highbTween.current),
+		// 	midtoneColor: rgbToHex(midrTween.current, midgTween.current, midbTween.current),
+		// 	lowlightColor: rgbToHex(lowrTween.current, lowgTween.current, lowbTween.current),
+		// 	baseColor: rgbToHex(baserTween.current, basegTween.current, basebTween.current),
+		// 	blurFactor: 0.61,
+		// 	speed: 0.5,
+		// 	zoom: 1.2
+		// });
 
 		// Päivittää taivasefektin värejä
 		$effect(() => {
 			taivas.setOptions({
-				highlightColor: rgbToHex(highrTween.current, highgTween.current, highbTween.current),
-				midtoneColor: rgbToHex(midrTween.current, midgTween.current, midbTween.current),
-				lowlightColor: rgbToHex(lowrTween.current, lowgTween.current, lowbTween.current),
-				baseColor: rgbToHex(baserTween.current, basegTween.current, basebTween.current),
-				speed: nopeusTween.current
+				skyColor: rgbToHex(skyrTween.current, skygTween.current, skybTween.current),
+				cloudColor: rgbToHex(cloudrTween.current, cloudgTween.current, cloudbTween.current),
+				cloudShadowColor: rgbToHex(
+					shadowrTween.current,
+					shadowgTween.current,
+					shadowbTween.current
+				),
+				sunColor: rgbToHex(sunrTween.current, sungTween.current, sunbTween.current),
+				sunGlareColor: rgbToHex(
+					sunGlarerTween.current,
+					sunGlaregTween.current,
+					sunGlarebTween.current
+				),
+				sunlightColor: rgbToHex(
+					sunLightrTween.current,
+					sunLightgTween.current,
+					sunLightbTween.current
+				),
+				speed: nopeusTween.current.toFixed(1)
 			});
 		});
 	});
 
 	// Tällä asetetaan taivaalle värit hex koodeilla ja se muuntaa ne rgb:ksi
-	function skyColors(high: number, mid: number, low: number, base: number) {
-		const highcol = hexToRgb(high);
-		const midcol = hexToRgb(mid);
-		const lowcol = hexToRgb(low);
-		const basecol = hexToRgb(base);
-		rgbTrans(highcol, midcol, lowcol, basecol);
+	function skyColors(
+		sky: number,
+		cloud: number,
+		shadow: number,
+		sun: number,
+		glare: number,
+		light: number
+	) {
+		const skycol = hexToRgb(sky);
+		const cloudcol = hexToRgb(cloud);
+		const shadowcol = hexToRgb(shadow);
+		const suncol = hexToRgb(sun);
+		const glarecol = hexToRgb(glare);
+		const lightcol = hexToRgb(light);
+		rgbTrans(skycol, cloudcol, shadowcol, suncol, glarecol, lightcol);
 	}
 </script>
 
@@ -180,25 +254,52 @@
 	<!-- Testi nappi taivaan värin ja nopeuden arpomiseen-->
 	<button
 		onclick={() => {
-			skyColors(satunnaisVari(), satunnaisVari(), satunnaisVari(), satunnaisVari());
+			skyColors(
+				satunnaisVari(),
+				satunnaisVari(),
+				satunnaisVari(),
+				satunnaisVari(),
+				satunnaisVari(),
+				satunnaisVari()
+			);
 			setNopeus(Math.random() * 5);
 		}}>Arvo nopeus ja värit</button
 	>
 
 	<p>
-		Highlight #{rgbToHex(highrTween.current, highgTween.current, highbTween.current).toString(16)}
+		skyColor #{rgbToHex(skyrTween.current, skygTween.current, skybTween.current).toString(16)}
 	</p>
 	<p>
-		Midtone #{rgbToHex(midrTween.current, midgTween.current, midbTween.current).toString(16)}
+		cloudColor #{rgbToHex(cloudrTween.current, cloudgTween.current, cloudbTween.current).toString(
+			16
+		)}
 	</p>
 	<p>
-		Lowligh #{rgbToHex(lowrTween.current, lowgTween.current, lowbTween.current).toString(16)}
+		cloudShadow #{rgbToHex(
+			shadowrTween.current,
+			shadowgTween.current,
+			shadowbTween.current
+		).toString(16)}
 	</p>
 	<p>
-		Basecolor #{rgbToHex(baserTween.current, basegTween.current, basebTween.current).toString(16)}
+		SunColor #{rgbToHex(sunrTween.current, sungTween.current, sunbTween.current).toString(16)}
 	</p>
 	<p>
-		Nopeus = {nopeusTween.current}
+		sunGlare #{rgbToHex(
+			sunGlarerTween.current,
+			sunGlaregTween.current,
+			sunGlarebTween.current
+		).toString(16)}
+	</p>
+	<p>
+		sunLight #{rgbToHex(
+			sunLightrTween.current,
+			sunLightgTween.current,
+			sunLightbTween.current
+		).toString(16)}
+	</p>
+	<p>
+		Nopeus = {nopeusTween.current.toFixed(1)}
 	</p>
 
 	{@render children()}
