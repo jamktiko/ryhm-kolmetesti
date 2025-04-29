@@ -22,7 +22,7 @@
 	</div>
 	<div>
 		<div>
-			{#if weatherGlobal.saatietoTaulukko}
+			{#if weatherGlobal.saatietoTaulukko.length !== 0}
 				<h2>
 					<strong
 						>{weatherGlobal.saatietoTaulukko[weatherGlobal.selectedDay - 1][

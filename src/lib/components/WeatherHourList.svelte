@@ -13,6 +13,8 @@
 		<p>Rain {weatherHour.PoP} %</p>
 		<p><strong>{weatherHour.Temperature} °C</strong></p>
 	</div>
+{:else}
+	<p>Ei sää tietoja</p>
 {/each}
 
 <style>

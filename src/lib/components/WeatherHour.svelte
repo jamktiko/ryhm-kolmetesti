@@ -15,6 +15,7 @@
 	<h4>
 		{timeAndDate}
 	</h4>
+
 	<p>Temperature {weatherHour.Temperature} °C</p>
 	<p>Relative humidity {weatherHour.Humidity} %</p>
 	<p>Wind speed {weatherHour.WindSpeedMS} m/s</p>
