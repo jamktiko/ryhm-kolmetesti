@@ -86,7 +86,7 @@
 
   button {
     padding: 12px 20px;
-    background-color: lightblue;
+    background-color: #d4f3ff;
     border: none;
     border-radius: 8px;
     cursor: pointer;
