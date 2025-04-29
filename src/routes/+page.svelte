@@ -129,7 +129,7 @@
 							ProbabilityThunderstorm: saatiedotTaulukko[6][i + tietojaPaivassa * j],
 							WeatherSymbol3: saatiedotTaulukko[7][i + tietojaPaivassa * j].slice(
 								0,
-								saatiedotTaulukko[7][i + tietojaPaivassa * j].length - 3
+								saatiedotTaulukko[7][i + tietojaPaivassa * j].length - 2
 							),
 							Precipitation1h: saatiedotTaulukko[8][i + tietojaPaivassa * j] //mm
 						});
