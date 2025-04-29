@@ -28,5 +28,9 @@
 	.weather-hour {
 		border: 1px solid black;
 		display: inline-block;
+		background-color: var(--main-color);
+		border-radius: 15px;
+		padding: 5px;
+		margin: 3px;
 	}
 </style>
