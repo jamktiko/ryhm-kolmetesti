@@ -197,6 +197,9 @@
 	<p>
 		Basecolor #{rgbToHex(baserTween.current, basegTween.current, basebTween.current).toString(16)}
 	</p>
+	<p>
+		Nopeus = {nopeusTween.current}
+	</p>
 
 	{@render children()}
 </main>
