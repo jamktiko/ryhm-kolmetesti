@@ -11,6 +11,7 @@
 	} from '$lib/types/weather';
 	import { weatherGlobal } from '$lib/weatherGlobal.svelte';
 	import WeatherHour from './WeatherHour.svelte';
+	import weatherDayList from './weatherDayList.svelte';
 	interface Props {
 		returnedCity: string;
 	}

@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import type {
 		Weather,
 		CurrentUnits,
@@ -26,6 +25,9 @@
 
 <style>
 	.weather-hour {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
 		border: 1px solid black;
 		display: flex;
 		flex-direction: row;

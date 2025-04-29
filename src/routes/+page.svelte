@@ -1,4 +1,5 @@
 <script lang="ts">
+	import WeatherDayList from '$lib/components/weatherDayList.svelte';
 	import { weatherGlobal } from '$lib/weatherGlobal.svelte';
 	import WeatherMain from '$lib/components/WeatherMain.svelte';
 	import Button from '$lib/components/Button.svelte';
@@ -71,6 +72,8 @@
 />
 
 <WeatherMain {returnedCity} />
+
+<WeatherDayList />
 
 <style>
 	p {
