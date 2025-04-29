@@ -20,13 +20,20 @@
 	<div class="weather-hour">
 		<p>{weatherHour.time.slice(weatherHour.time.length - 5, weatherHour.time.length)}</p>
 		<p>Rain {weatherHour.precipitation_probability} %</p>
-		<p>{weatherHour.temperature_2m} °C</p>
+		<p><strong>{weatherHour.temperature_2m} °C</strong></p>
 	</div>
 {/each}
 
 <style>
 	.weather-hour {
 		border: 1px solid black;
-		display: inline-block;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		background-color: var(--main-color);
+		border-radius: 15px;
+		padding: 5px;
+		margin: 3px;
+		box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 	}
 </style>
