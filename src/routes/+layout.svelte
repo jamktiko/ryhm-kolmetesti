@@ -185,6 +185,19 @@
 		}}>Arvo nopeus ja värit</button
 	>
 
+	<p>
+		Highlight #{rgbToHex(highrTween.current, highgTween.current, highbTween.current).toString(16)}
+	</p>
+	<p>
+		Midtone #{rgbToHex(midrTween.current, midgTween.current, midbTween.current).toString(16)}
+	</p>
+	<p>
+		Lowligh #{rgbToHex(lowrTween.current, lowgTween.current, lowbTween.current).toString(16)}
+	</p>
+	<p>
+		Basecolor #{rgbToHex(baserTween.current, basegTween.current, basebTween.current).toString(16)}
+	</p>
+
 	{@render children()}
 </main>
 <Footer />
