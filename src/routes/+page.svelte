@@ -117,7 +117,7 @@
 					for (let i = 0; i < tietojaPaivassa; i++) {
 						saatietoTaulukonTaulukko.push({
 							Time: saatiedotAjatTaulukko[0][i + tietojaPaivassa * j],
-							Temperature: saatiedotTaulukko[0][i + tietojaPaivassa * j].slice(0,saatiedotTaulukko[0][i + tietojaPaivassa * j].length - 3),
+							Temperature: Math.round(Number(saatiedotTaulukko[0][i + tietojaPaivassa * j])),
 							Humidity: saatiedotTaulukko[1][i + tietojaPaivassa * j],
 							WindDirection: saatiedotTaulukko[2][i + tietojaPaivassa * j],
 							WindSpeedMS: saatiedotTaulukko[3][i + tietojaPaivassa * j],

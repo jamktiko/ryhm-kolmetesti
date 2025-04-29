@@ -49,7 +49,7 @@
 		Päivän maks lämpötila {(() => {
 			let maxTemp = -100;
 			for (const tunti of taulukko) {
-				if (Number(tunti.Temperature) > maxTemp) {
+				if (tunti.Temperature > maxTemp) {
 					maxTemp = Number(tunti.Temperature);
 				}
 			}
