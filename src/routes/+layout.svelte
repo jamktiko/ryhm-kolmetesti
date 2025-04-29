@@ -241,6 +241,7 @@
 		const lightcol = hexToRgb(light);
 		rgbTrans(skycol, cloudcol, shadowcol, suncol, glarecol, lightcol);
 	}
+	let showInfo: boolean = $state(false);
 </script>
 
 <!--Asettaa taustalle taivaan-->
@@ -265,43 +266,44 @@
 			setNopeus(Math.random() * 5);
 		}}>Arvo nopeus ja värit</button
 	>
-
-	<p>
-		skyColor #{rgbToHex(skyrTween.current, skygTween.current, skybTween.current).toString(16)}
-	</p>
-	<p>
-		cloudColor #{rgbToHex(cloudrTween.current, cloudgTween.current, cloudbTween.current).toString(
-			16
-		)}
-	</p>
-	<p>
-		cloudShadow #{rgbToHex(
-			shadowrTween.current,
-			shadowgTween.current,
-			shadowbTween.current
-		).toString(16)}
-	</p>
-	<p>
-		SunColor #{rgbToHex(sunrTween.current, sungTween.current, sunbTween.current).toString(16)}
-	</p>
-	<p>
-		sunGlare #{rgbToHex(
-			sunGlarerTween.current,
-			sunGlaregTween.current,
-			sunGlarebTween.current
-		).toString(16)}
-	</p>
-	<p>
-		sunLight #{rgbToHex(
-			sunLightrTween.current,
-			sunLightgTween.current,
-			sunLightbTween.current
-		).toString(16)}
-	</p>
-	<p>
-		Nopeus = {nopeusTween.current.toFixed(1)}
-	</p>
-
+	<label>
+		Näytä info
+		<input type="checkbox" bind:checked={showInfo} />
+	</label>
+	{#if showInfo}
+		<p>Nopeus = {nopeusTween.current.toFixed(1)}</p>
+		<input type="range" min="0" max="5" bind:value={nopeusTween.target} />
+		<p>Sky RGB ({skyrTween.target}-{skygTween.target}-{skybTween.target})</p>
+		<input type="range" min="0" max="255" bind:value={skyrTween.target} />
+		<input type="range" min="0" max="255" bind:value={skygTween.target} />
+		<input type="range" min="0" max="255" bind:value={skybTween.target} /> <br />
+		#{rgbToHex(skyrTween.current, skygTween.current, skybTween.current).toString(16)}
+		<p>Cloud ({cloudrTween.target}-{cloudgTween.target}-{cloudbTween.target})</p>
+		<input type="range" min="0" max="255" bind:value={cloudrTween.target} />
+		<input type="range" min="0" max="255" bind:value={cloudgTween.target} />
+		<input type="range" min="0" max="255" bind:value={cloudbTween.target} /> <br />
+		#{rgbToHex(cloudrTween.current, cloudgTween.current, cloudbTween.current).toString(16)}
+		<p>Shadow RGB ({shadowrTween.target}-{shadowgTween.target}-{shadowbTween.target})</p>
+		<input type="range" min="0" max="255" bind:value={shadowrTween.target} />
+		<input type="range" min="0" max="255" bind:value={shadowgTween.target} />
+		<input type="range" min="0" max="255" bind:value={shadowbTween.target} /> <br />
+		#{rgbToHex(shadowrTween.current, shadowgTween.current, shadowbTween.current).toString(16)}
+		<p>Sun RGB ({sunrTween.target}-{sungTween.target}-{sunbTween.target})</p>
+		<input type="range" min="0" max="255" bind:value={sunrTween.target} />
+		<input type="range" min="0" max="255" bind:value={sungTween.target} />
+		<input type="range" min="0" max="255" bind:value={sunbTween.target} /> <br />
+		#{rgbToHex(sunrTween.current, sungTween.current, sunbTween.current).toString(16)}
+		<p>Glare RGB ({sunGlarerTween.target}-{sunGlaregTween.target}-{sunGlarebTween.target})</p>
+		<input type="range" min="0" max="255" bind:value={sunGlarerTween.target} />
+		<input type="range" min="0" max="255" bind:value={sunGlaregTween.target} />
+		<input type="range" min="0" max="255" bind:value={sunGlarebTween.target} /> <br />
+		#{rgbToHex(sunGlarerTween.current, sunGlaregTween.current, sunGlarebTween.current).toString(16)}
+		<p>SunLight RGB ({sunLightrTween.target}-{sunLightgTween.target}-{sunLightbTween.target})</p>
+		<input type="range" min="0" max="255" bind:value={sunLightrTween.target} />
+		<input type="range" min="0" max="255" bind:value={sunLightgTween.target} />
+		<input type="range" min="0" max="255" bind:value={sunLightbTween.target} /> <br />
+		#{rgbToHex(sunLightrTween.current, sunLightgTween.current, sunLightbTween.current).toString(16)}
+	{/if}
 	{@render children()}
 </main>
 <Footer />
