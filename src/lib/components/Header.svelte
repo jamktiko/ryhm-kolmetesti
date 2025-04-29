@@ -14,12 +14,13 @@
 		float: left;
 	}
 	header {
-		position: fixed;
+		position: relative;
 		top: 0;
 		left: 0;
 		width: 100%;
 		background-color: var(--main-color);
 		color: var(--text-decoration-color);
 		padding: 1em;
+		border-bottom: 0.5px black solid;
 	}
 </style>
