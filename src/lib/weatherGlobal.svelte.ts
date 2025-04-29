@@ -1,6 +1,9 @@
 import type { Weather } from '$lib/types/weather';
 
 class WeatherGlobal {
+	private _currentWeather: string = $derived(
+		this.saatietoTaulukko[this.selectedDay - 1][this.selectedHour - 1].WeatherSymbol3
+	);
 	private _hakuPaivat: number = $state(7);
 	private _paivienMaara: number = $state(7);
 	private _saatietoTaulukko: Weather[][] = $state([]);
