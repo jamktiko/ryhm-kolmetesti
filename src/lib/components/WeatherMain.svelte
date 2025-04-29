@@ -70,46 +70,6 @@
 		font-size: xx-large;
 	}
 	p {
-<<<<<<< HEAD
-		p {
-			color: var(--text-decoration-color);
-			background-color: transparent;
-		}
-	}
-	.box {
-		position: fixed;
-		top: 40vh;
-		left: 50%;
-		transform: translateX(-50%);
-		z-index: 0;
-		width: 80vw;
-		max-width: 250px;
-		height: 50vh;
-		pointer-events: none;
-	}
-
-	.rectangle {
-		background-color: #d4f3ff;
-		border-radius: 20px;
-		box-shadow: 4px 4px 4px #00000040;
-		width: 100%;
-		height: 100%;
-		pointer-events: none;
-	}
-
-	@media (max-width: 600px) {
-		.box {
-			width: 90vw;
-			height: 50vh;
-			top: 40vh;
-		}
-	}
-	.weather-content {
-		position: relative;
-		z-index: 1;
-		padding: 1rem;
-=======
->>>>>>> b1e5ab5ca3c9452302a7ebb3565bebf2ab8e6880
 		color: var(--text-decoration-color);
 	}
 	.rectangle-14 {
