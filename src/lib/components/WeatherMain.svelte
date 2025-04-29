@@ -11,6 +11,7 @@
 	} from '$lib/types/weather';
 	import { weatherGlobal } from '$lib/weatherGlobal.svelte';
 	import WeatherHour from './WeatherHour.svelte';
+	import weatherDayList from './weatherDayList.svelte';
 	interface Props {
 		returnedCity: string;
 	}
@@ -24,27 +25,6 @@
 
 <div>
 	<h2>{returnedCity}</h2>
-<<<<<<< HEAD
-	<h3>Tänään, juuri nyt</h3>
-	{#if weatherGlobal.weather}
-		<h2><strong>{weatherGlobal.weather.current.temperature_2m} °C</strong></h2>
-		<p>Tuntuu kuin {weatherGlobal.weather.current.apparent_temperature} °C</p>
-		<p>
-			Tuulen nopeus {weatherGlobal.weather.current.wind_speed_10m} m/s
-			<span class="material-symbols-outlined">air</span>
-		</p>
-		<p>
-			Pilvisyys {weatherGlobal.weather.current.cloud_cover} %
-			<span class="material-symbols-outlined">cloud</span>
-		</p>
-		<p>
-			Sade {weatherGlobal.weather.current.rain} mm
-			<span class="material-symbols-outlined">rainy</span>
-		</p>
-	{:else}
-		<p>Ei säätietoja</p>
-	{/if}
-=======
 	<div>
 		<h3>Juuri nyt</h3>
 		{#if weatherGlobal.weather}
@@ -64,7 +44,6 @@
 		<h3>3 tunnin välein</h3>
 	</div>
 	<WeatherHourList />
->>>>>>> origin/develop
 </div>
 
 <style>

@@ -12,12 +12,8 @@
 		color: var(--text-decoration-color);
 		text-align: center;
 		padding: 1rem;
-<<<<<<< HEAD
-		position: relative;
-=======
 		position: fixed;
 		left: 0;
->>>>>>> origin/develop
 		bottom: 0;
 		width: 100%;
 	}

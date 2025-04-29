@@ -9,6 +9,7 @@
 		DailyUnits,
 		Daily
 	} from '$lib/types/weather';
+
 	interface Props {
 		weatherHour: Hour;
 	}

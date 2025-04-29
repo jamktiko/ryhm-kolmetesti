@@ -1,82 +1,79 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
+  import { onMount } from 'svelte'; 
 
-  let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
-  let selectedDay = '';
-  let weatherData: any = null;
+  let weatherData: { date: string; maxTemp: number; minTemp: number }[] = [];
+  let selectedDate = '';
+  let selectedWeather: { date: string; maxTemp: number; minTemp: number } | null = null;
   let loading = false;
   let errorMessage = '';
 
-  // hakee valitulle päivälle
-  async function fetchWeatherForDay(day: string) {
-    selectedDay = day;
-    loading = true;
-    errorMessage = '';
+  // hakee säätiedot
+  async function fetchWeather() {
 
     try {
       const latitude = 52.52;
       const longitude = 13.4050;
 
-      // hakee säätiedot Open Meteo API:sta
       const response = await fetch(
         `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=temperature_2m_max,temperature_2m_min&timezone=Europe%2FBerlin`
       );
-
-      // error viesti
-      if (!response.ok) {
-        throw new Error(`Failed to fetch weather data for ${day}`);
-      }
-
-      const data = await response.json();
-
       
-      const dayIndex = days.indexOf(day);
+      const data = await response.json();
+      // tarkistaa onko dataa saatu
+      weatherData = data.daily.time.map((date: string, i: number) => ({
+        date,
+        maxTemp: data.daily.temperature_2m_max[i],
+        minTemp: data.daily.temperature_2m_min[i],
+      }));
 
-      if (dayIndex !== -1) {
-        
-        weatherData = {
-          maxTemp: data.daily.temperature_2m_max[dayIndex],
-          minTemp: data.daily.temperature_2m_min[dayIndex]
-        };
-      }
-
-      loading = false;
+      //error viesti jos ei saada säätietoja
     } catch (error) {
-      console.error('Error fetching weather data:', error);
-      errorMessage = `Failed to fetch weather data for ${day}`;
-      loading = false;
+      console.error('Weather fetch error:', error);
+      errorMessage = 'Failed to load weather data.';
     }
+
+    loading = false;
   }
+  //päivän valinta
+  // valitsee päivän ja hakee säätiedot
+  function selectDay(date: string) {
+    selectedDate = date;
+    selectedWeather = weatherData.find((d) => d.date === date) ?? null;
+  }
+  
+  onMount(fetchWeather);
 </script>
 
+<!-- ui juttuja -->
 <div>
-  <!-- päivät nappuloina -->
-  <div class="button-container">
-    {#each days as day}
-      <button on:click={() => fetchWeatherForDay(day)}>{day}</button>
-    {/each}
-  </div>
-
-  <!-- lataus indigattori -->
   {#if loading}
     <p>Loading...</p>
   {/if}
-
-  <!-- sää data valittuun päivään -->
-  {#if weatherData}
-    <p><strong>{selectedDay}</strong> weather:</p>
-    <p>Max Temp: {weatherData.maxTemp}°C</p>
-    <p>Min Temp: {weatherData.minTemp}°C</p>
+  <!-- viikonpäivä nappulat -->
+  {#if weatherData.length}
+    <div class="button-container">
+      {#each weatherData as day}
+        <button on:click={() => selectDay(day.date)}>
+          {new Date(day.date).toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short' })}
+        </button>
+      {/each}
+    </div>
   {/if}
 
-  <!-- vika ilmoitus jos säätietoja ei saa -->
+  {#if selectedWeather}
+    <div class="weather-info">
+      <h2>lämpötila {selectedWeather.date}</h2>
+      <p>Max Asteet: {selectedWeather.maxTemp}°C</p>
+      <p>Min Asteet: {selectedWeather.minTemp}°C</p>
+    </div>
+  {/if}
+
   {#if errorMessage}
     <p style="color: red;">{errorMessage}</p>
   {/if}
 </div>
 
 <style>
-
   .button-container {
     display: flex;
     flex-direction: column;
@@ -84,10 +81,9 @@
     top: 20%;
     right: 10px;
     gap: 10px;
-    z-index: 1000;
+    
   }
 
-  /* nappula tyylittely */
   button {
     padding: 12px 20px;
     background-color: lightblue;
@@ -103,10 +99,8 @@
     color: white;
   }
 
-  /* tyylittely sää infolle */
-  p {
+  .weather-info {
+    margin-top: 20px;
     font-size: 18px;
-    line-height: 1.5;
   }
 </style>
-
