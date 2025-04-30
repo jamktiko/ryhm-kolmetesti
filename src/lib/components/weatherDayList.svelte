@@ -44,7 +44,6 @@
 </script>
 
 <!-- ui juttuja -->
-<!-- ui juttuja -->
 <div class="rectangle-15">
 	<div class="rivi">
 		<div>
