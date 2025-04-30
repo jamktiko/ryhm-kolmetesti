@@ -5,10 +5,6 @@
 	import { weatherGlobal } from '$lib/weatherGlobal.svelte';
 	import WeatherHour from './WeatherHour.svelte';
 	import weatherDayList from './weatherDayList.svelte';
-	interface Props {
-		city: string;
-	}
-	let { city }: Props = $props();
 </script>
 
 <link
@@ -17,7 +13,7 @@
 />
 <div class="rectangle-14">
 	<div class="rivi">
-		<div><h2>{city}</h2></div>
+		<div><h2>{weatherGlobal.selectedCity}</h2></div>
 		<div><h3>Juuri nyt</h3></div>
 	</div>
 	<div>
@@ -90,6 +86,7 @@
 	}
 
 	div {
+		position: relative;
 		/*background-color: black;*/
 	}
 	h2 {

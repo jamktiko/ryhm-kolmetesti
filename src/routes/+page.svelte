@@ -80,6 +80,8 @@
 				const xmlDoc = parser.parseFromString(text, 'application/xml');
 				const saatiedotXML = xmlDoc.getElementsByTagName('wml2:value');
 				const saatiedotAjatXML = xmlDoc.getElementsByTagName('wml2:time');
+				const cityXML = xmlDoc.getElementsByTagName('gml:name');
+				weatherGlobal.selectedCity = cityXML[0].childNodes[0].nodeValue ?? '';
 				const parameterName = xmlDoc.getElementsByTagName('wml2:MeasurementTimeseries');
 				console.log(saatiedotXML.length);
 				const tietojaPerParametri = saatiedotXML.length / parameters.length;
@@ -174,7 +176,7 @@
 	}}
 />
 
-<WeatherMain {city} />
+<WeatherMain />
 
 <WeatherDayList />
 
