@@ -191,15 +191,27 @@
 	}
 	.weather-container {
 		display: flex;
-		gap: 2rem; /* Asettaa välin komponenttien välille */
-		justify-content: space-between; /* Varmistaa, että ne eivät mene päällekkäin */
+		gap: 2rem;
+		justify-content: space-between;
+		flex-direction: row;
 	}
 
-	.WeatherMain {
-		flex: 1;
-	}
-
+	/* Tee laatikoista tasakokoiset ja joustavat */
+	.WeatherMain,
 	.WeatherDayList {
-		flex: 1;
+		flex: 1 1 0; /* joustavat, ei kiinteä leveys */
+	}
+
+	/* Responsiivinen säätö: allekkain vain alle 768px leveyksillä */
+	@media (max-width: 768px) {
+		.weather-container {
+			flex-direction: column;
+			align-items: stretch; /* täyttävät koko leveyden */
+		}
+
+		.WeatherMain,
+		.WeatherDayList {
+			width: 100%;
+		}
 	}
 </style>
