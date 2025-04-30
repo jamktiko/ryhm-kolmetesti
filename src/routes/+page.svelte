@@ -176,7 +176,7 @@
 	}}
 />
 <div class="weather-container">
-	<WeatherMain {returnedCity} />
+	<WeatherMain />
 	<WeatherDayList />
 </div>
 
