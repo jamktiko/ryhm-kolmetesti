@@ -36,7 +36,7 @@
 
 <style>
 	.search-container {
-		max-width: 600px;
+		max-width: 400px;
 		margin: 0 auto;
 		padding: 1rem;
 	}

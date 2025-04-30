@@ -184,6 +184,10 @@
 	p {
 		color: black;
 		background: none;
+		text-align: center;
+	}
+	h2 {
+		text-align: center;
 	}
 	.weather-container {
 		display: flex;
