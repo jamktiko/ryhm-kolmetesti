@@ -4,7 +4,9 @@
 
 	import { weatherGlobal } from '$lib/weatherGlobal.svelte';
 	import WeatherHour from '$lib/components/WeatherHour.svelte';
-	let weatherHours: Weather[] = $derived(weatherGlobal.saatietoTaulukko[weatherGlobal.selectedDay]);
+	let weatherHours: Weather[] = $derived(
+		weatherGlobal.saatietoTaulukko[weatherGlobal.selectedDay - 1]
+	);
 </script>
 
 <div class="weather-hour">
@@ -35,6 +37,7 @@
 
 <style>
 	.weather-hour {
+		width: 100%;
 		bottom: 0px;
 		position: absolute;
 		display: flex;
@@ -46,7 +49,7 @@
 		border-left: 1px solid #000000aa;
 		border-right: 1px solid #000000aa;
 		height: 80%;
-		width: 12%;
+		width: 12.5%;
 	}
 	#first {
 		border-left: none;
