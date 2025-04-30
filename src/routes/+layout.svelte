@@ -252,6 +252,7 @@
 
 <Header />
 <main>
+	{@render children()}
 	<!-- Testi nappi taivaan värin ja nopeuden arpomiseen-->
 	<button
 		onclick={() => {
@@ -304,7 +305,6 @@
 		<input type="range" min="0" max="255" bind:value={sunLightbTween.target} /> <br />
 		#{rgbToHex(sunLightrTween.current, sunLightgTween.current, sunLightbTween.current).toString(16)}
 	{/if}
-	{@render children()}
 </main>
 <Footer />
 
