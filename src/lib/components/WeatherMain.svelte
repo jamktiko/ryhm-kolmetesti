@@ -79,9 +79,10 @@
 	.rivi {
 		display: flex;
 		gap: 1rem;
-		align-items: center;
+		justify-content: center;
 		text-align: center;
 		flex-wrap: wrap;
+		align-items: center;
 	}
 
 	:global(:root) {
@@ -90,8 +91,9 @@
 
 	h3 {
 		color: var(--third-color);
-		font-size: large;
+		font-size: x-large;
 		text-align: center;
+		font-weight: normal;
 	}
 
 	div {
