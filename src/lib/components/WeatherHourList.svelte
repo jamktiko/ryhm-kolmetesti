@@ -49,7 +49,7 @@
 		border-left: 1px solid #000000aa;
 		border-right: 1px solid #000000aa;
 		height: 80%;
-		width: 12%;
+		width: 12.5%;
 	}
 	#first {
 		border-left: none;
