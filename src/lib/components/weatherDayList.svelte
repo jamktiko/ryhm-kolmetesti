@@ -89,31 +89,46 @@
 </div>
 
 <style>
-	button {
-		padding: 12px 20px;
-		background-color: #d4f3ff;
-		border: none;
-		border-radius: 8px;
-		cursor: pointer;
-		font-size: 16px;
-		transition: background-color 0.3s ease;
-	}
+button {
+	width: 200px;
+	height: 48px;
+	padding: 12px 20px;
+	background-color: white;
+	border: none;
+	border-radius: 8px;
+	cursor: pointer;
+	font-size: 16px;
+	transition: background-color 0.3s ease;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+}
 
-	button:hover {
-		background-color: #4caf50;
-		color: white;
-	}
+button:hover {
+	background-color: #4caf50;
+	color: white;
+}
 
-	.weather-info {
-		margin-top: 20px;
-		font-size: 18px;
-	}
-	.rectangle-15 {
-		background: #d4f3ff;
-		box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-		border-radius: 20px;
-		padding: 1rem;
-		margin: 1rem 0;
-		width: 300px;
-	}
+.button-container {
+	display: flex;
+	flex-wrap: wrap;       /* mahdollistaa painikkeiden siirtymisen seuraavalle riville */
+	gap: 0.5rem;           /* väli painikkeiden väliin */
+	justify-content: center;
+	margin-top: 1rem;
+}
+
+.weather-info {
+	margin-top: 20px;
+	font-size: 18px;
+}
+
+.rectangle-15 {
+	background: #d4f3ff;
+	box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 20px;
+	padding: 1rem;
+	margin: 1rem 0;
+	width: 300px;
+}
 </style>

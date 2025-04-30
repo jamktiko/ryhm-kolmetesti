@@ -75,16 +75,19 @@
 	.WeatherMain {
 		flex: 1;
 	}
+
 	.rivi {
 		display: flex;
 		gap: 1rem;
 		align-items: center;
 		text-align: center;
+		flex-wrap: wrap;
 	}
 
 	:global(:root) {
 		font-family: 'Inter', sans-serif;
 	}
+
 	h3 {
 		color: var(--third-color);
 		font-size: large;
@@ -93,23 +96,31 @@
 
 	div {
 		position: relative;
-		/*background-color: black;*/
+		box-sizing: border-box;
+		max-width: 100%;
+		overflow-x: hidden;
 	}
+
 	h2 {
 		color: var(--text-decoration-color);
 		font-size: xx-large;
 		text-align: center;
 	}
+
 	p {
 		color: var(--text-decoration-color);
 		text-align: center;
 	}
+
 	.rectangle-14 {
 		background: #d4f3ff;
 		box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 		border-radius: 20px;
 		padding: 1rem;
 		margin: 1rem 0;
-		width: 600px;
+		width: 100%;
+		max-width: 600px;
+		box-sizing: border-box;
+		overflow-x: hidden;
 	}
 </style>
