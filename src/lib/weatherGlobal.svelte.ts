@@ -11,7 +11,14 @@ class WeatherGlobal {
 	private _weather: Weather | null = $state(null);
 	private _tietojaPaivassa: number = $state(8);
 	private _selectedHour: number = $state(1);
+	private _selectedCity: string = $state('');
 
+	get selectedCity() {
+		return this._selectedCity;
+	}
+	set selectedCity(city: string) {
+		this._selectedCity = city;
+	}
 	get hakuPaivat() {
 		return this._hakuPaivat;
 	}
