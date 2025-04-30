@@ -119,4 +119,12 @@
 		margin-top: 20px;
 		font-size: 18px;
 	}
+	.rectangle-15 {
+		background: #d4f3ff;
+		box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+		border-radius: 20px;
+		padding: 1rem;
+		margin: 1rem 0;
+		width: 300px;
+	}
 </style>

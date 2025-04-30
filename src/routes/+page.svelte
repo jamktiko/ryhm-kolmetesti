@@ -175,14 +175,27 @@
 		haeSaatiedot();
 	}}
 />
-
-<WeatherMain />
-
-<WeatherDayList />
+<div class="weather-container">
+	<WeatherMain {returnedCity} />
+	<WeatherDayList />
+</div>
 
 <style>
 	p {
 		color: black;
 		background: none;
+	}
+	.weather-container {
+		display: flex;
+		gap: 2rem; /* Asettaa välin komponenttien välille */
+		justify-content: space-between; /* Varmistaa, että ne eivät mene päällekkäin */
+	}
+
+	.WeatherMain {
+		flex: 1;
+	}
+
+	.WeatherDayList {
+		flex: 1;
 	}
 </style>

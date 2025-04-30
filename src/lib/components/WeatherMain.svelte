@@ -72,10 +72,14 @@
 </div>
 
 <style>
+	.WeatherMain {
+		flex: 1;
+	}
 	.rivi {
 		display: flex;
 		gap: 1rem;
 		align-items: center;
+		text-align: center;
 	}
 
 	:global(:root) {
@@ -83,6 +87,8 @@
 	}
 	h3 {
 		color: var(--third-color);
+		font-size: large;
+		text-align: center;
 	}
 
 	div {
@@ -92,9 +98,11 @@
 	h2 {
 		color: var(--text-decoration-color);
 		font-size: xx-large;
+		text-align: center;
 	}
 	p {
 		color: var(--text-decoration-color);
+		text-align: center;
 	}
 	.rectangle-14 {
 		background: #d4f3ff;
@@ -102,5 +110,6 @@
 		border-radius: 20px;
 		padding: 1rem;
 		margin: 1rem 0;
+		width: 600px;
 	}
 </style>
