@@ -37,6 +37,7 @@
 
 <style>
 	.weather-hour {
+		width: 100%;
 		bottom: 0px;
 		position: absolute;
 		display: flex;
