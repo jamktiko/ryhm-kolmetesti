@@ -74,7 +74,7 @@
 	{/if}
 
 	<div>
-		<h3>3 tunnin välein</h3>
+		
 	</div>
 	<WeatherHourList />
 </div>
