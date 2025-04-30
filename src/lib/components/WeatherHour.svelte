@@ -1,20 +1,12 @@
 <script lang="ts">
-	import type {
-		Weather,
-		CurrentUnits,
-		Current,
-		HourlyUnits,
-		Hourly,
-		Hour,
-		DailyUnits,
-		Daily
-	} from '$lib/types/weather';
+	import type { Weather } from '$lib/types/weather';
+	import type { Parameters } from '$lib/types/parameters';
 
 	interface Props {
-		weatherHour: Hour;
+		weatherHour: Weather;
 	}
 	let { weatherHour }: Props = $props();
-	let timeAndDate: string = `${weatherHour.time.slice(8, 10)}.${weatherHour.time.slice(5, 7)}.${weatherHour.time.slice(0, 4)} klo. ${weatherHour.time.slice(11, 13)}:${weatherHour.time.slice(14, 16)}`;
+	let timeAndDate: string = weatherHour.Time;
 
 	import { weatherGlobal } from '$lib/weatherGlobal.svelte';
 </script>
@@ -23,17 +15,15 @@
 	<h4>
 		{timeAndDate}
 	</h4>
-	<p>Temperature {weatherHour.temperature_2m} °C</p>
-	<p>Relative humidity {weatherHour.relative_humidity_2m} %</p>
-	<p>Wind speed {weatherHour.wind_speed_10m} m/s</p>
-	<p>Wind Direction {weatherHour.wind_direction_10m} °</p>
-	<p>Cloud cover {weatherHour.cloud_cover} %</p>
-	<p>Now is {weatherHour.is_day ? 'Day' : 'Night'}</p>
-	<p>Precipitation {weatherHour.precipitation} mm</p>
-	<p>Precipitation probability {weatherHour.precipitation_probability} %</p>
-	<p>UV index {weatherHour.uv_index}</p>
-	<p>Sunshine duration {weatherHour.sunshine_duration} s</p>
-	<p>Wind direction {weatherHour.wind_direction_10m} °</p>
+
+	<p>Temperature {weatherHour.Temperature} °C</p>
+	<p>Relative humidity {weatherHour.Humidity} %</p>
+	<p>Wind speed {weatherHour.WindSpeedMS} m/s</p>
+	<p>Wind Direction {weatherHour.WindDirection} °</p>
+	<p>Cloud cover {weatherHour.TotalCloudCover} %</p>
+	<p>Precipitation {weatherHour.PoP} mm</p>
+	<p>Precipitation probability {weatherHour.Precipitation1h} %</p>
+	<img alt="Sääkuvake" src={`/WeatherSymbol3/${weatherHour.WeatherSymbol3}`} />
 </div>
 
 <style>

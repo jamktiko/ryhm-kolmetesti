@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-
+	import { weatherGlobal } from '$lib/weatherGlobal.svelte';
 	let weatherData: { date: string; maxTemp: number; minTemp: number }[] = [];
 	let selectedDate = '';
 	let selectedWeather: { date: string; maxTemp: number; minTemp: number } | null = null;
@@ -44,6 +44,20 @@
 </script>
 
 <!-- ui juttuja -->
+{#each weatherGlobal.saatietoTaulukko as taulukko, index}
+	<p>
+		Päivän maks lämpötila {(() => {
+			let maxTemp = -100;
+			for (const tunti of taulukko) {
+				if (tunti.Temperature > maxTemp) {
+					maxTemp = Number(tunti.Temperature);
+				}
+			}
+			return maxTemp;
+		})()}
+	</p>
+	<img src={`/WeatherSymbol3/${taulukko[0].WeatherSymbol3}.svg`} />
+{/each}
 <div>
 	{#if loading}
 		<p>Loading...</p>
@@ -88,7 +102,7 @@
 
 	button {
 		padding: 12px 20px;
-		background-color: lightblue;
+		background-color: #d4f3ff;
 		border: none;
 		border-radius: 8px;
 		cursor: pointer;
