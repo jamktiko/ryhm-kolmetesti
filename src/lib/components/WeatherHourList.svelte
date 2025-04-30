@@ -1,26 +1,20 @@
 <script lang="ts">
-	import type {
-		Weather,
-		CurrentUnits,
-		Current,
-		HourlyUnits,
-		Hourly,
-		Hour,
-		DailyUnits,
-		Daily
-	} from '$lib/types/weather';
+	import type { Weather } from '$lib/types/weather';
+	import type { Parameters } from '$lib/types/parameters';
 
 	import { weatherGlobal } from '$lib/weatherGlobal.svelte';
 	import WeatherHour from '$lib/components/WeatherHour.svelte';
-	let weatherHours: Hour[] = $derived(weatherGlobal.weatherHours(weatherGlobal.selectedDay));
+	let weatherHours: Weather[] = $derived(weatherGlobal.saatietoTaulukko[weatherGlobal.selectedDay]);
 </script>
 
 {#each weatherHours as weatherHour}
 	<div class="weather-hour">
-		<p>{weatherHour.time.slice(weatherHour.time.length - 5, weatherHour.time.length)}</p>
-		<p>Rain {weatherHour.precipitation_probability} %</p>
-		<p><strong>{weatherHour.temperature_2m} °C</strong></p>
+		<p>{`${new Date(weatherHour.Time).getHours()}.00`}</p>
+		<p>Rain {weatherHour.PoP} %</p>
+		<p><strong>{weatherHour.Temperature} °C</strong></p>
 	</div>
+{:else}
+	<p>Ei sää tietoja</p>
 {/each}
 
 <style>
