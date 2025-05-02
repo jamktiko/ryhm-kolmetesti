@@ -249,9 +249,8 @@
 	id="background"
 	style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;"
 ></div>
-
+<Header />
 <main>
-	<Header />
 	{@render children()}
 	<!-- Testi nappi taivaan värin ja nopeuden arpomiseen-->
 	<button
@@ -305,8 +304,8 @@
 		<input type="range" min="0" max="255" bind:value={sunLightbTween.target} /> <br />
 		#{rgbToHex(sunLightrTween.current, sunLightgTween.current, sunLightbTween.current).toString(16)}
 	{/if}
-	<Footer />
 </main>
+<Footer />
 
 <style>
 	:global(html, body) {

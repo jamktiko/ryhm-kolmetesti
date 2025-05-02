@@ -50,29 +50,9 @@
 </div>
 
 <style>
-<<<<<<< HEAD
-button {
-	width: 100%;
-	max-width: 200px;
-	height: 48px;
-	padding: 12px 20px;
-	background-color: white;
-	border: none;
-	border-radius: 8px;
-	cursor: pointer;
-	font-size: 16px;
-	transition: background-color 0.3s ease;
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	text-align: center;
-}
-=======
-	.active {
-		background-color: #4caf50;
-	}
 	button {
-		width: 200px;
+		width: 100%;
+		max-width: 200px;
 		height: 48px;
 		padding: 12px 20px;
 		background-color: white;
@@ -86,7 +66,10 @@ button {
 		justify-content: center;
 		text-align: center;
 	}
->>>>>>> 3f0ba3997b7e914521c21c48983295421944f1e9
+
+	.active {
+		background-color: #4caf50;
+	}
 
 	button:hover {
 		background-color: #4caf50;
@@ -106,25 +89,13 @@ button {
 		font-size: 18px;
 	}
 
-<<<<<<< HEAD
-.rectangle-15 {
-	background: #d4f3ff;
-	box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-	border-radius: 20px;
-	padding: 1rem;
-	margin: 1rem 0;
-	width: 100%;
-	max-width: 300px;
-}
-</style>
-=======
 	.rectangle-15 {
 		background: #d4f3ff;
 		box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 		border-radius: 20px;
 		padding: 1rem;
 		margin: 1rem 0;
-		width: 300px;
+		width: 100%;
+		max-width: 300px;
 	}
 </style>
->>>>>>> 3f0ba3997b7e914521c21c48983295421944f1e9
