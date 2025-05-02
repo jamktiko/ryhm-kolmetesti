@@ -6,14 +6,14 @@
 		weatherHour: Weather;
 	}
 	let { weatherHour }: Props = $props();
-	let timeAndDate: string = weatherHour.Time;
+	//let timeAndDate: string = weatherHour.Time;
 
 	import { weatherGlobal } from '$lib/weatherGlobal.svelte';
 </script>
 
 <div>
 	<h4>
-		{timeAndDate}
+		<!--{timeAndDate}-->
 	</h4>
 
 	<p>Temperature {weatherHour.Temperature} °C</p>

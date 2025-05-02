@@ -2,6 +2,8 @@
 	import { onMount } from 'svelte';
 	import type { Weather } from '$lib/types/weather';
 	import { weatherGlobal } from '$lib/weatherGlobal.svelte';
+	import WeatherHour from '$lib/components/WeatherHour.svelte';
+	let weatherDayList = $derived(weatherGlobal.weatherDayList);
 </script>
 
 <!-- ui juttuja -->
@@ -16,37 +18,29 @@
 	</div>
 
 	<div>
-		{#if weatherGlobal.saatietoTaulukko.length > 0}
+		{#if weatherDayList.length > 0}
 			<div class="button-container">
-				{#each weatherGlobal.saatietoTaulukko as day, index}
-					<button onclick={() => (weatherGlobal.selectedDay = index + 1)}>
+				{#each weatherDayList as day, index}
+					<button
+						class:active={day.Date.getDate() === weatherGlobal.selectedDay}
+						onclick={() => {
+							weatherGlobal.selectedDay = day.Date.getDate();
+							if (weatherGlobal.saatietoTaulukko[0].Date.getDay() === day.Date.getDay()) {
+								// Jos valittu päivä on eka päivä, asettaa valituksi tunniksi ensimmäisen saatavilla olevan tunnin. Muuten laittaa nollan
+								weatherGlobal.selectedHour = weatherGlobal.saatietoTaulukko[0].Date.getHours();
+							} else {
+								weatherGlobal.selectedHour = 0;
+							}
+						}}
+					>
+						<h3>
+							{`${day.Date.getDate()}.${day.Date.getMonth() + 1}`}
+						</h3>
 						<span>
-							{`${weatherGlobal.saatietoTaulukko[index][0].Time.slice(8, 10)}.${weatherGlobal.saatietoTaulukko[index][0].Time.slice(5, 7)}.`}
+							&nbsp{day.Temperature} °C <!-- Tuo &nbsp merkki lisää välilyönnin -->
 						</span>
 						<span>
-							{(() => {
-								let temp: number;
-								for (const hour of day) {
-									if (hour.Time.slice(11, 13) === '15') {
-										temp = hour.Temperature;
-										return temp;
-									}
-								}
-							})()} °C
-						</span>
-						<span>
-							<img
-								src={`WeatherSymbol3/${(() => {
-									let icon: string;
-									for (const hour of day) {
-										if (hour.Time.slice(11, 13) === '15') {
-											// console.log(hour.Time); // For checking if it return the right times value
-											icon = hour.WeatherSymbol3;
-											return icon;
-										}
-									}
-								})()}.svg`}
-							/>
+							&nbsp<img src={`WeatherSymbol3/${day.WeatherSymbol3}.svg`} />
 						</span>
 					</button>
 				{/each}
@@ -56,46 +50,49 @@
 </div>
 
 <style>
-button {
-	width: 200px;
-	height: 48px;
-	padding: 12px 20px;
-	background-color: white;
-	border: none;
-	border-radius: 8px;
-	cursor: pointer;
-	font-size: 16px;
-	transition: background-color 0.3s ease;
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	text-align: center;
-}
+	.active {
+		background-color: #4caf50;
+	}
+	button {
+		width: 200px;
+		height: 48px;
+		padding: 12px 20px;
+		background-color: white;
+		border: none;
+		border-radius: 8px;
+		cursor: pointer;
+		font-size: 16px;
+		transition: background-color 0.3s ease;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+	}
 
-button:hover {
-	background-color: #4caf50;
-	color: white;
-}
+	button:hover {
+		background-color: #4caf50;
+		color: white;
+	}
 
-.button-container {
-	display: flex;
-	flex-wrap: wrap;       /* mahdollistaa painikkeiden siirtymisen seuraavalle riville */
-	gap: 0.5rem;           /* väli painikkeiden väliin */
-	justify-content: center;
-	margin-top: 1rem;
-}
+	.button-container {
+		display: flex;
+		flex-wrap: wrap; /* mahdollistaa painikkeiden siirtymisen seuraavalle riville */
+		gap: 0.5rem; /* väli painikkeiden väliin */
+		justify-content: center;
+		margin-top: 1rem;
+	}
 
-.weather-info {
-	margin-top: 20px;
-	font-size: 18px;
-}
+	.weather-info {
+		margin-top: 20px;
+		font-size: 18px;
+	}
 
-.rectangle-15 {
-	background: #d4f3ff;
-	box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-	border-radius: 20px;
-	padding: 1rem;
-	margin: 1rem 0;
-	width: 300px;
-}
+	.rectangle-15 {
+		background: #d4f3ff;
+		box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+		border-radius: 20px;
+		padding: 1rem;
+		margin: 1rem 0;
+		width: 300px;
+	}
 </style>

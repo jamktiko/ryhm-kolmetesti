@@ -3,32 +3,24 @@
 	import type { Parameters } from '$lib/types/parameters';
 
 	import { weatherGlobal } from '$lib/weatherGlobal.svelte';
-	import WeatherHour from '$lib/components/WeatherHour.svelte';
-	let weatherHours: Weather[] = $derived(
-		weatherGlobal.saatietoTaulukko[weatherGlobal.selectedDay - 1]
-	);
+
+	let weatherHours: Weather[] = $derived(weatherGlobal.saatietoTaulukko);
 </script>
 
-<div class="weather-hour">
+<div class="weather-hours">
 	{#each weatherHours as weatherHour, index}
-		{#if index === 0}
-			<div id="first" class="weather-hours">
-				<p>{`${new Date(weatherHour.Time).getHours()}.00`}</p>
-				<img src={`/WeatherSymbol3/${weatherHour.WeatherSymbol3}.svg`} />
+		{#if weatherHour.Date.getDate() === weatherGlobal.selectedDay}
+			<button
+				class:active={weatherHour.Date.getHours() === weatherGlobal.selectedHour}
+				onclick={() => {
+					weatherGlobal.selectedHour = weatherHour.Date.getHours();
+				}}
+				class="weather-hour"
+			>
+				<p>{`${weatherHour.Date.getHours()}.00`}</p>
+				<img alt="Sääsymboli" src={`/WeatherSymbol3/${weatherHour.WeatherSymbol3}.svg`} />
 				<p><strong>{weatherHour.Temperature} °C</strong></p>
-			</div>
-		{:else if index === weatherHours.length - 1}
-			<div id="last" class="weather-hours">
-				<p>{`${new Date(weatherHour.Time).getHours()}.00`}</p>
-				<img src={`/WeatherSymbol3/${weatherHour.WeatherSymbol3}.svg`} />
-				<p><strong>{weatherHour.Temperature} °C</strong></p>
-			</div>
-		{:else}
-			<div class="weather-hours">
-				<p>{`${new Date(weatherHour.Time).getHours()}.00`}</p>
-				<img src={`/WeatherSymbol3/${weatherHour.WeatherSymbol3}.svg`} />
-				<p><strong>{weatherHour.Temperature} °C</strong></p>
-			</div>
+			</button>
 		{/if}
 	{:else}
 		<p>Ei sää tietoja</p>
@@ -36,25 +28,28 @@
 </div>
 
 <style>
-	.weather-hour {
+	.weather-hours {
 		width: 100%;
-		bottom: 0px;
-		position: absolute;
 		display: flex;
 		flex-direction: row;
 		flex-wrap: nowrap;
 		justify-content: space-between;
 	}
-	.weather-hours {
-		border-left: 1px solid #000000aa;
-		border-right: 1px solid #000000aa;
+	.weather-hour {
 		height: 80%;
 		width: 12.5%;
+		transition: 0.5s;
+		border: none;
+		background: none;
+		color: inherit;
+		padding: 0;
+		font: inherit;
+		cursor: pointer;
+		outline: inherit;
 	}
-	#first {
-		border-left: none;
+	.weather-hour:hover {
 	}
-	#last {
-		border-right: none;
+	.active {
+		background-color: #00000022;
 	}
 </style>

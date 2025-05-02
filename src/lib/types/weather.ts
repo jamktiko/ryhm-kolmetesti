@@ -1,5 +1,6 @@
 export interface Weather {
-	Time: string;
+	Date: Date;
+	//Time: string;
 	Temperature: number;
 	Humidity: string;
 	WindDirection: string;
