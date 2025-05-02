@@ -119,7 +119,10 @@
 						TotalCloudCover: saatiedotTaulukko[4][i],
 						PoP: saatiedotTaulukko[5][i],
 						ProbabilityThunderstorm: saatiedotTaulukko[6][i],
-						WeatherSymbol3: saatiedotTaulukko[7][i].slice(0, saatiedotTaulukko[7][i].length - 2),
+						WeatherSymbol3:
+							saatiedotTaulukko[7][i].indexOf('.') !== -1
+								? saatiedotTaulukko[7][i].slice(0, saatiedotTaulukko[7][i].indexOf('.'))
+								: saatiedotTaulukko[7][i],
 						Precipitation1h: saatiedotTaulukko[8][i] //mm
 					});
 				}

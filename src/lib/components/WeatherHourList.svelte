@@ -34,7 +34,7 @@
 		display: flex;
 		flex-direction: row;
 		flex-wrap: nowrap;
-		justify-content: space-between;
+		justify-content: flex-end;
 	}
 	.weather-hour {
 		height: 80%;
