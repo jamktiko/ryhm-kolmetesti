@@ -43,17 +43,18 @@
 		color: blue;
 	}
 	.weather-hours {
+		position: absolute;
+		bottom: 0;
 		width: 100%;
-
-		display: flex;
+		display: inline-flex;
 		flex-direction: row;
 		flex-wrap: nowrap;
 		justify-content: flex-end;
 	}
 	.weather-hour {
-		height: 80%;
+		height: 100%;
 		width: 12.5%;
-		transition: 0.5s;
+		transition: background-color 0.3s ease;
 		border: none;
 		background: none;
 		color: inherit;
@@ -63,8 +64,9 @@
 		outline: inherit;
 	}
 	.weather-hour:hover {
+		background-color: var(--active-color);
 	}
 	.active {
-		background-color: #00000022;
+		background-color: var(--active-color);
 	}
 </style>

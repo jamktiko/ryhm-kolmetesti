@@ -130,10 +130,11 @@
 	}
 
 	.rectangle-14 {
+		position: relative;
 		background: #d4f3ff;
 		box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 		border-radius: 20px;
-		padding: 1rem;
+		/*padding: 1rem;*/
 		width: 100%;
 		max-width: 600px;
 		box-sizing: border-box;

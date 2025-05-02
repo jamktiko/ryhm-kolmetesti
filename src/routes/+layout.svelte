@@ -335,6 +335,7 @@
 		--sec-color: #ecf0f1;
 		--third-color: #777777;
 		--text-decoration-color: black;
+		--active-color: #00000022;
 	}
 	main {
 		padding: 1em;
