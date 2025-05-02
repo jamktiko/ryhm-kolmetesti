@@ -14,6 +14,7 @@
 		float: left;
 	}
 	header {
+		box-sizing: border-box;
 		position: relative;
 		top: 0;
 		left: 0;

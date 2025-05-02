@@ -8,6 +8,7 @@
 
 <style>
 	footer {
+		box-sizing: border-box;
 		background-color: rgba(0, 0, 0, 0);
 		color: var(--text-decoration-color);
 		text-align: center;
