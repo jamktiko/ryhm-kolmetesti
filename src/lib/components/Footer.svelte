@@ -3,7 +3,7 @@
 </script>
 
 <footer>
-{appInfo.name}, 2025
+	{appInfo.name}, 2025
 </footer>
 
 <style>
@@ -16,6 +16,6 @@
 		left: 0;
 		bottom: 0;
 		width: 100%;
-		opacity: 1
+		opacity: 1;
 	}
 </style>

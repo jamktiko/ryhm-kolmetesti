@@ -4,7 +4,6 @@
 	import type { Parameters } from '$lib/types/parameters';
 	import { weatherGlobal } from '$lib/weatherGlobal.svelte';
 	import WeatherHour from '$lib/components/WeatherHour.svelte';
-	import weatherDayList from './weatherDayList.svelte';
 
 	let weather = $derived(weatherGlobal.selectedWeather);
 	let weatherDate = $derived(`${weather.Date.getDate()}.${weather.Date.getMonth() + 1}`);
