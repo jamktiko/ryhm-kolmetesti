@@ -44,14 +44,14 @@
 						}}
 					>
 						<p>
-							<b>{`${viikonPaivat[day.Date.getDay()].slice(0, 2)} `}</b>
+							<b>{`${viikonPaivat[day.Date.getDay()].slice(0, 2)}`}</b> <br />
 							{`${day.Date.getDate()}.${day.Date.getMonth() + 1}`}
 						</p>
 						<p>
 							&nbsp&nbsp&nbsp<img src={`WeatherSymbol3/${day.WeatherSymbol3}.svg`} />
 						</p>
-						<p>
-							&nbsp&nbsp&nbsp{day.Temperature} °C <!-- Tuo &nbsp merkki lisää välilyönnin -->
+						<p class:lamminta={day.Temperature >= 0} class:pakkasta={day.Temperature < 0}>
+							&nbsp&nbsp&nbsp{day.Temperature} ° <!-- Tuo &nbsp merkki lisää välilyönnin -->
 						</p>
 					</button>
 				{/each}
@@ -61,6 +61,12 @@
 </div>
 
 <style>
+	.lamminta {
+		color: red;
+	}
+	.pakkasta {
+		color: blue;
+	}
 	button {
 		width: 100%;
 		max-width: 200px;

@@ -23,7 +23,10 @@
 					<div><h2>{weatherGlobal.selectedCity}</h2></div>
 				</div>
 				<h2>
-					<strong>
+					<strong
+						class:lamminta={weather.Temperature >= 0}
+						class:pakkasta={weather.Temperature < 0}
+					>
 						{weather.Temperature} °C
 					</strong>
 				</h2>
@@ -63,6 +66,12 @@
 </div>
 
 <style>
+	.lamminta {
+		color: red;
+	}
+	.pakkasta {
+		color: blue;
+	}
 	.WeatherMain {
 		flex: 1;
 	}

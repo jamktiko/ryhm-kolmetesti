@@ -19,7 +19,15 @@
 			>
 				<p>{`${weatherHour.Date.getHours()}.00`}</p>
 				<img alt="Sääsymboli" src={`/WeatherSymbol3/${weatherHour.WeatherSymbol3}.svg`} />
-				<p><strong>{weatherHour.Temperature} °C</strong></p>
+				<p>
+					<strong
+						class:lamminta={weatherHour.Temperature >= 0}
+						class:pakkasta={weatherHour.Temperature < 0}
+					>
+						{weatherHour.Temperature}
+						°</strong
+					>
+				</p>
 			</button>
 		{/if}
 	{:else}
@@ -28,6 +36,12 @@
 </div>
 
 <style>
+	.lamminta {
+		color: red;
+	}
+	.pakkasta {
+		color: blue;
+	}
 	.weather-hours {
 		width: 100%;
 
