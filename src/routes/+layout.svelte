@@ -7,6 +7,7 @@
 	import * as THREE from 'three';
 	//import FOG from 'vanta/dist/vanta.fog.min.js';
 	import CLOUDS from 'vanta/dist/vanta.clouds.min.js';
+	import { weatherGlobal } from '$lib/weatherGlobal.svelte';
 
 	interface Props {
 		children: Snippet;
@@ -200,6 +201,15 @@
 
 		// Päivittää taivasefektin värejä
 		$effect(() => {
+			nopeusTween.target = Number(weatherGlobal.selectedWeather.WindSpeedMS) / 4;
+			skyColors(
+				weatherGlobal.currentWeatherEffect.SkyColor,
+				weatherGlobal.currentWeatherEffect.CloudColor,
+				weatherGlobal.currentWeatherEffect.ShadowColor,
+				weatherGlobal.currentWeatherEffect.SunColor,
+				weatherGlobal.currentWeatherEffect.GlareColor,
+				weatherGlobal.currentWeatherEffect.LightColor
+			);
 			taivas.setOptions({
 				skyColor: rgbToHex(skyrTween.current, skygTween.current, skybTween.current),
 				cloudColor: rgbToHex(cloudrTween.current, cloudgTween.current, cloudbTween.current),
@@ -253,7 +263,7 @@
 <main>
 	{@render children()}
 	<!-- Testi nappi taivaan värin ja nopeuden arpomiseen-->
-	<button
+	<!-- <button
 		onclick={() => {
 			skyColors(
 				satunnaisVari(),
@@ -265,8 +275,8 @@
 			);
 			setNopeus(Math.random() * 5);
 		}}>Arvo nopeus ja värit</button
-	>
-	<label>
+	> -->
+	<!-- <label>
 		Näytä info
 		<input type="checkbox" bind:checked={showInfo} />
 	</label>
@@ -303,7 +313,7 @@
 		<input type="range" min="0" max="255" bind:value={sunLightgTween.target} />
 		<input type="range" min="0" max="255" bind:value={sunLightbTween.target} /> <br />
 		#{rgbToHex(sunLightrTween.current, sunLightgTween.current, sunLightbTween.current).toString(16)}
-	{/if}
+	{/if} -->
 </main>
 <Footer />
 
