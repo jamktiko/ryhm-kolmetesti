@@ -249,7 +249,6 @@
 	id="background"
 	style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;"
 ></div>
-
 <Header />
 <main>
 	{@render children()}
@@ -309,6 +308,18 @@
 <Footer />
 
 <style>
+	:global(html, body) {
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		height: 100%;
+	}
+	:global(body) {
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		height: 100%;
+	}
 	:root {
 		--main-color: #d4f3ff;
 		--sec-color: #ecf0f1;
@@ -319,8 +330,8 @@
 		padding: 1em;
 		max-width: 960px; /* Esimerkiksi 960px tai 100% */
 		width: 100%;
-		margin: 6em auto 0 auto;
-		text-align: center;
+		margin: 0 auto;
+		box-sizing: border-box;
 	}
 
 	@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');

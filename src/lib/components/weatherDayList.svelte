@@ -18,7 +18,7 @@
 	</div>
 
 	<div>
-		{#if weatherDayList.length > 0}
+		{#if weatherGlobal.saatietoTaulukko.length > 0}
 			<div class="button-container">
 				{#each weatherDayList as day, index}
 					<button
@@ -50,11 +50,9 @@
 </div>
 
 <style>
-	.active {
-		background-color: #4caf50;
-	}
 	button {
-		width: 200px;
+		width: 100%;
+		max-width: 200px;
 		height: 48px;
 		padding: 12px 20px;
 		background-color: white;
@@ -67,6 +65,10 @@
 		align-items: center;
 		justify-content: center;
 		text-align: center;
+	}
+
+	.active {
+		background-color: #4caf50;
 	}
 
 	button:hover {
@@ -93,6 +95,7 @@
 		border-radius: 20px;
 		padding: 1rem;
 		margin: 1rem 0;
-		width: 300px;
+		width: 100%;
+		max-width: 300px;
 	}
 </style>

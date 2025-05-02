@@ -3,11 +3,12 @@
 </script>
 
 <footer>
-{appInfo.name}, 2025
+	{appInfo.name}, 2025
 </footer>
 
 <style>
 	footer {
+		box-sizing: border-box;
 		background-color: rgba(0, 0, 0, 0);
 		color: var(--text-decoration-color);
 		text-align: center;
@@ -16,6 +17,6 @@
 		left: 0;
 		bottom: 0;
 		width: 100%;
-		opacity: 1
+		opacity: 1;
 	}
 </style>
