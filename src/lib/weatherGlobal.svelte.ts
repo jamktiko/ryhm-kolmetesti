@@ -74,12 +74,12 @@ class WeatherGlobal {
 	}
 
 	private setWeatherDayList() {
-		// Laittaa taulukkoon joka päivältä kello 15 sään, paitsi ekaltam jos kello on yli 15
+		// Laittaa taulukkoon joka päivältä kello 15 sään, paitsi ekaltam jos kello on yli 15. Jos kello on yli 21, se laittaa vasta seuraavan päivän listaan.
 		if (this.saatietoTaulukko.length > 0) {
 			let loop = false;
 			const tietoTaulukko: Weather[] = [];
 			for (const tieto of this.saatietoTaulukko) {
-				if (new Date().getHours() < 15) {
+				if (new Date().getHours() < 15 || new Date().getHours() >= 21) {
 					if (tieto.Date.getHours() === 15) {
 						tietoTaulukko.push(tieto);
 					}
