@@ -3,8 +3,12 @@
 	import type { Weather } from '$lib/types/weather';
 	import type { Parameters } from '$lib/types/parameters';
 	import { weatherGlobal } from '$lib/weatherGlobal.svelte';
-	import WeatherHour from './WeatherHour.svelte';
+	import WeatherHour from '$lib/components/WeatherHour.svelte';
 	import weatherDayList from './weatherDayList.svelte';
+
+	let weather = $derived(weatherGlobal.selectedWeather);
+	let weatherDate = $derived(`${weather.Date.getDate()}.${weather.Date.getMonth() + 1}`);
+	let weatherTime = $derived(`${weather.Date.getHours()}.00`);
 </script>
 
 <link
@@ -21,62 +25,41 @@
 				</div>
 				<h2>
 					<strong>
-						{weatherGlobal.saatietoTaulukko[weatherGlobal.selectedDay - 1][
-							weatherGlobal.selectedHour - 1
-						].Temperature} °C
+						{weather.Temperature} °C
 					</strong>
 				</h2>
-				<img
-					alt="Sääkuvake"
-					src={`/WeatherSymbol3/${weatherGlobal.saatietoTaulukko[weatherGlobal.selectedDay - 1][
-						weatherGlobal.selectedHour - 1
-					].WeatherSymbol3}.svg`}
-				/>
+				<img alt="Sääkuvake" src={`/WeatherSymbol3/${weather.WeatherSymbol3}.svg`} />
 			</div>
 
 			<!-- Oikea laatikko: lisätiedot -->
 			<div class="weather-box">
 				<div class="weather-detail">
-				<p>
-					Ilmankosteus {weatherGlobal.saatietoTaulukko[weatherGlobal.selectedDay - 1][
-						weatherGlobal.selectedHour - 1
-					].Humidity} %
-				</p>
-				<p>
-					Tuulen nopeus {weatherGlobal.saatietoTaulukko[weatherGlobal.selectedDay - 1][
-						weatherGlobal.selectedHour - 1
-					].WindSpeedMS} m/s
-				</p>
-				<p>
-					Tuulen suunta {weatherGlobal.saatietoTaulukko[weatherGlobal.selectedDay - 1][
-						weatherGlobal.selectedHour - 1
-					].WindDirection} °
-				</p>
-				<p>
-					Pilvisyys {weatherGlobal.saatietoTaulukko[weatherGlobal.selectedDay - 1][
-						weatherGlobal.selectedHour - 1
-					].TotalCloudCover} %
-				</p>
-				<p>
-					Sateen todennäköisyys {weatherGlobal.saatietoTaulukko[weatherGlobal.selectedDay - 1][
-						weatherGlobal.selectedHour - 1
-					].Precipitation1h} %
-				</p>
-				<p>
-					Sateen määrä {weatherGlobal.saatietoTaulukko[weatherGlobal.selectedDay - 1][
-						weatherGlobal.selectedHour - 1
-					].Precipitation1h} mm
-				</p>
+					<p>
+						Ilmankosteus {weather.Humidity} %
+					</p>
+					<p>
+						Tuulen nopeus {weather.WindSpeedMS} m/s
+					</p>
+					<p>
+						Tuulen suunta {weather.WindDirection} °
+					</p>
+					<p>
+						Pilvisyys {weather.TotalCloudCover} %
+					</p>
+					<p>
+						Sateen todennäköisyys {weather.Precipitation1h} %
+					</p>
+					<p>
+						Sateen määrä {weather.Precipitation1h} mm
+					</p>
+				</div>
 			</div>
 		</div>
-	</div>
 	{:else}
 		<p>Ei säätietoja</p>
 	{/if}
 
-	<div>
-		
-	</div>
+	<div></div>
 	<WeatherHourList />
 </div>
 
@@ -86,7 +69,7 @@
 	}
 
 	.rivi {
-		display: flex;;
+		display: flex;
 		justify-content: center;
 		text-align: center;
 		flex-wrap: wrap;
@@ -118,25 +101,25 @@
 	}
 
 	p {
-	color: var(--text-decoration-color);
-	text-align: center;
-	margin-top: 1,0rem; /* Perus marginaali */
-	padding-top: 1,5
-}
-
-@media (max-width: 768px) {
-	/* Tabletit ja pienemmät näytöt */
-	p {
-		margin-top: 0.5rem;  /* Pienempi marginaali pienemmillä näytöillä */
+		color: var(--text-decoration-color);
+		text-align: center;
+		margin-top: 1, 0rem; /* Perus marginaali */
+		padding-top: 1, 5;
 	}
-}
 
-@media (max-width: 480px) {
-	/* Puhelimet ja pienemmät näytöt */
-	p {
-		margin-top: 0.25rem;  /* Vielä pienempi marginaali */
+	@media (max-width: 768px) {
+		/* Tabletit ja pienemmät näytöt */
+		p {
+			margin-top: 0.5rem; /* Pienempi marginaali pienemmillä näytöillä */
+		}
 	}
-}
+
+	@media (max-width: 480px) {
+		/* Puhelimet ja pienemmät näytöt */
+		p {
+			margin-top: 0.25rem; /* Vielä pienempi marginaali */
+		}
+	}
 
 	.rectangle-14 {
 		background: #d4f3ff;
@@ -149,53 +132,52 @@
 		overflow-x: hidden;
 	}
 	.small-box-wrapper {
-	display: flex;
-	justify-content: space-between;
-	gap: 0.75rem;
-	margin: 1rem 0;
-}
+		display: flex;
+		justify-content: space-between;
+		gap: 0.75rem;
+		margin: 1rem 0;
+	}
 
-.small-box {
-	background-color: white;
-	border-radius: 10px;
-	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-	padding: 0.75rem;
-	flex: 1;
-	text-align: center;
-	color: var(--text-decoration-color);
-}
+	.small-box {
+		background-color: white;
+		border-radius: 10px;
+		box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+		padding: 0.75rem;
+		flex: 1;
+		text-align: center;
+		color: var(--text-decoration-color);
+	}
 
-/* UUSI: säälaatikot rinnakkain */
-.weather-split {
-	max-width: 100%;
-	display: flex;
-	gap: 1rem;
-	margin-top: 1rem;
-	flex-wrap: wrap;
-	align-items: stretch;
-}
+	/* UUSI: säälaatikot rinnakkain */
+	.weather-split {
+		max-width: 100%;
+		display: flex;
+		gap: 1rem;
+		margin-top: 1rem;
+		flex-wrap: wrap;
+		align-items: stretch;
+	}
 
-.weather-box {
-	background-color: rgba(255, 255, 255, 0.35);
-	border-radius: 20px;
-	box-shadow: 0 4px 12px rgba(0, 0, 0, 0,);
-	padding: 1rem;
-	flex: 1 1 250px;
-	text-align: center;
-	max-height: 375px;
-	overflow: hidden
-}
+	.weather-box {
+		background-color: rgba(255, 255, 255, 0.35);
+		border-radius: 20px;
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0);
+		padding: 1rem;
+		flex: 1 1 250px;
+		text-align: center;
+		max-height: 375px;
+		overflow: hidden;
+	}
 
-.weather-box img {
-	width: 100%;
-	max-width: 120px; /* Voit säätää tätä isommaksi tai pienemmäksi */
-	height: auto;
-	margin-top: 0rem;
-	object-fit: contain;
-	overflow: hidden;
-}
-.weather-detail {
-	padding-top: 4rem;
-
-}
+	.weather-box img {
+		width: 100%;
+		max-width: 120px; /* Voit säätää tätä isommaksi tai pienemmäksi */
+		height: auto;
+		margin-top: 0rem;
+		object-fit: contain;
+		overflow: hidden;
+	}
+	.weather-detail {
+		padding-top: 4rem;
+	}
 </style>

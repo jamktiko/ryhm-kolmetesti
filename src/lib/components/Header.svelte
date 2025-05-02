@@ -21,5 +21,6 @@
 		/*background-color: var(--main-color);*/
 		color: var(--text-decoration-color);
 		padding: 1em;
+		width: 100%
 	}
 </style>
