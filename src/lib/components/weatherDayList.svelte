@@ -57,7 +57,8 @@
 
 <style>
 button {
-	width: 200px;
+	width: 100%;
+	max-width: 200px;
 	height: 48px;
 	padding: 12px 20px;
 	background-color: white;
@@ -96,6 +97,7 @@ button:hover {
 	border-radius: 20px;
 	padding: 1rem;
 	margin: 1rem 0;
-	width: 300px;
+	width: 100%;
+	max-width: 300px;
 }
 </style>

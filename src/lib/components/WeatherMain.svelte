@@ -18,7 +18,6 @@
 			<div class="weather-box">
 				<div class="rivi">
 					<div><h2>{weatherGlobal.selectedCity}</h2></div>
-					<div><h3>Juuri nyt</h3></div>
 				</div>
 				<h2>
 					<strong>
@@ -37,6 +36,7 @@
 
 			<!-- Oikea laatikko: lisätiedot -->
 			<div class="weather-box">
+				<div class="weather-detail">
 				<p>
 					Ilmankosteus {weatherGlobal.saatietoTaulukko[weatherGlobal.selectedDay - 1][
 						weatherGlobal.selectedHour - 1
@@ -69,6 +69,7 @@
 				</p>
 			</div>
 		</div>
+	</div>
 	{:else}
 		<p>Ei säätietoja</p>
 	{/if}
@@ -85,8 +86,7 @@
 	}
 
 	.rivi {
-		display: flex;
-		gap: 1rem;
+		display: flex;;
 		justify-content: center;
 		text-align: center;
 		flex-wrap: wrap;
@@ -143,7 +143,6 @@
 		box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 		border-radius: 20px;
 		padding: 1rem;
-		margin: 1rem 0;
 		width: 100%;
 		max-width: 600px;
 		box-sizing: border-box;
@@ -168,19 +167,23 @@
 
 /* UUSI: säälaatikot rinnakkain */
 .weather-split {
+	max-width: 100%;
 	display: flex;
 	gap: 1rem;
 	margin-top: 1rem;
 	flex-wrap: wrap;
+	align-items: stretch;
 }
 
 .weather-box {
-	background-color: white;
-	border-radius: 12px;
-	box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+	background-color: rgba(255, 255, 255, 0.35);
+	border-radius: 20px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0,);
 	padding: 1rem;
 	flex: 1 1 250px;
 	text-align: center;
+	max-height: 375px;
+	overflow: hidden
 }
 
 .weather-box img {
@@ -189,5 +192,10 @@
 	height: auto;
 	margin-top: 0rem;
 	object-fit: contain;
+	overflow: hidden;
+}
+.weather-detail {
+	padding-top: 4rem;
+
 }
 </style>
