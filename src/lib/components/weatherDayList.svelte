@@ -4,6 +4,16 @@
 	import { weatherGlobal } from '$lib/weatherGlobal.svelte';
 	import WeatherHour from '$lib/components/WeatherHour.svelte';
 	let weatherDayList = $derived(weatherGlobal.weatherDayList);
+
+	let viikonPaivat = [
+		'Sunnuntai',
+		'Maanantai',
+		'Tiistai',
+		'Keskiviikko',
+		'Torstai',
+		'Perjantai',
+		'Lauantai'
+	];
 </script>
 
 <!-- ui juttuja -->
@@ -33,15 +43,16 @@
 							}
 						}}
 					>
-						<h3>
+						<p>
+							<b>{`${viikonPaivat[day.Date.getDay()].slice(0, 2)} `}</b>
 							{`${day.Date.getDate()}.${day.Date.getMonth() + 1}`}
-						</h3>
-						<span>
-							&nbsp{day.Temperature} °C <!-- Tuo &nbsp merkki lisää välilyönnin -->
-						</span>
-						<span>
-							&nbsp<img src={`WeatherSymbol3/${day.WeatherSymbol3}.svg`} />
-						</span>
+						</p>
+						<p>
+							&nbsp&nbsp&nbsp<img src={`WeatherSymbol3/${day.WeatherSymbol3}.svg`} />
+						</p>
+						<p>
+							&nbsp&nbsp&nbsp{day.Temperature} °C <!-- Tuo &nbsp merkki lisää välilyönnin -->
+						</p>
 					</button>
 				{/each}
 			</div>

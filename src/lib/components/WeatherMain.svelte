@@ -46,7 +46,7 @@
 						Pilvisyys {weather.TotalCloudCover} %
 					</p>
 					<p>
-						Sateen todennäköisyys {weather.Precipitation1h} %
+						Sateen todennäköisyys {weather.PoP} %
 					</p>
 					<p>
 						Sateen määrä {weather.Precipitation1h} mm
