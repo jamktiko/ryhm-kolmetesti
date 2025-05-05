@@ -53,8 +53,6 @@
 		color: blue;
 	}
 	.weather-hours {
-		position: absolute;
-		bottom: 0;
 		width: 100%;
 		display: inline-flex;
 		flex-direction: row;
@@ -87,7 +85,7 @@
 			position: relative;
 			flex-wrap: wrap;
 			justify-content: center;
-			padding: 10px 0;
+			/*padding: 10px 0;  Voit lisätä takaisin jos tärkeä*/
 		}
 		.weather-hour {
 			width: 25%;
