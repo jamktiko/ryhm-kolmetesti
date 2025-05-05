@@ -192,7 +192,7 @@
 		border-radius: 20px;
 		box-shadow: 0 4px 12px rgba(0, 0, 0, 0);
 		padding: 1rem;
-		flex: 1 1 250px;
+		flex: 1 1 45%;
 		text-align: center;
 		max-height: 375px;
 		overflow: hidden;

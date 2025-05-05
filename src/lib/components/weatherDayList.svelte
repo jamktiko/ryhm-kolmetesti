@@ -44,14 +44,14 @@
 						}}
 					>
 						<p>
-							<b>{`${viikonPaivat[day.Date.getDay()].slice(0, 2)}`}</b> <br />
-							{`${day.Date.getDate()}.${day.Date.getMonth() + 1}`}
+							<b>{`${viikonPaivat[day.Date.getDay()].slice(0, 2)}  `}</b> <br />
+							{`${day.Date.getDate()}.${day.Date.getMonth() + 1}.`}
 						</p>
 						<p>
-							&nbsp&nbsp&nbsp<img src={`WeatherSymbol3/${day.WeatherSymbol3}.svg`} />
+							<img alt="Sääsymboli" src={`WeatherSymbol3/${day.WeatherSymbol3}.svg`} />
 						</p>
 						<p class:lamminta={day.Temperature >= 0} class:pakkasta={day.Temperature < 0}>
-							&nbsp&nbsp&nbsp{day.Temperature} ° <!-- Tuo &nbsp merkki lisää välilyönnin -->
+							{day.Temperature} ° <!-- Tuo &nbsp merkki lisää välilyönnin -->
 						</p>
 					</button>
 				{/each}
@@ -68,6 +68,8 @@
 		color: blue;
 	}
 	button {
+		padding-left: 1em;
+		padding-right: 1em;
 		width: 100%;
 		background: var(--main-color);
 		border: none;
@@ -76,8 +78,8 @@
 		transition: background-color 0.3s ease;
 		display: inline-flex;
 		align-items: center;
-		justify-content: space-around;
-		text-align: center;
+		justify-content: space-between;
+		text-align: left;
 	}
 
 	.active {
