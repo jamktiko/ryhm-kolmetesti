@@ -115,4 +115,7 @@
 		width: 100%;
 		max-width: 300px;
 	}
+	h3 {
+		text-align: center;
+	}
 </style>
