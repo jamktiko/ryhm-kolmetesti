@@ -18,14 +18,14 @@
 
 <!-- ui juttuja -->
 <div class="rectangle-15">
-	<div class="rivi">
+	<!-- <div class="rivi">
 		<div>
 			<h2>Muiden päivien säätiedot</h2>
 		</div>
 		<div>
 			<h3>Valitse päivä</h3>
 		</div>
-	</div>
+	</div> -->
 
 	<div>
 		{#if weatherGlobal.saatietoTaulukko.length > 0}
@@ -69,36 +69,30 @@
 	}
 	button {
 		width: 100%;
-		max-width: 200px;
-		height: 48px;
-		padding: 12px 20px;
-		background-color: white;
+		background: var(--main-color);
 		border: none;
-		border-radius: 8px;
 		cursor: pointer;
 		font-size: 16px;
 		transition: background-color 0.3s ease;
 		display: inline-flex;
 		align-items: center;
-		justify-content: center;
+		justify-content: space-around;
 		text-align: center;
 	}
 
 	.active {
-		background-color: #4caf50;
+		background-color: var(--active-color);
 	}
 
 	button:hover {
-		background-color: #4caf50;
+		background-color: var(--active-color);
 		color: white;
 	}
 
 	.button-container {
 		display: flex;
 		flex-wrap: wrap; /* mahdollistaa painikkeiden siirtymisen seuraavalle riville */
-		gap: 0.5rem; /* väli painikkeiden väliin */
-		justify-content: center;
-		margin-top: 1rem;
+		justify-content: flex-start;
 	}
 
 	.weather-info {
@@ -107,13 +101,19 @@
 	}
 
 	.rectangle-15 {
-		background: #d4f3ff;
+		background: var(--main-color);
 		box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 		border-radius: 20px;
-		padding: 1rem;
-		margin: 1rem 0;
 		width: 100%;
 		max-width: 300px;
+		overflow-x: hidden;
+	}
+
+	/* Responsiivisuus: keskitetään rectangle-15 alle 768px näytöillä */
+	@media (max-width: 768px) {
+		.rectangle-15 {
+			margin: 0 auto; /* keskittää vaakasuunnassa */
+		}
 	}
 	h3 {
 		text-align: center;
