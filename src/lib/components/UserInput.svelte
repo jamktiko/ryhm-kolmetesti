@@ -40,10 +40,12 @@
 		width: 100%;
 		margin: 0 auto;
 		padding: 1rem;
+		transition: max-width 0.3s ease;
 	}
 
 	.search-bar {
-		margin-top: 1rem;
+		margin-top: 0, 5rem;
+		margin-bottom: 1rem;
 	}
 
 	.search-input-container {
@@ -101,6 +103,12 @@
 
 		.search-container {
 			padding: 1rem 0.5rem;
+		}
+	}
+
+	@media (max-width: 400px) {
+		.search-container {
+			max-width: 200px;
 		}
 	}
 </style>

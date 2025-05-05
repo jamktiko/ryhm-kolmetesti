@@ -20,21 +20,23 @@
 			<!-- Vasen laatikko: kaupunki, otsikko, lämpötila ja kuva -->
 			<div class="weather-box">
 				<div class="rivi">
-					<div><h2>{weatherGlobal.selectedCity}</h2></div>
+					<div><h3>{weatherGlobal.selectedCity}</h3></div>
 				</div>
-				<h2>
-					<strong
-						class:lamminta={weather.Temperature >= 0}
-						class:pakkasta={weather.Temperature < 0}
-					>
-						{weather.Temperature} °C
-					</strong>
-				</h2>
-				<img alt="Sääkuvake" src={`/WeatherSymbol3/${weather.WeatherSymbol3}.svg`} />
+				<div class="weather-inline">
+					<h2>
+						<strong
+							class:lamminta={weather.Temperature >= 0}
+							class:pakkasta={weather.Temperature < 0}
+						>
+							{weather.Temperature} °C
+						</strong>
+					</h2>
+					<img alt="Sääkuvake" src={`/WeatherSymbol3/${weather.WeatherSymbol3}.svg`} />
+				</div>
 			</div>
 
 			<!-- Oikea laatikko: lisätiedot -->
-			<div class="weather-box">
+			<div class="weather-box2">
 				<div class="weather-detail">
 					<p>
 						Ilmankosteus {weather.Humidity} %
@@ -66,6 +68,20 @@
 </div>
 
 <style>
+	.weather-inline {
+		display: flex;
+		flex-direction: column; /* Allekkain */
+		align-items: flex-start; /* Vasemmalle */
+		padding-left: 1rem; /* Hieman keskustaa kohti */
+		gap: 0.1rem;
+	}
+
+	.weather-inline img {
+		width: 40px;
+		height: 40px;
+		object-fit: contain;
+	}
+
 	.lamminta {
 		color: red;
 	}
@@ -78,7 +94,7 @@
 
 	.rivi {
 		display: flex;
-		justify-content: center;
+		justify-content: flex-start;
 		text-align: center;
 		flex-wrap: wrap;
 		align-items: center;
@@ -89,10 +105,10 @@
 	}
 
 	h3 {
-		color: var(--third-color);
-		font-size: x-large;
+		color: var(--text-decoration-color);
+		font-size: 30px;
 		text-align: center;
-		font-weight: normal;
+		margin-bottom: 0.2rem;
 	}
 
 	div {
@@ -104,8 +120,8 @@
 
 	h2 {
 		color: var(--text-decoration-color);
-		font-size: xx-large;
-		text-align: center;
+		font-size: 38px;
+		text-align: left;
 	}
 
 	p {
@@ -120,7 +136,7 @@
 		p {
 			margin-top: 0.5rem; /* Pienempi marginaali pienemmillä näytöillä */
 		}
-		.rectangle-14{
+		.rectangle-14 {
 			margin: 0 auto;
 		}
 	}
@@ -142,6 +158,7 @@
 		max-width: 600px;
 		box-sizing: border-box;
 		overflow-x: hidden;
+		margin-top: 0, 5rem;
 	}
 	.small-box-wrapper {
 		display: flex;
@@ -165,31 +182,45 @@
 		max-width: 100%;
 		display: flex;
 		gap: 1rem;
-		margin-top: 1rem;
+		margin-top: 0.5rem;
+		margin-left: 0.5rem;
+		margin-right: 0.5rem;
 		flex-wrap: wrap;
 		align-items: stretch;
 	}
-
 	.weather-box {
 		background-color: rgba(255, 255, 255, 0.35);
 		border-radius: 20px;
 		box-shadow: 0 4px 12px rgba(0, 0, 0, 0);
 		padding: 1rem;
-		flex: 1 1 250px;
+		flex: 2 1 350px; /* Kasvatan vasemman laatikon kokoa */
 		text-align: center;
 		max-height: 375px;
+		max-width: 240px; /* Voit säätää leveyttä tarvittaessa */
+		overflow: hidden;
+	}
+
+	.weather-box2 {
+		background-color: rgba(255, 255, 255, 0.35);
+		border-radius: 20px;
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0);
+		padding: 1rem;
+		flex: 1 1 250px; /* Oikean laatikon leveys pienemmäksi */
+		text-align: center;
+		max-height: 375px;
+		max-width: 500px; /* Voit säätää leveyttä tarvittaessa */
 		overflow: hidden;
 	}
 
 	.weather-box img {
 		width: 100%;
-		max-width: 120px; /* Voit säätää tätä isommaksi tai pienemmäksi */
+		max-width: 100px; /* Voit säätää tätä isommaksi tai pienemmäksi */
 		height: auto;
 		margin-top: 0rem;
 		object-fit: contain;
 		overflow: hidden;
 	}
 	.weather-detail {
-		padding-top: 4rem;
+		padding-top: 4rem; /* Tekstit vasemmalle */
 	}
 </style>

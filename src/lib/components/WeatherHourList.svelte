@@ -77,7 +77,6 @@
 			position: relative;
 			flex-wrap: wrap;
 			justify-content: center;
-			padding: 10px 0;
 		}
 		.weather-hour {
 			width: 25%;
