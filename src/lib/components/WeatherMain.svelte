@@ -120,6 +120,9 @@
 		p {
 			margin-top: 0.5rem; /* Pienempi marginaali pienemmillä näytöillä */
 		}
+		.rectangle-14{
+			margin: 0 auto;
+		}
 	}
 
 	@media (max-width: 480px) {

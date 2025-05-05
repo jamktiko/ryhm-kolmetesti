@@ -51,6 +51,7 @@
 		flex-wrap: nowrap;
 		justify-content: flex-end;
 	}
+
 	.weather-hour {
 		height: 100%;
 		width: 12.5%;
@@ -68,5 +69,25 @@
 	}
 	.active {
 		background-color: var(--active-color);
+	}
+
+	/* Responsiivisuus pienille näytöille */
+	@media (max-width: 879px) {
+		.weather-hours {
+			position: relative;
+			flex-wrap: wrap;
+			justify-content: center;
+			padding: 10px 0;
+		}
+		.weather-hour {
+			width: 25%;
+			margin-bottom: 5px;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.weather-hour {
+			width: 50%;
+		}
 	}
 </style>

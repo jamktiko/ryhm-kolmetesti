@@ -108,4 +108,11 @@
 		max-width: 300px;
 		overflow-x: hidden;
 	}
+
+	/* Responsiivisuus: keskitetään rectangle-15 alle 768px näytöillä */
+	@media (max-width: 768px) {
+		.rectangle-15 {
+			margin: 0 auto; /* keskittää vaakasuunnassa */
+		}
+	}
 </style>
