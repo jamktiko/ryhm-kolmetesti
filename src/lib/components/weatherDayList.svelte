@@ -50,7 +50,8 @@
 					<img alt="Sääsymboli" src={`WeatherSymbol3/${day.WeatherSymbol3}.svg`} />
 
 					<p class:lamminta={day.Temperature >= 0} class:pakkasta={day.Temperature < 0}>
-						{day.Temperature} ° <!-- Tuo &nbsp merkki lisää välilyönnin -->
+						<b>{day.Temperature} °</b>
+						<!-- Tuo &nbsp merkki lisää välilyönnin -->
 					</p>
 				</button>
 			{/each}
