@@ -17,15 +17,25 @@
 				}}
 				class="weather-hour"
 			>
-				<p>{`${weatherHour.Date.getHours()}.00`}</p>
+				<p>
+					<b>
+						{(() => {
+							if (weatherHour.Date.getHours() < 10) {
+								return '0';
+							}
+							return '';
+						})()}{weatherHour.Date.getHours()}</b
+					>
+					<!-- Jos kello on alle 10, lisää 0 eteen-->
+				</p>
 				<img alt="Sääsymboli" src={`/WeatherSymbol3/${weatherHour.WeatherSymbol3}.svg`} />
 				<p>
-					<strong
+					<b
 						class:lamminta={weatherHour.Temperature >= 0}
 						class:pakkasta={weatherHour.Temperature < 0}
 					>
 						{weatherHour.Temperature}
-						°</strong
+						°</b
 					>
 				</p>
 			</button>
@@ -43,8 +53,6 @@
 		color: blue;
 	}
 	.weather-hours {
-		position: absolute;
-		bottom: 0;
 		width: 100%;
 		display: inline-flex;
 		flex-direction: row;
@@ -77,6 +85,7 @@
 			position: relative;
 			flex-wrap: wrap;
 			justify-content: center;
+			/*padding: 10px 0;  Voit lisätä takaisin jos tärkeä*/
 		}
 		.weather-hour {
 			width: 25%;
