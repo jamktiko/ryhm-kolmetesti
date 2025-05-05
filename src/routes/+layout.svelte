@@ -254,6 +254,13 @@
 	let showInfo: boolean = $state(false);
 </script>
 
+<svelte:head>
+	<!-- Google fonst material symbols iconit-->
+	<link
+		rel="stylesheet"
+		href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,300,0,0"
+	/>
+</svelte:head>
 <!--Asettaa taustalle taivaan-->
 <div
 	id="background"

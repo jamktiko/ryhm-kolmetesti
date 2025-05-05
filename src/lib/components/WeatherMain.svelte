@@ -10,10 +10,12 @@
 	let weatherTime = $derived(`${weather.Date.getHours()}.00`);
 </script>
 
-<link
-	rel="stylesheet"
-	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=swap"
-/>
+<svelte:head>
+	<link
+		rel="stylesheet"
+		href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=swap"
+	/>
+</svelte:head>
 <div class="rectangle-14">
 	{#if weatherGlobal.saatietoTaulukko.length !== 0}
 		<div class="weather-split">
@@ -30,30 +32,34 @@
 						{weather.Temperature} °C
 					</strong>
 				</h2>
-				<img alt="Sääkuvake" src={`/WeatherSymbol3/${weather.WeatherSymbol3}.svg`} />
+				<img
+					id="main-symbol"
+					alt="Sääkuvake"
+					src={`/WeatherSymbol3/${weather.WeatherSymbol3}.svg`}
+				/>
 			</div>
 
 			<!-- Oikea laatikko: lisätiedot -->
 			<div class="weather-box">
 				<div class="weather-detail">
-					<p>
-						Ilmankosteus {weather.Humidity} %
+					<p class="weather-title">Ilmankosteus</p>
+					<p class="weather-info"><b>{weather.Humidity}</b> %</p>
+
+					<p class="weather-title">Tuuli</p>
+					<p class="weather-info">
+						<img class="icon" src={`/icons/${weather.WindDirection}_wind.svg`} />
+						<b>{weather.WindSpeedMS}</b>
+						m/s
 					</p>
-					<p>
-						Tuulen nopeus {weather.WindSpeedMS} m/s
-					</p>
-					<p>
-						Tuulen suunta {weather.WindDirection} °
-					</p>
-					<p>
-						Pilvisyys {weather.TotalCloudCover} %
-					</p>
-					<p>
-						Sateen todennäköisyys {weather.PoP} %
-					</p>
-					<p>
-						Sateen määrä {weather.Precipitation1h} mm
-					</p>
+
+					<p class="weather-title">Pilvipeite</p>
+					<p class="weather-info"><b>{weather.TotalCloudCover}</b> %</p>
+
+					<p class="weather-title">Sateen todennäköisyys</p>
+					<p class="weather-info"><b>{weather.PoP}</b> %</p>
+
+					<p class="weather-title">Sateen määrä</p>
+					<p class="weather-info"><b>{weather.Precipitation1h}</b> mm</p>
 				</div>
 			</div>
 		</div>
@@ -66,6 +72,17 @@
 </div>
 
 <style>
+	.icon {
+		width: 1em;
+	}
+	.weather-title {
+		clear: both;
+		float: left;
+	}
+	.weather-info {
+		font-size: 1em;
+		float: right;
+	}
 	.lamminta {
 		color: red;
 	}
@@ -120,7 +137,7 @@
 		p {
 			margin-top: 0.5rem; /* Pienempi marginaali pienemmillä näytöillä */
 		}
-		.rectangle-14{
+		.rectangle-14 {
 			margin: 0 auto;
 		}
 	}
@@ -181,7 +198,7 @@
 		overflow: hidden;
 	}
 
-	.weather-box img {
+	#main-symbol {
 		width: 100%;
 		max-width: 120px; /* Voit säätää tätä isommaksi tai pienemmäksi */
 		height: auto;
@@ -190,6 +207,7 @@
 		overflow: hidden;
 	}
 	.weather-detail {
-		padding-top: 4rem;
+		font-size: large;
+		/*padding-top: 4rem;*/
 	}
 </style>
