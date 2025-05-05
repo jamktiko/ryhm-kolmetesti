@@ -33,24 +33,13 @@
 							{weather.Temperature} °C
 						</strong>
 					</h2>
-					<img alt="Sääkuvake" src={`/WeatherSymbol3/${weather.WeatherSymbol3}.svg`} />
 				</div>
-<<<<<<< HEAD
-=======
-				<h2>
-					<strong
-						class:lamminta={weather.Temperature >= 0}
-						class:pakkasta={weather.Temperature < 0}
-					>
-						{weather.Temperature} °C
-					</strong>
-				</h2>
+
 				<img
 					id="main-symbol"
 					alt="Sääkuvake"
 					src={`/WeatherSymbol3/${weather.WeatherSymbol3}.svg`}
 				/>
->>>>>>> 2d8f60e6700b7e0b75d18a7e804075d3b7e829f8
 			</div>
 
 			<!-- Oikea laatikko: lisätiedot -->
