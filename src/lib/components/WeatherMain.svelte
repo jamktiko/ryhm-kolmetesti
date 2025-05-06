@@ -133,17 +133,27 @@
 	p {
 		color: var(--text-decoration-color);
 		text-align: center;
-		margin-top: 1, 0rem; /* Perus marginaali */
-		padding-top: 1, 5;
+		margin-top: 1rem; /* Perus marginaali */
+		padding-top: 1.5;
 	}
 
 	@media (max-width: 768px) {
 		/* Tabletit ja pienemmät näytöt */
 		p {
 			margin-top: 0.5rem; /* Pienempi marginaali pienemmillä näytöillä */
+			font-size: medium;
 		}
 		.rectangle-14 {
 			margin: 0 auto;
+		}
+	}
+
+	@media (max-width: 768px) {
+		p {
+			font-size: medium;
+		}
+		b {
+			font-size: medium;
 		}
 	}
 
@@ -151,6 +161,7 @@
 		/* Puhelimet ja pienemmät näytöt */
 		p {
 			margin-top: 0.25rem; /* Vielä pienempi marginaali */
+			font-size: small;
 		}
 	}
 
@@ -235,14 +246,14 @@
 	@media (max-width: 900px) {
 		.weather-split {
 			display: flex;
-			flex-direction: column; /* Pinotaan laatikot pystysuunnassa */
+			flex-direction: row; /* Pinotaan laatikot pystysuunnassa */
 			gap: 1rem; /* Vähän tilaa väliin */
 		}
 
 		.weather-box,
 		.weather-box2 {
-			width: 100%; /* Vie koko rivin leveyden */
-			max-width: 100%;
+			width: 50%; /* Vie koko rivin leveyden */
+			max-width: 50%;
 			margin: 0;
 		}
 	}
