@@ -18,81 +18,84 @@
 
 <!-- ui juttuja -->
 <div class="rectangle-15">
-	<div class="rivi">
+	<!-- <div class="rivi">
 		<div>
 			<h2>Muiden päivien säätiedot</h2>
 		</div>
 		<div>
 			<h3>Valitse päivä</h3>
 		</div>
-	</div>
+	</div> -->
 
-	<div>
-		{#if weatherGlobal.saatietoTaulukko.length > 0}
-			<div class="button-container">
-				{#each weatherDayList as day, index}
-					<button
-						class:active={day.Date.getDate() === weatherGlobal.selectedDay}
-						onclick={() => {
-							weatherGlobal.selectedDay = day.Date.getDate();
-							if (weatherGlobal.saatietoTaulukko[0].Date.getDay() === day.Date.getDay()) {
-								// Jos valittu päivä on eka päivä, asettaa valituksi tunniksi ensimmäisen saatavilla olevan tunnin. Muuten laittaa nollan
-								weatherGlobal.selectedHour = weatherGlobal.saatietoTaulukko[0].Date.getHours();
-							} else {
-								weatherGlobal.selectedHour = 0;
-							}
-						}}
-					>
-						<p>
-							<b>{`${viikonPaivat[day.Date.getDay()].slice(0, 2)} `}</b>
-							{`${day.Date.getDate()}.${day.Date.getMonth() + 1}`}
-						</p>
-						<p>
-							&nbsp&nbsp&nbsp<img src={`WeatherSymbol3/${day.WeatherSymbol3}.svg`} />
-						</p>
-						<p>
-							&nbsp&nbsp&nbsp{day.Temperature} °C <!-- Tuo &nbsp merkki lisää välilyönnin -->
-						</p>
-					</button>
-				{/each}
-			</div>
-		{/if}
-	</div>
+	{#if weatherGlobal.saatietoTaulukko.length > 0}
+		<div class="button-container">
+			{#each weatherDayList as day, index}
+				<button
+					class:active={day.Date.getDate() === weatherGlobal.selectedDay}
+					onclick={() => {
+						weatherGlobal.selectedDay = day.Date.getDate();
+						if (weatherGlobal.saatietoTaulukko[0].Date.getDay() === day.Date.getDay()) {
+							// Jos valittu päivä on eka päivä, asettaa valituksi tunniksi ensimmäisen saatavilla olevan tunnin. Muuten laittaa nollan
+							weatherGlobal.selectedHour = weatherGlobal.saatietoTaulukko[0].Date.getHours();
+						} else {
+							weatherGlobal.selectedHour = 0;
+						}
+					}}
+				>
+					<span>
+						<b>{`${viikonPaivat[day.Date.getDay()].slice(0, 2)}  `}</b> <br />
+						{`${day.Date.getDate()}.${day.Date.getMonth() + 1}.`}
+					</span>
+
+					<img alt="Sääsymboli" src={`WeatherSymbol3/${day.WeatherSymbol3}.svg`} />
+
+					<p class:lamminta={day.Temperature >= 0} class:pakkasta={day.Temperature < 0}>
+						<b>{day.Temperature} °</b>
+						<!-- Tuo &nbsp merkki lisää välilyönnin -->
+					</p>
+				</button>
+			{/each}
+		</div>
+	{/if}
 </div>
 
 <style>
+	.lamminta {
+		color: red;
+	}
+	.pakkasta {
+		color: blue;
+	}
 	button {
+		padding-left: 1em;
+		padding-right: 1em;
 		width: 100%;
-		max-width: 200px;
-		height: 48px;
-		padding: 12px 20px;
-		background-color: white;
+		background: var(--main-color);
 		border: none;
-		border-radius: 8px;
 		cursor: pointer;
 		font-size: 16px;
 		transition: background-color 0.3s ease;
 		display: inline-flex;
 		align-items: center;
-		justify-content: center;
-		text-align: center;
+		justify-content: space-between;
+		text-align: left;
 	}
 
 	.active {
-		background-color: #4caf50;
+		background-color: var(--active-color);
 	}
 
 	button:hover {
-		background-color: #4caf50;
+		background-color: var(--active-color);
 		color: white;
 	}
 
 	.button-container {
+		height: 100%;
 		display: flex;
 		flex-wrap: wrap; /* mahdollistaa painikkeiden siirtymisen seuraavalle riville */
-		gap: 0.5rem; /* väli painikkeiden väliin */
-		justify-content: center;
-		margin-top: 1rem;
+		justify-content: flex-start;
+		align-items: stretch;
 	}
 
 	.weather-info {
@@ -101,12 +104,21 @@
 	}
 
 	.rectangle-15 {
-		background: #d4f3ff;
+		background: var(--main-color);
 		box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 		border-radius: 20px;
-		padding: 1rem;
-		margin: 1rem 0;
 		width: 100%;
 		max-width: 300px;
+		overflow-x: hidden;
+	}
+
+	/* Responsiivisuus: keskitetään rectangle-15 alle 768px näytöillä */
+	@media (max-width: 768px) {
+		.rectangle-15 {
+			margin: 0 auto; /* keskittää vaakasuunnassa */
+		}
+	}
+	h3 {
+		text-align: center;
 	}
 </style>

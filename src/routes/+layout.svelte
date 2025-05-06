@@ -169,8 +169,8 @@
 		taivas = CLOUDS({
 			el: '#background',
 			THREE: THREE,
-			mouseControls: true,
-			touchControls: true,
+			mouseControls: false,
+			touchControls: false,
 			gyroControls: false,
 			minHeight: 200.0,
 			minWidth: 200.0,
@@ -254,6 +254,13 @@
 	let showInfo: boolean = $state(false);
 </script>
 
+<svelte:head>
+	<!-- Google fonst material symbols iconit-->
+	<link
+		rel="stylesheet"
+		href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,300,0,0"
+	/>
+</svelte:head>
 <!--Asettaa taustalle taivaan-->
 <div
 	id="background"
@@ -335,6 +342,7 @@
 		--sec-color: #ecf0f1;
 		--third-color: #777777;
 		--text-decoration-color: black;
+		--active-color: #00000022;
 	}
 	main {
 		padding: 1em;

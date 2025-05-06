@@ -113,17 +113,18 @@
 					saatietoTaulukko.push({
 						Date: new Date(saatiedotAjatTaulukko[0][i]),
 						Temperature: Math.round(Number(saatiedotTaulukko[0][i])),
-						Humidity: saatiedotTaulukko[1][i],
-						WindDirection: saatiedotTaulukko[2][i],
-						WindSpeedMS: saatiedotTaulukko[3][i],
-						TotalCloudCover: saatiedotTaulukko[4][i],
-						PoP: saatiedotTaulukko[5][i],
-						ProbabilityThunderstorm: saatiedotTaulukko[6][i],
+						Humidity: Math.round(Number(saatiedotTaulukko[1][i])),
+						WindDirection: Math.round(Number(saatiedotTaulukko[2][i]) / 45), // Jakaa ilman suunan 360 asteesta 8 eri suuntaan. Alkaen 0:sta (etelä) jatkuen myötäpäivään
+						WindSpeedMS: Math.round(Number(saatiedotTaulukko[3][i]) * 10) / 10, // Pyöristää ensimmäiseen desimaaliin
+						TotalCloudCover: Math.round(Number(saatiedotTaulukko[4][i])),
+						PoP: Math.round(Number(saatiedotTaulukko[5][i]) / 10) * 10,
+						ProbabilityThunderstorm: Math.round(Number(saatiedotTaulukko[6][i])),
+						// Poistaa symbolin numerosta mahdollisen pisteen ja sen jälkeiset numerot
 						WeatherSymbol3:
 							saatiedotTaulukko[7][i].indexOf('.') !== -1
 								? saatiedotTaulukko[7][i].slice(0, saatiedotTaulukko[7][i].indexOf('.'))
 								: saatiedotTaulukko[7][i],
-						Precipitation1h: saatiedotTaulukko[8][i] //mm
+						Precipitation1h: Math.round(Number(saatiedotTaulukko[8][i]) * 10) / 10 // Muuntaa numeroksi ja pyöristää ensimmäiseen desimaaliin
 					});
 				}
 				weatherGlobal.saatietoTaulukko = saatietoTaulukko;
