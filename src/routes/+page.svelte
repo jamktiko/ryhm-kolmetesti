@@ -157,14 +157,11 @@
 	}
 </script>
 
-<h2 style="transition: 1s;" class:yo={weatherGlobal.isNight}>Hae säätiedot</h2>
-<p style="transition: 1s;" class:yo={weatherGlobal.isNight}>
-	Syötä kaupunki hakukenttään ja paina nappia
-</p>
+<h2 style="transition: 1s;" class:yo={weatherGlobal.isNight}>Hae säätiedot paikkakunnan nimellä</h2>
 <UserInput
 	onkeydown={handleKeydown}
 	type="text"
-	placeholder="Etsi..."
+	placeholder="Hae paikkakunnan nimellä..."
 	bind:value={city}
 	disabled={false}
 	search={() => {
