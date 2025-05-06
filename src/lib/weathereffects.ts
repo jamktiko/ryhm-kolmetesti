@@ -8,65 +8,71 @@ export enum WeatherEffects {
 	Snow,
 	StrongSnow,
 	Thunder,
-	StrongThunder,
-	Fog
+	ThunderNight,
+	Fog,
+	ClearNight,
+	PartlyCloudyNight,
+	RainNight,
+	StrongRainNight,
+	SnowNight,
+	StrongSnowNight
 }
 export const weatherEffects: WeatherEffect[] = [
 	{
-		SkyColor: 0x9dc5f2,
-		CloudColor: 0xe6e3e6,
-		ShadowColor: 0xd1d1d1,
-		SunColor: 0xb3ab9f,
-		GlareColor: 0xb3ab9f,
-		LightColor: 0xb3ab9f
+		SkyColor: 0x76d1f5,
+		CloudColor: 0xadc1de,
+		ShadowColor: 0x183550,
+		SunColor: 0xf7be77,
+		GlareColor: 0xf7be77,
+		LightColor: 0xf7be77
 	},
 	{
 		SkyColor: 0xc2d8f2,
-		CloudColor: 0xd4d1d4,
-		ShadowColor: 0xd1d1d1,
-		SunColor: 0xb3ab9f,
-		GlareColor: 0xb3ab9f,
-		LightColor: 0xb3ab9f
+		CloudColor: 0xadc1de,
+		ShadowColor: 0x183550,
+		SunColor: 0xf7be77,
+		GlareColor: 0xf7be77,
+		LightColor: 0xf7be77
 	},
 	{
 		SkyColor: 0xd9d9d9,
-		CloudColor: 0xd4d1d4,
-		ShadowColor: 0x9e9d9e,
-		SunColor: 0xb3ab9f,
-		GlareColor: 0xb3ab9f,
-		LightColor: 0xb3ab9f
+		CloudColor: 0xadc1de,
+		ShadowColor: 0x183550,
+		SunColor: 0xdbdbdb,
+		GlareColor: 0xdbdbdb,
+		LightColor: 0xdbdbdb
 	},
 	{
 		SkyColor: 0xcbcfd2,
-		CloudColor: 0xb9b8b7,
-		ShadowColor: 0x819d9e,
+		CloudColor: 0x79879c,
+		ShadowColor: 0x152636,
 		SunColor: 0xa2a4a5,
 		GlareColor: 0xa2a4a5,
 		LightColor: 0xa2a4a5
 	},
 	{
-		SkyColor: 0xacaaac,
-		CloudColor: 0xb9b8b7,
-		ShadowColor: 0x3f3c3b,
-		SunColor: 0x3f3c3b,
-		GlareColor: 0x3f3c3b,
-		LightColor: 0x3f3c3b
+		SkyColor: 0x8e9194,
+		CloudColor: 0x576375,
+		ShadowColor: 0x080f14,
+		SunColor: 0xa2a4a5,
+		GlareColor: 0xa2a4a5,
+		LightColor: 0xa2a4a5
 	},
 	{
 		SkyColor: 0xcdccd0,
-		CloudColor: 0xe2dee2,
-		ShadowColor: 0xa9adb7,
-		SunColor: 0x939893,
-		GlareColor: 0x939893,
-		LightColor: 0x939893
+		CloudColor: 0xc5cdd9,
+		ShadowColor: 0x293c4d,
+		SunColor: 0xaaaaaa,
+		GlareColor: 0xaaaaaa,
+		LightColor: 0xaaaaaa
 	},
 	{
 		SkyColor: 0xcdccd0,
-		CloudColor: 0xe2dee2,
-		ShadowColor: 0xa9adb7,
-		SunColor: 0x939893,
-		GlareColor: 0x939893,
-		LightColor: 0x939893
+		CloudColor: 0xc5cdd9,
+		ShadowColor: 0x293c4d,
+		SunColor: 0xaaaaaa,
+		GlareColor: 0xaaaaaa,
+		LightColor: 0xaaaaaa
 	},
 	{
 		SkyColor: 0xa09fa9,
@@ -77,12 +83,12 @@ export const weatherEffects: WeatherEffect[] = [
 		LightColor: 0xbbb4d2
 	},
 	{
-		SkyColor: 0x786983,
+		SkyColor: 0x0,
 		CloudColor: 0x785e7f,
 		ShadowColor: 0x260039,
-		SunColor: 0xa78bb0,
-		GlareColor: 0xa78bb0,
-		LightColor: 0xa78bb0
+		SunColor: 0x7d92be,
+		GlareColor: 0x7d92be,
+		LightColor: 0x7d92be
 	},
 	{
 		SkyColor: 0xeff0ef,
@@ -91,5 +97,53 @@ export const weatherEffects: WeatherEffect[] = [
 		SunColor: 0x9e9d9e,
 		GlareColor: 0x9e9d9e,
 		LightColor: 0x9e9d9e
+	},
+	{
+		SkyColor: 0x0,
+		CloudColor: 0xadc1de,
+		ShadowColor: 0x183550,
+		SunColor: 0x7d92be,
+		GlareColor: 0x7d92be,
+		LightColor: 0x7d92be
+	},
+	{
+		SkyColor: 0x0,
+		CloudColor: 0xadc1de,
+		ShadowColor: 0x183550,
+		SunColor: 0x7d92be,
+		GlareColor: 0x7d92be,
+		LightColor: 0x7d92be
+	},
+	{
+		SkyColor: 0x0,
+		CloudColor: 0x79879c,
+		ShadowColor: 0x152636,
+		SunColor: 0x7d92be,
+		GlareColor: 0x7d92be,
+		LightColor: 0x7d92be
+	},
+	{
+		SkyColor: 0x0,
+		CloudColor: 0x576375,
+		ShadowColor: 0x080f14,
+		SunColor: 0x7d92be,
+		GlareColor: 0x7d92be,
+		LightColor: 0x7d92be
+	},
+	{
+		SkyColor: 0x0,
+		CloudColor: 0xbfbbbf,
+		ShadowColor: 0x8d9099,
+		SunColor: 0x7d92be,
+		GlareColor: 0x7d92be,
+		LightColor: 0x7d92be
+	},
+	{
+		SkyColor: 0x0,
+		CloudColor: 0xbfbbbf,
+		ShadowColor: 0x8d9099,
+		SunColor: 0x7d92be,
+		GlareColor: 0x7d92be,
+		LightColor: 0x7d92be
 	}
 ];

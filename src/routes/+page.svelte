@@ -43,7 +43,7 @@
 		'TotalCloudCover',
 		'PoP',
 		'ProbabilityThunderstorm',
-		'WeatherSymbol3',
+		'SmartSymbol',
 		'Precipitation1h'
 	];
 	let city = $state('Jyväskylä');
@@ -120,7 +120,7 @@
 						PoP: Math.round(Number(saatiedotTaulukko[5][i]) / 10) * 10,
 						ProbabilityThunderstorm: Math.round(Number(saatiedotTaulukko[6][i])),
 						// Poistaa symbolin numerosta mahdollisen pisteen ja sen jälkeiset numerot
-						WeatherSymbol3:
+						SmartSymbol:
 							saatiedotTaulukko[7][i].indexOf('.') !== -1
 								? saatiedotTaulukko[7][i].slice(0, saatiedotTaulukko[7][i].indexOf('.'))
 								: saatiedotTaulukko[7][i],
@@ -157,8 +157,10 @@
 	}
 </script>
 
-<h2>Hae säätiedot</h2>
-<p>Syötä kaupunki hakukenttään ja paina nappia</p>
+<h2 class:yo={Number(weatherGlobal.selectedWeather.SmartSymbol) >= 100}>Hae säätiedot</h2>
+<p class:yo={Number(weatherGlobal.selectedWeather.SmartSymbol) >= 100}>
+	Syötä kaupunki hakukenttään ja paina nappia
+</p>
 <UserInput
 	onkeydown={handleKeydown}
 	type="text"
@@ -176,6 +178,9 @@
 </div>
 
 <style>
+	.yo {
+		color: var(--night-color);
+	}
 	p {
 		color: black;
 		background: none;
@@ -191,22 +196,11 @@
 		flex-direction: row;
 	}
 
-	/* Tee laatikoista tasakokoiset ja joustavat */
-	.WeatherMain,
-	.WeatherDayList {
-		flex: 1 1 0; /* joustavat, ei kiinteä leveys */
-	}
-
 	/* Responsiivinen säätö: allekkain vain alle 768px leveyksillä */
 	@media (max-width: 768px) {
 		.weather-container {
 			flex-direction: column;
 			align-items: stretch; /* täyttävät koko leveyden */
-		}
-
-		.WeatherMain,
-		.WeatherDayList {
-			width: 100%;
 		}
 	}
 </style>

@@ -28,7 +28,7 @@
 					>
 					<!-- Jos kello on alle 10, lisää 0 eteen-->
 				</p>
-				<img alt="Sääsymboli" src={`/WeatherSymbol3/${weatherHour.WeatherSymbol3}.svg`} />
+				<img alt="Sääsymboli" src={`/SmartSymbol/${weatherHour.SmartSymbol}.svg`} />
 				<p>
 					<b
 						class:lamminta={weatherHour.Temperature >= 0}
