@@ -343,6 +343,7 @@
 		--third-color: #777777;
 		--text-decoration-color: black;
 		--active-color: #00000022;
+		--night-color: #dddddd;
 	}
 	main {
 		padding: 1em;

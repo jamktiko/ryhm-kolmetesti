@@ -35,11 +35,7 @@
 					</h2>
 				</div>
 
-				<img
-					id="main-symbol"
-					alt="Sääkuvake"
-					src={`/WeatherSymbol3/${weather.WeatherSymbol3}.svg`}
-				/>
+				<img id="main-symbol" alt="Sääkuvake" src={`/SmartSymbol/${weather.SmartSymbol}.svg`} />
 			</div>
 
 			<!-- Oikea laatikko: lisätiedot -->
@@ -200,7 +196,7 @@
 		box-shadow: 0 4px 12px rgba(0, 0, 0, 0);
 		padding: 1rem;
 		flex: 1 1 45%;
-		text-align: center;
+
 		max-height: 375px;
 		max-width: 240px; /* Voit säätää leveyttä tarvittaessa */
 		overflow: hidden;

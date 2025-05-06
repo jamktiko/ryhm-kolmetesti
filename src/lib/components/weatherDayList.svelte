@@ -47,7 +47,7 @@
 						{`${day.Date.getDate()}.${day.Date.getMonth() + 1}.`}
 					</span>
 
-					<img alt="Sääsymboli" src={`WeatherSymbol3/${day.WeatherSymbol3}.svg`} />
+					<img alt="Sääsymboli" src={`SmartSymbol/${day.SmartSymbol}.svg`} />
 
 					<p class:lamminta={day.Temperature >= 0} class:pakkasta={day.Temperature < 0}>
 						<b>{day.Temperature} °</b>

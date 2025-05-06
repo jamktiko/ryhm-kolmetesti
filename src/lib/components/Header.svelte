@@ -1,13 +1,17 @@
 <script lang="ts">
 	import { appInfo } from '$lib/appInfo';
+	import { weatherGlobal } from '$lib/weatherGlobal.svelte';
 </script>
 
 <header>
 	<img class="logo" src={appInfo.logo} alt="Logo" />
-	<h1>{appInfo.name}</h1>
+	<h1 class:yo={Number(weatherGlobal.selectedWeather.SmartSymbol) >= 100}>{appInfo.name}</h1>
 </header>
 
 <style>
+	.yo {
+		color: var(--night-color);
+	}
 	.logo {
 		width: 150px;
 		height: auto;
@@ -22,6 +26,6 @@
 		/*background-color: var(--main-color);*/
 		color: var(--text-decoration-color);
 		padding: 1em;
-		width: 100%
+		width: 100%;
 	}
 </style>
