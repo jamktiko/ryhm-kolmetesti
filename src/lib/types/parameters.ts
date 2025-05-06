@@ -29,4 +29,5 @@ export type Parameters =
 	| 'HourlyMaximumGust'
 	| 'PotentialPrecipitationForm'
 	| 'PotentialPrecipitationType'
+	| 'SmartSymbol'
 	| 'WeatherNumber';
