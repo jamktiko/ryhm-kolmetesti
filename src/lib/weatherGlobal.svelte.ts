@@ -15,55 +15,138 @@ class WeatherGlobal {
 	private _selectedCity: string = $state(''); // Muuttuja joka sitältää valitun kaupungin
 	private _selectedWeather: Weather = $derived(this.setSelectedWeather()); // Muuttuja joka sisältää valitun sään
 	private _currentWeatherEffect: WeatherEffect = $derived(this.setCurrentWeatherEffect()); // Muuttuja joka pitää sisällään tämän hetkisen sääefektin
+	private _isNight: boolean = $derived(this.setNight());
 
+	private setNight() {
+		if (Number(this.selectedWeather.SmartSymbol) >= 100) {
+			return true;
+		}
+		return false;
+	}
 	private setCurrentWeatherEffect() {
-		switch (this.selectedWeather.WeatherSymbol3) {
+		switch (this.selectedWeather.SmartSymbol) {
 			case '0':
 			case '1':
+			case '2':
 				return weatherEffects[WeatherEffects['Clear']];
 				break;
-			case '2':
+			case '4':
+			case '6':
+			case '31':
+			case '34':
 				return weatherEffects[WeatherEffects['PartlyCloudy']];
 				break;
-			case '3':
+			case '7':
 				return weatherEffects[WeatherEffects['Cloudy']];
 				break;
 			case '21':
-			case '22':
-			case '31':
+			case '24':
+			case '27':
+			case '14':
+			case '17':
+			case '11':
+			case '37':
 			case '32':
-			case '72':
-			case '81':
-			case '82':
+			case '35':
+			case '38':
+			case '41':
+			case '44':
+			case '47':
+			case '42':
+			case '45':
+			case '48':
 				return weatherEffects[WeatherEffects['Rain']];
 				break;
-			case '23':
 			case '33':
-			case '73':
-			case '83':
+			case '43':
+			case '36':
+			case '39':
+			case '46':
+			case '49':
 				return weatherEffects[WeatherEffects['StrongRain']];
 				break;
-			case '41':
-			case '42':
 			case '51':
 			case '52':
+			case '54':
+			case '57':
+			case '55':
+			case '58':
+			case '61':
+			case '64':
+			case '67':
 				return weatherEffects[WeatherEffects['Snow']];
 				break;
-			case '43':
 			case '53':
+			case '56':
+			case '59':
 				return weatherEffects[WeatherEffects['StrongSnow']];
 				break;
-			case '61':
-			case '63':
+			case '71':
+			case '74':
+			case '77':
 				return weatherEffects[WeatherEffects['Thunder']];
 				break;
-			case '62':
-			case '64':
-				return weatherEffects[WeatherEffects['StrongThunder']];
+			case '171':
+			case '174':
+			case '177':
+				return weatherEffects[WeatherEffects['ThunderNight']];
 				break;
-			case '91':
-			case '92':
+			case '9':
 				return weatherEffects[WeatherEffects['Fog']];
+				break;
+			case '101':
+			case '102':
+				return weatherEffects[WeatherEffects['ClearNight']];
+				break;
+			case '104':
+			case '106':
+			case '131':
+			case '134':
+			case '107':
+			case '109':
+				return weatherEffects[WeatherEffects['PartlyCloudyNight']];
+				break;
+			case '121':
+			case '124':
+			case '132':
+			case '141':
+			case '144':
+			case '142':
+			case '145':
+			case '135':
+			case '137':
+				return weatherEffects[WeatherEffects['RainNight']];
+				break;
+			case '133':
+			case '136':
+			case '143':
+			case '146':
+			case '127':
+			case '114':
+			case '117':
+			case '111':
+			case '138':
+			case '147':
+			case '148':
+				return weatherEffects[WeatherEffects['StrongRainNight']];
+				break;
+			case '151':
+			case '154':
+			case '152':
+			case '155':
+			case '161':
+			case '164':
+			case '139':
+			case '149':
+			case '157':
+			case '158':
+			case '167':
+				return weatherEffects[WeatherEffects['SnowNight']];
+				break;
+			case '153':
+			case '156':
+			case '159':
+				return weatherEffects[WeatherEffects['StrongSnowNight']];
 				break;
 		}
 		return weatherEffects[WeatherEffects['Clear']];
@@ -113,14 +196,14 @@ class WeatherGlobal {
 			) ?? {
 				Date: new Date(),
 				Temperature: 0,
-				Humidity: '0',
-				WindDirection: '0',
-				WindSpeedMS: '0',
-				TotalCloudCover: '0',
-				PoP: '0',
-				ProbabilityThunderstorm: '0',
-				WeatherSymbol3: '0',
-				Precipitation1h: '0' //mm
+				Humidity: 0,
+				WindDirection: 0,
+				WindSpeedMS: 0,
+				TotalCloudCover: 0,
+				PoP: 0,
+				ProbabilityThunderstorm: 0,
+				SmartSymbol: '0',
+				Precipitation1h: 0 //mm
 			}
 		);
 	}
@@ -164,6 +247,9 @@ class WeatherGlobal {
 	}
 	get selectedHour() {
 		return this._selectedHour;
+	}
+	get isNight() {
+		return this._isNight;
 	}
 }
 

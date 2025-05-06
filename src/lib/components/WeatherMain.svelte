@@ -37,11 +37,7 @@
 					</h2>
 				</div>
 
-				<img
-					id="main-symbol"
-					alt="Sääkuvake"
-					src={`/WeatherSymbol3/${weather.WeatherSymbol3}.svg`}
-				/>
+				<img id="main-symbol" alt="Sääkuvake" src={`/SmartSymbol/${weather.SmartSymbol}.svg`} />
 			</div>
 
 			<!-- Oikea laatikko: lisätiedot -->
@@ -128,8 +124,8 @@
 	p {
 		color: var(--text-decoration-color);
 		text-align: center;
-		margin-top: 1, 0rem; /* Perus marginaali */
-		padding-top: 1, 5;
+		margin-top: 1rem; /* Perus marginaali */
+		padding-top: 1.5;
 	}
 
 	.rectangle-14 {
