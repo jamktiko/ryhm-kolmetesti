@@ -47,14 +47,38 @@
 		const rawData = await res.json();
 		const data = typeof rawData.contents === 'string' ? JSON.parse(rawData.contents) : rawData;
   
-		const results = Array.isArray(data?.results)
-		  ? data.results.map((c: any) => ({
-			  name: c.name,
-			  country: c.country,
-			  latitude: c.latitude,
-			  longitude: c.longitude,
-			}))
-		  : [];
+		const normalizedQuery = query.trim().toLowerCase();
+	
+		const results: CitySuggestions[] = Array.isArray(data?.results)
+  ? data.results
+      .map((c: any): CitySuggestions => ({
+        name: c.name,
+        country: c.country,
+        latitude: c.latitude,
+        longitude: c.longitude,
+      }))
+      .filter((city: CitySuggestions) => //filtteröi kaupungit ja normalisoi queryn
+        city.name.toLowerCase().includes(normalizedQuery)
+      )
+      .sort((a: CitySuggestions, b: CitySuggestions) => {
+        const aName = a.name.toLowerCase();
+        const bName = b.name.toLowerCase();
+
+        const aStarts = aName.startsWith(normalizedQuery);
+        const bStarts = bName.startsWith(normalizedQuery);
+
+        if (aStarts && !bStarts) return -1;
+        if (!aStarts && bStarts) return 1;
+
+        return aName.localeCompare(bName);
+      })
+  : [];
+
+
+suggestions.length = 0; // Clear old suggestions
+suggestions.push(...results.slice(0, 5)); // Add new, filtered ones
+selectedIndex = results.length > 0 ? 0 : null;
+
   
 		suggestions.push(...results.slice(0, 5)); // Limitoi ehdotukset 5
 		selectedIndex = 0;
@@ -258,11 +282,5 @@
     background-color: #ddd;
   }
 	
-
-	@media (max-width: 400px) {
-		.search-container {
-			max-width: 200px;
-		}
-	}
   </style>
   
