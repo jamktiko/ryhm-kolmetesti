@@ -23,7 +23,7 @@
 	<p>Cloud cover {weatherHour.TotalCloudCover} %</p>
 	<p>Precipitation {weatherHour.PoP} mm</p>
 	<p>Precipitation probability {weatherHour.Precipitation1h} %</p>
-	<img alt="Sääkuvake" src={`/WeatherSymbol3/${weatherHour.WeatherSymbol3}`} />
+	<img alt="Sääkuvake" src={`/WeatherSymbol3/${weatherHour.SmartSymbol}`} />
 </div>
 
 <style>
