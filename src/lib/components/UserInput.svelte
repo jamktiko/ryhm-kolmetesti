@@ -42,20 +42,21 @@
   
 	  try {
 		const proxy = 'https://thingproxy.freeboard.io/fetch/';
-		const url = `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(query)}&count=10&language=en&format=json`;
+		const url = `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(query)}&count=10&language=fi&format=json`;
 		const res = await fetch(`${proxy}${url}`);
 		const rawData = await res.json();
 		const data = typeof rawData.contents === 'string' ? JSON.parse(rawData.contents) : rawData;
-  
+
+
 		const normalizedQuery = query.trim().toLowerCase();
 	
 		const results: CitySuggestions[] = Array.isArray(data?.results)
-  ? data.results
-      .map((c: any): CitySuggestions => ({
-        name: c.name,
-        country: c.country,
-        latitude: c.latitude,
-        longitude: c.longitude,
+  			? data.results
+      			.map((c: any): CitySuggestions => ({
+       			name: c.name,
+       			country: c.country,
+       			latitude: c.latitude,
+        		longitude: c.longitude,
       }))
       .filter((city: CitySuggestions) => //filtteröi kaupungit ja normalisoi queryn
         city.name.toLowerCase().includes(normalizedQuery)
@@ -63,13 +64,10 @@
       .sort((a: CitySuggestions, b: CitySuggestions) => {
         const aName = a.name.toLowerCase();
         const bName = b.name.toLowerCase();
-
         const aStarts = aName.startsWith(normalizedQuery);
         const bStarts = bName.startsWith(normalizedQuery);
-
         if (aStarts && !bStarts) return -1;
         if (!aStarts && bStarts) return 1;
-
         return aName.localeCompare(bName);
       })
   : [];
