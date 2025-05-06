@@ -1,12 +1,13 @@
 export interface Weather {
-	Time: string;
+	Date: Date;
+	//Time: string;
 	Temperature: number;
-	Humidity: string;
-	WindDirection: string;
-	WindSpeedMS: string;
-	TotalCloudCover: string;
-	PoP: string;
-	ProbabilityThunderstorm: string;
+	Humidity: number;
+	WindDirection: number;
+	WindSpeedMS: number;
+	TotalCloudCover: number;
+	PoP: number;
+	ProbabilityThunderstorm: number;
 	WeatherSymbol3: string;
-	Precipitation1h: string; //mm
+	Precipitation1h: number; //mm
 }

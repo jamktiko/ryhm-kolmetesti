@@ -85,10 +85,6 @@
 				const parameterName = xmlDoc.getElementsByTagName('wml2:MeasurementTimeseries');
 				console.log(saatiedotXML.length);
 				const tietojaPerParametri = saatiedotXML.length / parameters.length;
-				const tietojaPaivassa =
-					saatiedotXML.length / weatherGlobal.paivienMaara / parameters.length;
-				console.log(tietojaPerParametri);
-				weatherGlobal.tietojaPaivassa = tietojaPaivassa;
 				// Säätiedot taulukkoihin
 				let saatiedotTaulukko: string[][] = [];
 				let saatiedotAjatTaulukko: string[][] = [];
@@ -113,30 +109,28 @@
 
 				// Sääobjekti taulukon luonti
 				const saatietoTaulukko = [];
-				for (let j = 0; j < weatherGlobal.paivienMaara; j++) {
-					console.log(`looppi ${j}`);
-					let saatietoTaulukonTaulukko = [];
-					for (let i = 0; i < tietojaPaivassa; i++) {
-						saatietoTaulukonTaulukko.push({
-							Time: saatiedotAjatTaulukko[0][i + tietojaPaivassa * j],
-							Temperature: Math.round(Number(saatiedotTaulukko[0][i + tietojaPaivassa * j])),
-							Humidity: saatiedotTaulukko[1][i + tietojaPaivassa * j],
-							WindDirection: saatiedotTaulukko[2][i + tietojaPaivassa * j],
-							WindSpeedMS: saatiedotTaulukko[3][i + tietojaPaivassa * j],
-							TotalCloudCover: saatiedotTaulukko[4][i + tietojaPaivassa * j],
-							PoP: saatiedotTaulukko[5][i + tietojaPaivassa * j],
-							ProbabilityThunderstorm: saatiedotTaulukko[6][i + tietojaPaivassa * j],
-							WeatherSymbol3: saatiedotTaulukko[7][i + tietojaPaivassa * j].slice(
-								0,
-								saatiedotTaulukko[7][i + tietojaPaivassa * j].length - 2
-							),
-							Precipitation1h: saatiedotTaulukko[8][i + tietojaPaivassa * j] //mm
-						});
-					}
-					saatietoTaulukko.push(saatietoTaulukonTaulukko);
+				for (let i = 0; i < saatiedotTaulukko[0].length; i++) {
+					saatietoTaulukko.push({
+						Date: new Date(saatiedotAjatTaulukko[0][i]),
+						Temperature: Math.round(Number(saatiedotTaulukko[0][i])),
+						Humidity: Math.round(Number(saatiedotTaulukko[1][i])),
+						WindDirection: Math.round(Number(saatiedotTaulukko[2][i]) / 45), // Jakaa ilman suunan 360 asteesta 8 eri suuntaan. Alkaen 0:sta (etelä) jatkuen myötäpäivään
+						WindSpeedMS: Math.round(Number(saatiedotTaulukko[3][i]) * 10) / 10, // Pyöristää ensimmäiseen desimaaliin
+						TotalCloudCover: Math.round(Number(saatiedotTaulukko[4][i])),
+						PoP: Math.round(Number(saatiedotTaulukko[5][i]) / 10) * 10,
+						ProbabilityThunderstorm: Math.round(Number(saatiedotTaulukko[6][i])),
+						// Poistaa symbolin numerosta mahdollisen pisteen ja sen jälkeiset numerot
+						WeatherSymbol3:
+							saatiedotTaulukko[7][i].indexOf('.') !== -1
+								? saatiedotTaulukko[7][i].slice(0, saatiedotTaulukko[7][i].indexOf('.'))
+								: saatiedotTaulukko[7][i],
+						Precipitation1h: Math.round(Number(saatiedotTaulukko[8][i]) * 10) / 10 // Muuntaa numeroksi ja pyöristää ensimmäiseen desimaaliin
+					});
 				}
 				weatherGlobal.saatietoTaulukko = saatietoTaulukko;
 				console.log(saatietoTaulukko);
+				weatherGlobal.selectedDay = weatherGlobal.saatietoTaulukko[0].Date.getDate(); // Asettaa valituksi päiväksi ensimmäisen päivän
+				weatherGlobal.selectedHour = weatherGlobal.saatietoTaulukko[0].Date.getHours(); // Asettaa valituksi tunniksi ensimmäisen saatavilla olevan tunnin
 			})
 			.catch((error) => {
 				if (error instanceof Error) {
@@ -175,6 +169,7 @@
 		haeSaatiedot();
 	}}
 />
+
 <div class="weather-container">
 	<WeatherMain />
 	<WeatherDayList />

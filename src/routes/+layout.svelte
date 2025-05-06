@@ -7,6 +7,7 @@
 	import * as THREE from 'three';
 	//import FOG from 'vanta/dist/vanta.fog.min.js';
 	import CLOUDS from 'vanta/dist/vanta.clouds.min.js';
+	import { weatherGlobal } from '$lib/weatherGlobal.svelte';
 
 	interface Props {
 		children: Snippet;
@@ -168,8 +169,8 @@
 		taivas = CLOUDS({
 			el: '#background',
 			THREE: THREE,
-			mouseControls: true,
-			touchControls: true,
+			mouseControls: false,
+			touchControls: false,
 			gyroControls: false,
 			minHeight: 200.0,
 			minWidth: 200.0,
@@ -200,6 +201,15 @@
 
 		// Päivittää taivasefektin värejä
 		$effect(() => {
+			nopeusTween.target = Number(weatherGlobal.selectedWeather.WindSpeedMS) / 4;
+			skyColors(
+				weatherGlobal.currentWeatherEffect.SkyColor,
+				weatherGlobal.currentWeatherEffect.CloudColor,
+				weatherGlobal.currentWeatherEffect.ShadowColor,
+				weatherGlobal.currentWeatherEffect.SunColor,
+				weatherGlobal.currentWeatherEffect.GlareColor,
+				weatherGlobal.currentWeatherEffect.LightColor
+			);
 			taivas.setOptions({
 				skyColor: rgbToHex(skyrTween.current, skygTween.current, skybTween.current),
 				cloudColor: rgbToHex(cloudrTween.current, cloudgTween.current, cloudbTween.current),
@@ -244,17 +254,23 @@
 	let showInfo: boolean = $state(false);
 </script>
 
+<svelte:head>
+	<!-- Google fonst material symbols iconit-->
+	<link
+		rel="stylesheet"
+		href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,300,0,0"
+	/>
+</svelte:head>
 <!--Asettaa taustalle taivaan-->
 <div
 	id="background"
 	style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;"
 ></div>
-
 <Header />
 <main>
 	{@render children()}
 	<!-- Testi nappi taivaan värin ja nopeuden arpomiseen-->
-	<button
+	<!-- <button
 		onclick={() => {
 			skyColors(
 				satunnaisVari(),
@@ -266,8 +282,8 @@
 			);
 			setNopeus(Math.random() * 5);
 		}}>Arvo nopeus ja värit</button
-	>
-	<label>
+	> -->
+	<!-- <label>
 		Näytä info
 		<input type="checkbox" bind:checked={showInfo} />
 	</label>
@@ -304,23 +320,36 @@
 		<input type="range" min="0" max="255" bind:value={sunLightgTween.target} />
 		<input type="range" min="0" max="255" bind:value={sunLightbTween.target} /> <br />
 		#{rgbToHex(sunLightrTween.current, sunLightgTween.current, sunLightbTween.current).toString(16)}
-	{/if}
+	{/if} -->
 </main>
 <Footer />
 
 <style>
+	:global(html, body) {
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		height: 100%;
+	}
+	:global(body) {
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		height: 100%;
+	}
 	:root {
 		--main-color: #d4f3ff;
 		--sec-color: #ecf0f1;
 		--third-color: #777777;
 		--text-decoration-color: black;
+		--active-color: #00000022;
 	}
 	main {
 		padding: 1em;
 		max-width: 960px; /* Esimerkiksi 960px tai 100% */
 		width: 100%;
-		margin: 6em auto 0 auto;
-		text-align: center;
+		margin: 0 auto;
+		box-sizing: border-box;
 	}
 
 	@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');

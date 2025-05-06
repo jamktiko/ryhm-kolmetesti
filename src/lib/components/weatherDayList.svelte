@@ -2,100 +2,123 @@
 	import { onMount } from 'svelte';
 	import type { Weather } from '$lib/types/weather';
 	import { weatherGlobal } from '$lib/weatherGlobal.svelte';
+	import WeatherHour from '$lib/components/WeatherHour.svelte';
+	let weatherDayList = $derived(weatherGlobal.weatherDayList);
+
+	let viikonPaivat = [
+		'Sunnuntai',
+		'Maanantai',
+		'Tiistai',
+		'Keskiviikko',
+		'Torstai',
+		'Perjantai',
+		'Lauantai'
+	];
 </script>
 
 <!-- ui juttuja -->
 <div class="rectangle-15">
-	<div class="rivi">
+	<!-- <div class="rivi">
 		<div>
 			<h2>Muiden päivien säätiedot</h2>
 		</div>
 		<div>
 			<h3>Valitse päivä</h3>
 		</div>
-	</div>
+	</div> -->
 
-	<div>
-		{#if weatherGlobal.saatietoTaulukko.length > 0}
-			<div class="button-container">
-				{#each weatherGlobal.saatietoTaulukko as day, index}
-					<button onclick={() => (weatherGlobal.selectedDay = index + 1)}>
-						<span>
-							{`${weatherGlobal.saatietoTaulukko[index][0].Time.slice(8, 10)}.${weatherGlobal.saatietoTaulukko[index][0].Time.slice(5, 7)}.`}
-						</span>
-						<span>
-							{(() => {
-								let temp: number;
-								for (const hour of day) {
-									if (hour.Time.slice(11, 13) === '15') {
-										temp = hour.Temperature;
-										return temp;
-									}
-								}
-							})()} °C
-						</span>
-						<span>
-							<img
-								src={`WeatherSymbol3/${(() => {
-									let icon: string;
-									for (const hour of day) {
-										if (hour.Time.slice(11, 13) === '15') {
-											// console.log(hour.Time); // For checking if it return the right times value
-											icon = hour.WeatherSymbol3;
-											return icon;
-										}
-									}
-								})()}.svg`}
-							/>
-						</span>
-					</button>
-				{/each}
-			</div>
-		{/if}
-	</div>
+	{#if weatherGlobal.saatietoTaulukko.length > 0}
+		<div class="button-container">
+			{#each weatherDayList as day, index}
+				<button
+					class:active={day.Date.getDate() === weatherGlobal.selectedDay}
+					onclick={() => {
+						weatherGlobal.selectedDay = day.Date.getDate();
+						if (weatherGlobal.saatietoTaulukko[0].Date.getDay() === day.Date.getDay()) {
+							// Jos valittu päivä on eka päivä, asettaa valituksi tunniksi ensimmäisen saatavilla olevan tunnin. Muuten laittaa nollan
+							weatherGlobal.selectedHour = weatherGlobal.saatietoTaulukko[0].Date.getHours();
+						} else {
+							weatherGlobal.selectedHour = 0;
+						}
+					}}
+				>
+					<span>
+						<b>{`${viikonPaivat[day.Date.getDay()].slice(0, 2)}  `}</b> <br />
+						{`${day.Date.getDate()}.${day.Date.getMonth() + 1}.`}
+					</span>
+
+					<img alt="Sääsymboli" src={`WeatherSymbol3/${day.WeatherSymbol3}.svg`} />
+
+					<p class:lamminta={day.Temperature >= 0} class:pakkasta={day.Temperature < 0}>
+						<b>{day.Temperature} °</b>
+						<!-- Tuo &nbsp merkki lisää välilyönnin -->
+					</p>
+				</button>
+			{/each}
+		</div>
+	{/if}
 </div>
 
 <style>
-button {
-	width: 200px;
-	height: 48px;
-	padding: 12px 20px;
-	background-color: white;
-	border: none;
-	border-radius: 8px;
-	cursor: pointer;
-	font-size: 16px;
-	transition: background-color 0.3s ease;
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	text-align: center;
-}
+	.lamminta {
+		color: red;
+	}
+	.pakkasta {
+		color: blue;
+	}
+	button {
+		padding-left: 1em;
+		padding-right: 1em;
+		width: 100%;
+		background: var(--main-color);
+		border: none;
+		cursor: pointer;
+		font-size: 16px;
+		transition: background-color 0.3s ease;
+		display: inline-flex;
+		align-items: center;
+		justify-content: space-between;
+		text-align: left;
+	}
 
-button:hover {
-	background-color: #4caf50;
-	color: white;
-}
+	.active {
+		background-color: var(--active-color);
+	}
 
-.button-container {
-	display: flex;
-	flex-wrap: wrap;       /* mahdollistaa painikkeiden siirtymisen seuraavalle riville */
-	gap: 0.5rem;           /* väli painikkeiden väliin */
-	justify-content: center;
-	margin-top: 1rem;
-}
+	button:hover {
+		background-color: var(--active-color);
+		color: white;
+	}
 
-.weather-info {
-	margin-top: 20px;
-	font-size: 18px;
-}
+	.button-container {
+		height: 100%;
+		display: flex;
+		flex-wrap: wrap; /* mahdollistaa painikkeiden siirtymisen seuraavalle riville */
+		justify-content: flex-start;
+		align-items: stretch;
+	}
 
-.rectangle-15 {
-	background: #d4f3ff;
-	box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-	border-radius: 20px;
-	padding: 1rem;
-	margin: 1rem 0;
-	width: 300px;
-}
+	.weather-info {
+		margin-top: 20px;
+		font-size: 18px;
+	}
+
+	.rectangle-15 {
+		background: var(--main-color);
+		box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+		border-radius: 20px;
+		width: 100%;
+		max-width: 300px;
+		overflow-x: hidden;
+	}
+
+	/* Responsiivisuus: keskitetään rectangle-15 alle 768px näytöillä */
+	@media (max-width: 768px) {
+		.rectangle-15 {
+			margin: 0 auto; /* keskittää vaakasuunnassa */
+		}
+	}
+	h3 {
+		text-align: center;
+	}
 </style>

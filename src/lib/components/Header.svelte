@@ -14,6 +14,7 @@
 		float: left;
 	}
 	header {
+		box-sizing: border-box;
 		position: relative;
 		top: 0;
 		left: 0;
@@ -21,5 +22,6 @@
 		/*background-color: var(--main-color);*/
 		color: var(--text-decoration-color);
 		padding: 1em;
+		width: 100%
 	}
 </style>

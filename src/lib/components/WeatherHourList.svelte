@@ -3,32 +3,51 @@
 	import type { Parameters } from '$lib/types/parameters';
 
 	import { weatherGlobal } from '$lib/weatherGlobal.svelte';
-	import WeatherHour from '$lib/components/WeatherHour.svelte';
-	let weatherHours: Weather[] = $derived(
-		weatherGlobal.saatietoTaulukko[weatherGlobal.selectedDay - 1]
-	);
+
+	let weatherHours: Weather[] = $derived(weatherGlobal.saatietoTaulukko);
 </script>
 
-<div class="weather-hour">
+<div class="weather-hours">
 	{#each weatherHours as weatherHour, index}
-		{#if index === 0}
-			<div id="first" class="weather-hours">
-				<p>{`${new Date(weatherHour.Time).getHours()}.00`}</p>
-				<img src={`/WeatherSymbol3/${weatherHour.WeatherSymbol3}.svg`} />
-				<p><strong>{weatherHour.Temperature} °C</strong></p>
-			</div>
-		{:else if index === weatherHours.length - 1}
-			<div id="last" class="weather-hours">
-				<p>{`${new Date(weatherHour.Time).getHours()}.00`}</p>
-				<img src={`/WeatherSymbol3/${weatherHour.WeatherSymbol3}.svg`} />
-				<p><strong>{weatherHour.Temperature} °C</strong></p>
-			</div>
-		{:else}
-			<div class="weather-hours">
-				<p>{`${new Date(weatherHour.Time).getHours()}.00`}</p>
-				<img src={`/WeatherSymbol3/${weatherHour.WeatherSymbol3}.svg`} />
-				<p><strong>{weatherHour.Temperature} °C</strong></p>
-			</div>
+		{#if weatherHour.Date.getDate() === weatherGlobal.selectedDay}
+			<button
+				class:active={weatherHour.Date.getHours() === weatherGlobal.selectedHour}
+				onclick={() => {
+					weatherGlobal.selectedHour = weatherHour.Date.getHours();
+				}}
+				class="weather-hour"
+			>
+				<p>
+					<b>
+						{(() => {
+							if (weatherHour.Date.getHours() < 10) {
+								return '0';
+							}
+							return '';
+						})()}{weatherHour.Date.getHours()}</b
+					>
+					<!-- Jos kello on alle 10, lisää 0 eteen-->
+				</p>
+				<img alt="Sääsymboli" src={`/WeatherSymbol3/${weatherHour.WeatherSymbol3}.svg`} />
+				<p>
+					<b
+						class:lamminta={weatherHour.Temperature >= 0}
+						class:pakkasta={weatherHour.Temperature < 0}
+					>
+						{weatherHour.Temperature}
+						°</b
+					>
+				</p>
+				<div
+					class="rain-info"
+					class:sataa-25={weatherHour.PoP >= 25 && weatherHour.PoP < 70}
+					class:sataa-70={weatherHour.PoP >= 70}
+				>
+					<p>
+						<b>{weatherHour.PoP}</b> %
+					</p>
+				</div>
+			</button>
 		{/if}
 	{:else}
 		<p>Ei sää tietoja</p>
@@ -36,25 +55,68 @@
 </div>
 
 <style>
-	.weather-hour {
-		width: 100%;
-		bottom: 0px;
-		position: absolute;
-		display: flex;
-		flex-direction: row;
-		flex-wrap: nowrap;
-		justify-content: space-between;
+	.rain-info {
+		overflow: auto;
+		color: black;
+	}
+
+	.sataa-70 {
+		color: blue;
+	}
+	.sataa-25 {
+		color: darkblue;
+	}
+	.lamminta {
+		color: red;
+	}
+	.pakkasta {
+		color: blue;
 	}
 	.weather-hours {
-		border-left: 1px solid #000000aa;
-		border-right: 1px solid #000000aa;
-		height: 80%;
-		width: 12.5%;
+		width: 100%;
+		display: inline-flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		justify-content: flex-end;
 	}
-	#first {
-		border-left: none;
+
+	.weather-hour {
+		height: 100%;
+		transition: background-color 0.3s ease;
+		border: none;
+		background: none;
+		color: inherit;
+		padding: 0;
+		font: inherit;
+		cursor: pointer;
+		outline: inherit;
+		flex: 1 1 12.5%;
 	}
-	#last {
-		border-right: none;
+	.weather-hour:hover {
+		color: white;
+		background-color: var(--active-color);
+	}
+	.active {
+		background-color: var(--active-color);
+	}
+
+	/* Responsiivisuus pienille näytöille */
+	@media (max-width: 879px) {
+		.weather-hours {
+			position: relative;
+			flex-wrap: wrap;
+			justify-content: center;
+			/*padding: 10px 0;  Voit lisätä takaisin jos tärkeä*/
+		}
+		.weather-hour {
+			/*flex: 0 0 25%; Poistaa flexaukset*/
+			width: 25%;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.weather-hour {
+			width: 50%;
+		}
 	}
 </style>
