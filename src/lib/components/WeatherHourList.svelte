@@ -38,6 +38,15 @@
 						°</b
 					>
 				</p>
+				<div
+					class="rain-info"
+					class:sataa-25={weatherHour.PoP >= 25 && weatherHour.PoP < 70}
+					class:sataa-70={weatherHour.PoP >= 70}
+				>
+					<p>
+						<b>{weatherHour.PoP}</b> %
+					</p>
+				</div>
 			</button>
 		{/if}
 	{:else}
@@ -46,6 +55,17 @@
 </div>
 
 <style>
+	.rain-info {
+		overflow: auto;
+		color: black;
+	}
+
+	.sataa-70 {
+		color: blue;
+	}
+	.sataa-25 {
+		color: darkblue;
+	}
 	.lamminta {
 		color: red;
 	}
@@ -62,7 +82,6 @@
 
 	.weather-hour {
 		height: 100%;
-		width: 12.5%;
 		transition: background-color 0.3s ease;
 		border: none;
 		background: none;
@@ -71,8 +90,10 @@
 		font: inherit;
 		cursor: pointer;
 		outline: inherit;
+		flex: 1 1 12.5%;
 	}
 	.weather-hour:hover {
+		color: white;
 		background-color: var(--active-color);
 	}
 	.active {
@@ -88,8 +109,8 @@
 			/*padding: 10px 0;  Voit lisätä takaisin jos tärkeä*/
 		}
 		.weather-hour {
+			/*flex: 0 0 25%; Poistaa flexaukset*/
 			width: 25%;
-			margin-bottom: 5px;
 		}
 	}
 

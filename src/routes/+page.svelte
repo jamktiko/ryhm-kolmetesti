@@ -117,7 +117,7 @@
 						WindDirection: Math.round(Number(saatiedotTaulukko[2][i]) / 45), // Jakaa ilman suunan 360 asteesta 8 eri suuntaan. Alkaen 0:sta (etelä) jatkuen myötäpäivään
 						WindSpeedMS: Math.round(Number(saatiedotTaulukko[3][i]) * 10) / 10, // Pyöristää ensimmäiseen desimaaliin
 						TotalCloudCover: Math.round(Number(saatiedotTaulukko[4][i])),
-						PoP: Math.round(Number(saatiedotTaulukko[5][i])),
+						PoP: Math.round(Number(saatiedotTaulukko[5][i]) / 10) * 10,
 						ProbabilityThunderstorm: Math.round(Number(saatiedotTaulukko[6][i])),
 						// Poistaa symbolin numerosta mahdollisen pisteen ja sen jälkeiset numerot
 						WeatherSymbol3:
