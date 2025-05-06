@@ -15,7 +15,14 @@ class WeatherGlobal {
 	private _selectedCity: string = $state(''); // Muuttuja joka sitältää valitun kaupungin
 	private _selectedWeather: Weather = $derived(this.setSelectedWeather()); // Muuttuja joka sisältää valitun sään
 	private _currentWeatherEffect: WeatherEffect = $derived(this.setCurrentWeatherEffect()); // Muuttuja joka pitää sisällään tämän hetkisen sääefektin
+	private _isNight: boolean = $derived(this.setNight());
 
+	private setNight() {
+		if (Number(this.selectedWeather.SmartSymbol) >= 100) {
+			return true;
+		}
+		return false;
+	}
 	private setCurrentWeatherEffect() {
 		switch (this.selectedWeather.SmartSymbol) {
 			case '0':
@@ -240,6 +247,9 @@ class WeatherGlobal {
 	}
 	get selectedHour() {
 		return this._selectedHour;
+	}
+	get isNight() {
+		return this._isNight;
 	}
 }
 

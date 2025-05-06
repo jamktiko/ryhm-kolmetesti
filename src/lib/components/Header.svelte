@@ -5,13 +5,10 @@
 
 <header>
 	<img class="logo" src={appInfo.logo} alt="Logo" />
-	<h1 class:yo={Number(weatherGlobal.selectedWeather.SmartSymbol) >= 100}>{appInfo.name}</h1>
+	<h1 style="transition: 1s;" class:yo={weatherGlobal.isNight}>{appInfo.name}</h1>
 </header>
 
 <style>
-	.yo {
-		color: var(--night-color);
-	}
 	.logo {
 		width: 150px;
 		height: auto;

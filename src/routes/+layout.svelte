@@ -337,6 +337,9 @@
 		width: 100%;
 		height: 100%;
 	}
+	:global(.yo) {
+		color: var(--night-color);
+	}
 	:root {
 		--main-color: #d4f3ff;
 		--sec-color: #ecf0f1;

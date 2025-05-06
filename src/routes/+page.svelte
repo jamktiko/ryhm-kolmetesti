@@ -157,8 +157,8 @@
 	}
 </script>
 
-<h2 class:yo={Number(weatherGlobal.selectedWeather.SmartSymbol) >= 100}>Hae säätiedot</h2>
-<p class:yo={Number(weatherGlobal.selectedWeather.SmartSymbol) >= 100}>
+<h2 style="transition: 1s;" class:yo={weatherGlobal.isNight}>Hae säätiedot</h2>
+<p style="transition: 1s;" class:yo={weatherGlobal.isNight}>
 	Syötä kaupunki hakukenttään ja paina nappia
 </p>
 <UserInput
@@ -178,11 +178,7 @@
 </div>
 
 <style>
-	.yo {
-		color: var(--night-color);
-	}
 	p {
-		color: black;
 		background: none;
 		text-align: center;
 	}
