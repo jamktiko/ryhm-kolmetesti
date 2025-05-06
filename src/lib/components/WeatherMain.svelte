@@ -113,6 +113,7 @@
 		font-size: 30px;
 		text-align: center;
 		margin-bottom: 0.2rem;
+		margin-left: 14px;
 	}
 
 	div {
@@ -126,6 +127,7 @@
 		color: var(--text-decoration-color);
 		font-size: 38px;
 		text-align: left;
+		margin-left: 34px;
 	}
 
 	p {
@@ -223,9 +225,25 @@
 		margin-top: 0rem;
 		object-fit: contain;
 		overflow: hidden;
+		float: left;
+		margin-left: 20px;
 	}
 	.weather-detail {
 		font-size: large;
 		/*padding-top: 4rem;*/
+	}
+	@media (max-width: 900px) {
+		.weather-split {
+			display: flex;
+			flex-direction: column; /* Pinotaan laatikot pystysuunnassa */
+			gap: 1rem; /* Vähän tilaa väliin */
+		}
+
+		.weather-box,
+		.weather-box2 {
+			width: 100%; /* Vie koko rivin leveyden */
+			max-width: 100%;
+			margin: 0;
+		}
 	}
 </style>
