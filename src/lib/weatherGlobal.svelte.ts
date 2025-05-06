@@ -81,6 +81,7 @@ class WeatherGlobal {
 				break;
 			case '171':
 			case '174':
+			case '177':
 				return weatherEffects[WeatherEffects['ThunderNight']];
 				break;
 			case '9':
@@ -94,6 +95,8 @@ class WeatherGlobal {
 			case '106':
 			case '131':
 			case '134':
+			case '107':
+			case '109':
 				return weatherEffects[WeatherEffects['PartlyCloudyNight']];
 				break;
 			case '121':
@@ -103,12 +106,21 @@ class WeatherGlobal {
 			case '144':
 			case '142':
 			case '145':
+			case '135':
+			case '137':
 				return weatherEffects[WeatherEffects['RainNight']];
 				break;
 			case '133':
 			case '136':
 			case '143':
 			case '146':
+			case '127':
+			case '114':
+			case '117':
+			case '111':
+			case '138':
+			case '147':
+			case '148':
 				return weatherEffects[WeatherEffects['StrongRainNight']];
 				break;
 			case '151':
@@ -117,10 +129,16 @@ class WeatherGlobal {
 			case '155':
 			case '161':
 			case '164':
+			case '139':
+			case '149':
+			case '157':
+			case '158':
+			case '167':
 				return weatherEffects[WeatherEffects['SnowNight']];
 				break;
 			case '153':
 			case '156':
+			case '159':
 				return weatherEffects[WeatherEffects['StrongSnowNight']];
 				break;
 		}
