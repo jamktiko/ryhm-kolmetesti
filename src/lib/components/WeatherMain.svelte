@@ -95,8 +95,9 @@
 
 	h2 {
 		color: var(--text-decoration-color);
-		font-size: 38px;
+		font-size: 5rem;
 		text-align: center;
+		margin: 1rem 0rem;
 	}
 
 	p {
@@ -121,11 +122,11 @@
 	.weather-split {
 		max-width: 100%;
 		display: flex;
-		gap: 0.75rem;
-		margin-top: 0.5rem;
-		margin-left: 0.25rem;
+
+		margin: 0.5rem 0rem;
 		flex-wrap: wrap;
 		align-items: stretch;
+		justify-content: space-evenly;
 	}
 	.weather-box {
 		background-color: var(--sec-color);
@@ -188,7 +189,6 @@
 		font-size: 25px;
 	}
 	.weather-inline {
-		margin-left: 10px;
 	}
 	@media (max-width: 900px) {
 		.rectangle-14 {

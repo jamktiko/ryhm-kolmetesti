@@ -53,6 +53,23 @@
 </button>
 
 <style>
+	.rain-info {
+		overflow: auto;
+		color: black;
+	}
+
+	.sataa-70 {
+		color: blue;
+	}
+	.sataa-20 {
+		color: darkblue;
+	}
+	.lamminta {
+		color: red;
+	}
+	.pakkasta {
+		color: blue;
+	}
 	.weather-hour {
 		height: 100%;
 		transition: background-color 0.3s ease;

@@ -34,10 +34,6 @@
 			justify-content: center;
 			/*padding: 10px 0;  Voit lisätä takaisin jos tärkeä*/
 		}
-		.weather-hour {
-			/*flex: 0 0 25%; Poistaa flexaukset*/
-			width: 25%;
-		}
 	}
 
 	@media (max-width: 480px) {
