@@ -17,6 +17,8 @@ export enum WeatherEffects {
 	SnowNight,
 	StrongSnowNight
 }
+
+// Taulukko sääefektejä, jotka valitaan WeatheEffects enumin mukaan
 export const weatherEffects: WeatherEffect[] = [
 	{
 		SkyColor: 0x76d1f5,
