@@ -330,6 +330,7 @@
 		padding: 0;
 		width: 100%;
 		height: 100%;
+		overflow-x: hidden;
 	}
 	:global(body) {
 		margin: 0;
@@ -337,12 +338,20 @@
 		width: 100%;
 		height: 100%;
 	}
+	:global(.yo) {
+		color: var(--night-color);
+	}
 	:root {
-		--main-color: #d4f3ff;
-		--sec-color: #ecf0f1;
+		--main-text: #222222;
+		--sec-text: #f2f2f2;
+		--lammin-color: var(--main-text);
+		--pakkas-color: rgb(3, 63, 153);
+		--main-color: #d1e9fd4f;
+		--sec-color: #acdaff9a;
 		--third-color: #777777;
 		--text-decoration-color: black;
-		--active-color: #00000022;
+		--active-color: var(--sec-color);
+		--night-color: #dddddd;
 	}
 	main {
 		padding: 1em;

@@ -43,7 +43,7 @@
 		'TotalCloudCover',
 		'PoP',
 		'ProbabilityThunderstorm',
-		'WeatherSymbol3',
+		'SmartSymbol',
 		'Precipitation1h'
 	];
 	let city = $state('Jyväskylä');
@@ -120,7 +120,7 @@
 						PoP: Math.round(Number(saatiedotTaulukko[5][i]) / 10) * 10,
 						ProbabilityThunderstorm: Math.round(Number(saatiedotTaulukko[6][i])),
 						// Poistaa symbolin numerosta mahdollisen pisteen ja sen jälkeiset numerot
-						WeatherSymbol3:
+						SmartSymbol:
 							saatiedotTaulukko[7][i].indexOf('.') !== -1
 								? saatiedotTaulukko[7][i].slice(0, saatiedotTaulukko[7][i].indexOf('.'))
 								: saatiedotTaulukko[7][i],
@@ -157,12 +157,13 @@
 	}
 </script>
 
-<h2>Hae säätiedot</h2>
-<p>Syötä kaupunki hakukenttään ja paina nappia</p>
+<h2 style="transition: color 1s;" class:yo={weatherGlobal.isNight}>
+	Hae säätiedot paikkakunnan nimellä
+</h2>
 <UserInput
 	onkeydown={handleKeydown}
 	type="text"
-	placeholder="Etsi..."
+	placeholder="Hae paikkakunnan nimellä..."
 	bind:value={city}
 	disabled={false}
 	search={() => {
@@ -177,24 +178,18 @@
 
 <style>
 	p {
-		color: black;
 		background: none;
 		text-align: center;
 	}
 	h2 {
 		text-align: center;
+		font-weight: normal;
 	}
 	.weather-container {
 		display: flex;
-		gap: 2rem;
+		gap: 1rem;
 		justify-content: space-between;
 		flex-direction: row;
-	}
-
-	/* Tee laatikoista tasakokoiset ja joustavat */
-	.WeatherMain,
-	.WeatherDayList {
-		flex: 1 1 0; /* joustavat, ei kiinteä leveys */
 	}
 
 	/* Responsiivinen säätö: allekkain vain alle 768px leveyksillä */
@@ -203,10 +198,16 @@
 			flex-direction: column;
 			align-items: stretch; /* täyttävät koko leveyden */
 		}
+	}
+	@media (max-width: 768px) {
+		h2 {
+			font-size: 18px;
+		}
+	}
 
-		.WeatherMain,
-		.WeatherDayList {
-			width: 100%;
+	@media (max-width: 480px) {
+		h2 {
+			font-size: 14px;
 		}
 	}
 </style>

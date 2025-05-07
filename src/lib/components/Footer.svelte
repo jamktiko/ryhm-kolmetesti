@@ -1,12 +1,16 @@
 <script lang="ts">
 	import { appInfo } from '$lib/appInfo';
+	import { weatherGlobal } from '$lib/weatherGlobal.svelte';
 </script>
 
-<footer>
+<footer style="transition: 1s;" class:yo={weatherGlobal.isNight}>
 	{appInfo.name}, 2025
 </footer>
 
 <style>
+	.yo {
+		color: var(--night-color);
+	}
 	footer {
 		box-sizing: border-box;
 		background-color: rgba(0, 0, 0, 0);

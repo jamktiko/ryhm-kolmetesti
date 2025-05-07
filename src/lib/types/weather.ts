@@ -8,6 +8,6 @@ export interface Weather {
 	TotalCloudCover: number;
 	PoP: number;
 	ProbabilityThunderstorm: number;
-	WeatherSymbol3: string;
+	SmartSymbol: string;
 	Precipitation1h: number; //mm
 }
