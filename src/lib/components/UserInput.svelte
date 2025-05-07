@@ -1,12 +1,14 @@
 <script lang="ts">
 	import { onDestroy } from 'svelte';
+	import { cities } from '$lib/cities';
+	
   
-	interface CitySuggestions {
-	  name: string;
-	  country: string;
-	  latitude: number;
-	  longitude: number;
-	}
+	//interface CitySuggestions {
+	  //name: string;
+	  //country: string;
+	  //latitude: number;
+	  //longitude: number;
+	//}
   
 	interface Props {
 	  type: 'text' | 'textarea' | 'date' | 'number';
@@ -28,64 +30,74 @@
 	  onkeydown,
 	}: Props = $props();
   
-	const suggestions = $state<CitySuggestions[]>([]);
-
+	let suggestions = $state<string[]>([]); // Ehdotukset taulukko
 	let timeoutId: ReturnType<typeof setTimeout>;
-	let selectedIndex: number | null = null; 
+	let selectedIndex = $state<number | null>(null); 
+
   
 	// funktion haku kaupungin nimelle
-	async function fetchSuggestions(query: string) {
-	  if (query.length < 2) {
-		suggestions.length = 0; // Resetoi ehdotukset jos query liian lyhyt
+	function fetchSuggestions(query: string) {
+	  const normalizedQuery = query.toLowerCase().trim(); // Normalisoi query
+
+	  if (normalizedQuery.length < 2) {
+		suggestions = []; 
 		return;
 	  }
-  
-	  try {
-		const proxy = 'https://thingproxy.freeboard.io/fetch/';
-		const url = `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(query)}&count=10&language=fi&format=json`;
-		const res = await fetch(`${proxy}${url}`);
-		const rawData = await res.json();
-		const data = typeof rawData.contents === 'string' ? JSON.parse(rawData.contents) : rawData;
-
-
-		const normalizedQuery = query.trim().toLowerCase();
 	
-		const results: CitySuggestions[] = Array.isArray(data?.results)
-  			? data.results
-      			.map((c: any): CitySuggestions => ({
-       			name: c.name,
-       			country: c.country,
-       			latitude: c.latitude,
-        		longitude: c.longitude,
-      }))
-      .filter((city: CitySuggestions) => //filtteröi kaupungit ja normalisoi queryn
-        city.name.toLowerCase().includes(normalizedQuery)
-      )
-      .sort((a: CitySuggestions, b: CitySuggestions) => {
-        const aName = a.name.toLowerCase();
-        const bName = b.name.toLowerCase();
-        const aStarts = aName.startsWith(normalizedQuery);
-        const bStarts = bName.startsWith(normalizedQuery);
-        if (aStarts && !bStarts) return -1;
-        if (!aStarts && bStarts) return 1;
-        return aName.localeCompare(bName);
-      })
-  : [];
+  
+	  //try {
+		//const proxy = 'https://thingproxy.freeboard.io/fetch/'; // heitti CORS errorin, joten käytetään proxyä
+		//const url = `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(query)}&count=10&language=fi&format=json`;
+		//const res = await fetch(`${proxy}${url}`);
+		//const rawData = await res.json();
+		//const data = typeof rawData.contents === 'string' ? JSON.parse(rawData.contents) : rawData;
 
 
-suggestions.length = 0; // Clear old suggestions
-suggestions.push(...results.slice(0, 5)); // Add new, filtered ones
-selectedIndex = results.length > 0 ? 0 : null;
+		
+	
+		//const results: CitySuggestions[] = Array.isArray(data?.results)
+  			//? data.results
+      			//.map((c: any): CitySuggestions => ({
+       			//name: c.name,
+       			//country: c.country,
+       			//latitude: c.latitude,
+        		//longitude: c.longitude,
+      //}))
+      //.filter((city: CitySuggestions) => //filtteröi kaupungit
+        //city.name.toLowerCase().includes(normalizedQuery)
+      //)
+      //.sort((a: CitySuggestions, b: CitySuggestions) => {
+        //const aName = a.name.toLowerCase();
+        //const bName = b.name.toLowerCase();
+        //const aStarts = aName.startsWith(normalizedQuery);
+        //const bStarts = bName.startsWith(normalizedQuery);
+        //if (aStarts && !bStarts) return -1;
+        //if (!aStarts && bStarts) return 1;
+        //return aName.localeCompare(bName);
+      //})
+  //: [];
+try {
+  const results = cities
+    .filter((city) => city.toLowerCase().startsWith(normalizedQuery))
+	.sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
+	
 
   
-		suggestions.push(...results.slice(0, 5)); // Limitoi ehdotukset 5
-		selectedIndex = 0;
+	  //const results = data.results.filter((city: CitySuggestions) => {
+
+		suggestions = results.slice(0, 5); // Limitoi ehdotukset 5 ja lisää ne taulukkoon
+		selectedIndex = results.length > 0 ? 0 : null; // Asettaa valitun indeksin ensimmäiseksi ehdotukseksi tai null jos ei ehdotuksia
 		console.log('Fetched suggestions:', suggestions);
-	  } catch (error) {
+	 } catch (error) {
 		console.error('Failed to fetch city suggestions:', error);
-		suggestions.length = 0; // Reseto9i ehdotukset jos error
+		suggestions = []; // Reseto9i ehdotukset jos error
 	  }
 	}
+
+	onDestroy(() => {
+	  clearTimeout(timeoutId); // Tyhjentää timeoutin kun komponentti tuhotaan
+	});
+	
   
 	// Input handler etsintäpalikalle
 	// kutsuu fetchSuggestions funktiota, joka hakee kaupungin nimen
@@ -98,25 +110,20 @@ selectedIndex = results.length > 0 ? 0 : null;
 	  timeoutId = setTimeout(() => fetchSuggestions(value), 300); // 300ms debounce
 	}
   
-	// valitsee kaupungin ehdotuksen
-	function selectsuggestion(city: CitySuggestions) {
-	  value = `${city.name}`;
-	  suggestions.length = 0;
+	 
+	function selectsuggestion(city: string) {
+	  value = city; // Asettaa valitun kaupungin arvoksi
+	  suggestions = [];
 	  if (search) {
 		search();
 	  }
   
 	  const inputElement = document.querySelector('.search-input') as HTMLInputElement;
 	  inputElement?.focus();
-  
-	  clearTimeout(timeoutId);
-  
-	  onDestroy(() => {
-		clearTimeout(timeoutId);
-	  });
+	  
 	}
 
-	function handleKeydown(event: KeyboardEvent) {
+function handleKeydown(event: KeyboardEvent) {
   const activeElement = document.activeElement;
   const inputElement = document.querySelector('.search-input');
 
@@ -135,9 +142,7 @@ selectedIndex = results.length > 0 ? 0 : null;
   }
 }
 
-
-
-  </script>
+</script>
   
   <div class="search-container">
 	<div class="search-bar">
@@ -168,7 +173,7 @@ selectedIndex = results.length > 0 ? 0 : null;
 			  type="button"
 			  class="suggestion-button"
 			  onclick={() => selectsuggestion(suggestion)}>
-			  {suggestion.name}
+			  {suggestion}
 			</button>
 		  </li>
 		{/each}
