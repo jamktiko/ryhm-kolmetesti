@@ -342,11 +342,13 @@
 		color: var(--night-color);
 	}
 	:root {
-		--main-color: #d4f3ff;
-		--sec-color: #47bcffb9;
+		--lammin-color: rgb(255, 0, 0);
+		--pakkas-color: blue;
+		--main-color: #d4f3ff49;
+		--sec-color: #a6d7ff9a;
 		--third-color: #777777;
 		--text-decoration-color: black;
-		--active-color: #47bcffb9;
+		--active-color: var(--sec-color);
 		--night-color: #dddddd;
 	}
 	main {

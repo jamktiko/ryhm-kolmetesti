@@ -70,7 +70,7 @@
 		padding-left: 1em;
 		padding-right: 1em;
 		width: 100%;
-		background: var(--main-color);
+		background: none;
 		border: none;
 		cursor: pointer;
 		font-size: 16px;
@@ -79,6 +79,7 @@
 		align-items: center;
 		justify-content: space-between;
 		text-align: left;
+		border-radius: 8px;
 	}
 
 	.active {
@@ -104,12 +105,12 @@
 	}
 
 	.rectangle-15 {
-		background: var(--main-color);
-		box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+		box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
 		border-radius: 20px;
 		width: 100%;
 		max-width: 300px;
 		overflow-x: hidden;
+		background: var(--main-color);
 	}
 
 	/* Responsiivisuus: keskitetään rectangle-15 alle 768px näytöillä */

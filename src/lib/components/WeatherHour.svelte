@@ -65,10 +65,10 @@
 		color: darkblue;
 	}
 	.lamminta {
-		color: red;
+		color: var(--lammin-color);
 	}
 	.pakkasta {
-		color: blue;
+		color: var(--pakkas-color);
 	}
 	.weather-hour {
 		height: 100%;
