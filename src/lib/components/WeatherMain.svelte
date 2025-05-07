@@ -83,7 +83,7 @@
 
 	h3 {
 		color: var(--text-decoration-color);
-		font-size : 30px;
+		font-size: 30px;
 	}
 
 	div {
@@ -128,13 +128,13 @@
 		align-items: stretch;
 	}
 	.weather-box {
-		background-color: #47bcffb9;
+		background-color: var(--sec-color);
 		border-radius: 20px;
 		box-shadow: 0 4px 12px rgba(0, 0, 0, 0);
 		padding: 1rem;
 		flex: 1 1 40%;
 		max-width: 38%;
-		text-align: center;/* Voit säätää leveyttä tarvittaessa */
+		text-align: center; /* Voit säätää leveyttä tarvittaessa */
 	}
 
 	.weather-box2 {
@@ -168,7 +168,8 @@
 	.weather-box2 {
 		margin: 0;
 	}
-	.weather-title, .weather-info {
+	.weather-title,
+	.weather-info {
 		font-size: 95%;
 	}
 	.pitkanimi {
@@ -185,118 +186,122 @@
 		float: left;
 		margin-left: 7px;
 		font-size: 25px;
-
 	}
 	.weather-inline {
-		margin-left: 10px
+		margin-left: 10px;
 	}
-@media (max-width: 900px) {
+	@media (max-width: 900px) {
 		.rectangle-14 {
 			margin: 0 auto;
 		}
 	}
 
-@media (max-width: 850px) {
-	.pitkanimi {
-		font-size: 20px;
+	@media (max-width: 850px) {
+		.pitkanimi {
+			font-size: 20px;
+		}
+		.rectangle-14 {
+			margin: 0 auto;
+		}
+		.weather-title,
+		.weather-info {
+			font-size: 90%;
+		}
+		@media (max-width: 820px) {
+			.weather-title,
+			.weather-info {
+				font-size: 80%;
+			}
+		}
 	}
-	.rectangle-14 {
-		margin: 0 auto
-	}
-	.weather-title, .weather-info {
-		font-size: 90%;
-}
-@media (max-width: 820px) {
-	.weather-title, .weather-info {
-		font-size: 80%;
-}
-
-}
-}
 	@media (max-width: 768px) {
 		/* Tabletit ja pienemmät näytöt */
 		.rectangle-14 {
 			margin: 0 auto;
 		}
-		.weather-title, .weather-info {
+		.weather-title,
+		.weather-info {
 			font-size: 85%;
-	}
-}
-
-@media (max-width: 485px) {
-	/* Puhelimet ja pienemmät näytöt */
-	.pitkanimi {
-		font-size: 15px;
-	}
-	.weather-title, .weather-info {
-		font-size: 80%;
-	}
-	.rivi {
-		justify-content: flex-start;
-	}
-	h3 {
-		margin-left: 7px;
-	}
-	#main-symbol {
-		justify-content: flex-start;
-	}
-	@media (max-width: 420px){
-		.weather-title, .weather-info {
-			font-size: 75%
 		}
-		
 	}
-}
-@media (max-width: 400px) {
-	.pitkanimi {
-		font-size: 15px;
-	}
-	h2 {
-		font-size: 30px;
-		margin-left: 0px;
-	}
-	#main-symbol {
-		width: 75%;
-		
-	}
-	.weather-title, .weather-info {
-		font-size: 65%;
-	}
-	h3 {
-		font-size: 20px;
-		margin-left: 0px;
-	}
-	.weather-inline {
-		margin-left: 0px;
-	}
-	.weather-split {
-		gap: 0.5rem
-	}
-}
-@media (max-width: 370px) {
-	.weather-title, .weather-info {
-		font-size: 60%;
-	}
-}
-@media (max-width: 380px) {
-	.pitkanimi {
-		font-size: 13px
-	}
-}
 
-@media (max-width: 350px) {
-	.weather-title, .weather-info {
-		font-size: 55%;
+	@media (max-width: 485px) {
+		/* Puhelimet ja pienemmät näytöt */
+		.pitkanimi {
+			font-size: 15px;
+		}
+		.weather-title,
+		.weather-info {
+			font-size: 80%;
+		}
+		.rivi {
+			justify-content: flex-start;
+		}
+		h3 {
+			margin-left: 7px;
+		}
+		#main-symbol {
+			justify-content: flex-start;
+		}
+		@media (max-width: 420px) {
+			.weather-title,
+			.weather-info {
+				font-size: 75%;
+			}
+		}
 	}
-	h3 {
-		font-size: 15px;
-		margin-left: 0px;
+	@media (max-width: 400px) {
+		.pitkanimi {
+			font-size: 15px;
+		}
+		h2 {
+			font-size: 30px;
+			margin-left: 0px;
+		}
+		#main-symbol {
+			width: 75%;
+		}
+		.weather-title,
+		.weather-info {
+			font-size: 65%;
+		}
+		h3 {
+			font-size: 20px;
+			margin-left: 0px;
+		}
+		.weather-inline {
+			margin-left: 0px;
+		}
+		.weather-split {
+			gap: 0.5rem;
+		}
 	}
-	h2 {
-		font-size: 25px;
+	@media (max-width: 370px) {
+		.weather-title,
+		.weather-info {
+			font-size: 60%;
+		}
 	}
-	.pitkanimi {
-		font-size: 10px;
+	@media (max-width: 380px) {
+		.pitkanimi {
+			font-size: 13px;
+		}
 	}
-}
+
+	@media (max-width: 350px) {
+		.weather-title,
+		.weather-info {
+			font-size: 55%;
+		}
+		h3 {
+			font-size: 15px;
+			margin-left: 0px;
+		}
+		h2 {
+			font-size: 25px;
+		}
+		.pitkanimi {
+			font-size: 10px;
+		}
+	}
 </style>

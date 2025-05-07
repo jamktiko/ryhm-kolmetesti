@@ -330,7 +330,7 @@
 		padding: 0;
 		width: 100%;
 		height: 100%;
-		overflow-x:hidden;
+		overflow-x: hidden;
 	}
 	:global(body) {
 		margin: 0;
@@ -343,7 +343,7 @@
 	}
 	:root {
 		--main-color: #d4f3ff;
-		--sec-color: #ecf0f1;
+		--sec-color: #47bcffb9;
 		--third-color: #777777;
 		--text-decoration-color: black;
 		--active-color: #47bcffb9;
@@ -361,5 +361,4 @@
 	* {
 		font-family: 'Inter', sans-serif;
 	}
-	
 </style>

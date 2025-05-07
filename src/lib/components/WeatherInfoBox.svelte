@@ -55,13 +55,13 @@
 
 <style>
 	div {
-		flex: 1 1 250px;
-		max-height: 375px;
-		max-width: 500px;
+		flex: 1 1 60%;
+
+		max-width: 58%;
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
-		justify-content: stretch;
+		justify-content: center;
 		align-content: stretch;
 		gap: 5%;
 		overflow: hidden;
