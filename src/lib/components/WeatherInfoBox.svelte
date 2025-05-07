@@ -14,7 +14,7 @@
 		extraUnit?: string;
 	}
 	let { weather }: Props = $props();
-	let weatherInfoArray: IWeatherInfo[] = [
+	let weatherInfoArray: IWeatherInfo[] = $derived([
 		{
 			title: 'Kosteus',
 			data: weather.Humidity,
@@ -44,7 +44,7 @@
 			icon: 'clouds',
 			unit: '%'
 		}
-	];
+	]);
 </script>
 
 <div>

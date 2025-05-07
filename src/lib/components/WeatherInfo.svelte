@@ -15,12 +15,28 @@
 </script>
 
 <div>
-	<p>{weatherInfo.title}</p>
-	<img src="/icons/{`${weatherInfo.icon}.svg`}" alt="Sääkuvake" />
-	<p>{weatherInfo.data} {weatherInfo.unit}</p>
-	{#if 'extraData' in weatherInfo}
-		<p>moi</p>
-	{/if}
+	<span>
+		<p>{weatherInfo.title}</p>
+	</span>
+	<span>
+		<img src="/icons/{`${weatherInfo.icon}.svg`}" alt="Sääkuvake" />
+	</span>
+	<span>
+		{#if 'extraData' in weatherInfo}
+			<p>
+				{weatherInfo.data}
+				{weatherInfo.unit}
+				{#if weatherInfo.title === 'Tuuli'}
+					<img src="/icons/{`${weatherInfo.extraData}_wind.svg`}" alt="Sääkuvake" />
+				{:else}
+					| {weatherInfo.extraData}
+					{weatherInfo.extraUnit}
+				{/if}
+			</p>
+		{:else}
+			<p>{weatherInfo.data} {weatherInfo.unit}</p>
+		{/if}
+	</span>
 </div>
 
 <style>
@@ -28,6 +44,9 @@
 		flex: 0 0 45%;
 		border-radius: 20px;
 		background-color: rgba(255, 255, 255, 0.35);
+		display: flex;
+		flex-direction: column;
+		justify-content: space-evenly;
 	}
 	p {
 		margin: 0.5em;
