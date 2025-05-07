@@ -138,7 +138,6 @@
 		max-width: 600px;
 		box-sizing: border-box;
 		overflow-x: hidden;
-		margin-top: 0, 5rem;
 	}
 	/* UUSI: säälaatikot rinnakkain */
 	.weather-split {
@@ -151,7 +150,7 @@
 		align-items: stretch;
 	}
 	.weather-box {
-		background-color: rgba(255, 255, 255, 0.35);
+		background-color: #47bcffb9;
 		border-radius: 20px;
 		box-shadow: 0 4px 12px rgba(0, 0, 0, 0);
 		padding: 1rem;
@@ -161,7 +160,7 @@
 	}
 
 	.weather-box2 {
-		background-color: rgba(255, 255, 255, 0.35);
+		background-color: #47bcffb9;
 		border-radius: 20px;
 		box-shadow: 0 4px 12px rgba(0, 0, 0, 0);
 		padding: 1rem; /* Oikean laatikon leveys pienemmäksi */
@@ -175,7 +174,6 @@
 		width: 100%;
 		max-width: 80px; /* Voit säätää tätä isommaksi tai pienemmäksi */
 		height: auto;
-		margin-top: 0rem;
 		object-fit: contain;
 		overflow: hidden;
 	}

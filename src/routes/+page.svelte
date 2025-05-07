@@ -196,4 +196,15 @@
 			align-items: stretch; /* täyttävät koko leveyden */
 		}
 	}
+	@media (max-width: 768px) {
+		h2 {
+			font-size: 18px;
+		}
+	}
+
+	@media (max-width: 480px) {
+		h2 {
+			font-size: 14px;
+		}
+	}
 </style>
