@@ -171,7 +171,6 @@
 		max-width: 600px;
 		box-sizing: border-box;
 		overflow-x: hidden;
-		margin-top: 0, 5rem;
 	}
 	.small-box-wrapper {
 		display: flex;
@@ -194,15 +193,16 @@
 	.weather-split {
 		max-width: 100%;
 		display: flex;
-		gap: 1rem;
+		gap: 0.5rem;
 		margin-top: 0.5rem;
 		margin-left: 0.5rem;
 		margin-right: 0.5rem;
+		margin-bottom: 0.2rem;
 		flex-wrap: wrap;
 		align-items: stretch;
 	}
 	.weather-box {
-		background-color: rgba(255, 255, 255, 0.35);
+		background-color: #47bcffb9;
 		border-radius: 20px;
 		box-shadow: 0 4px 12px rgba(0, 0, 0, 0);
 		padding: 1rem;
@@ -214,7 +214,7 @@
 	}
 
 	.weather-box2 {
-		background-color: rgba(255, 255, 255, 0.35);
+		background-color: #47bcffb9;
 		border-radius: 20px;
 		box-shadow: 0 4px 12px rgba(0, 0, 0, 0);
 		padding: 1rem;
@@ -229,11 +229,11 @@
 		width: 100%;
 		max-width: 100px; /* Voit säätää tätä isommaksi tai pienemmäksi */
 		height: auto;
-		margin-top: 0rem;
 		object-fit: contain;
 		overflow: hidden;
 		float: left;
 		margin-left: 20px;
+		margin-top: -20px;
 	}
 	.weather-detail {
 		font-size: large;
@@ -243,7 +243,7 @@
 		.weather-split {
 			display: flex;
 			flex-direction: row; /* Pinotaan laatikot pystysuunnassa */
-			gap: 1rem; /* Vähän tilaa väliin */
+			gap: 0.5rem; /* Vähän tilaa väliin */
 		}
 
 		.weather-box,
