@@ -181,6 +181,7 @@
 	}
 	h2 {
 		text-align: center;
+		font-weight: normal;
 	}
 	.weather-container {
 		display: flex;
