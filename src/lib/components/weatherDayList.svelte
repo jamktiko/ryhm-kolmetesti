@@ -71,7 +71,7 @@
 		background: none;
 		border: none;
 		cursor: pointer;
-		font-size: 16px;
+		font-size: 1.125em;
 		transition: background-color 0.3s ease;
 		display: inline-flex;
 		align-items: center;
