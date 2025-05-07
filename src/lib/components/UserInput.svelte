@@ -184,14 +184,13 @@ selectedIndex = results.length > 0 ? 0 : null;
 		width: 100%;
 	  margin: 0 auto;
 	  padding: 1rem;
-		transition: max-width 0.3s ease;
 	  overflow: visible;
 	  position : relative;
+	  box-sizing: border-box;
 	}
   
 	.search-bar {
 	  margin-top: 0, 5rem;
-		margin-bottom: 1rem;
 	  overflow: visible;
 	  position: relative;
 	}
@@ -202,6 +201,7 @@ selectedIndex = results.length > 0 ? 0 : null;
 	  width: 100%;
 	  overflow: visible;
 	  z-index: 1000
+
 	}
   
 	.search-input {
@@ -281,6 +281,11 @@ selectedIndex = results.length > 0 ? 0 : null;
   .suggestion-button.selected {
     background-color: #ddd;
   }
+  @media (max-width: 405px) {
+	.search-container{
+		align-items: center;
+  }
+}
 	
   </style>
   
