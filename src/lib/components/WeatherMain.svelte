@@ -147,7 +147,6 @@
 		gap: 0.75rem;
 		margin-top: 0.5rem;
 		margin-left: 0.5rem;
-		margin-right: 0.5rem;
 		flex-wrap: wrap;
 		align-items: stretch;
 	}
@@ -157,7 +156,7 @@
 		box-shadow: 0 4px 12px rgba(0, 0, 0, 0);
 		padding: 1rem;
 		flex: 1 1 40%;
-		max-width: 40%;
+		max-width: 38%;
 		text-align: center;/* Voit säätää leveyttä tarvittaessa */
 	}
 
@@ -167,7 +166,7 @@
 		box-shadow: 0 4px 12px rgba(0, 0, 0, 0);
 		padding: 1rem; /* Oikean laatikon leveys pienemmäksi */
 		text-align: center;
-		max-width: 55%;
+		max-width: 58%;
 		flex: 1 1 60%;
 		overflow: hidden;
 	}
@@ -186,14 +185,6 @@
 	}
 	.pitkanimi {
 		margin-left: 0 !important;
-	}
-	@media (max-width: 900px) {
-		.rectangle-14 {
-			margin: 0 auto;
-		}
-	.weather-split {
-		display: flex; 
-		gap: 1rem;
 	}
 	.weather-box {
 		text-align: left;
@@ -223,7 +214,11 @@
 	.weather-inline {
 		margin-left: 10px
 	}
-}
+@media (max-width: 900px) {
+		.rectangle-14 {
+			margin: 0 auto;
+		}
+	}
 
 @media (max-width: 850px) {
 	.pitkanimi {
@@ -298,10 +293,18 @@
 	.weather-inline {
 		margin-left: 0px;
 	}
+	.weather-split {
+		gap: 0.5rem
+	}
 }
 @media (max-width: 370px) {
 	.weather-title, .weather-info {
 		font-size: 60%;
+	}
+}
+@media (max-width: 380px) {
+	.pitkanimi {
+		font-size: 13px
 	}
 }
 
@@ -315,6 +318,9 @@
 	}
 	h2 {
 		font-size: 25px;
+	}
+	.pitkanimi {
+		font-size: 10px;
 	}
 }
 </style>

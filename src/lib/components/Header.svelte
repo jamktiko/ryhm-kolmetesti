@@ -23,6 +23,17 @@
 		/*background-color: var(--main-color);*/
 		color: var(--text-decoration-color);
 		padding: 1em;
+		padding-bottom: 0px;
 		width: 100%;
+	}
+	@media (max-width: 343px) {
+		.logo {
+			width: 120px;
+		} 
+		header {
+			padding: 0px;
+			padding-top: 1em;
+			padding-bottom: 1em;
+		}
 	}
 </style>
