@@ -139,17 +139,11 @@
 			margin-top: 0.5rem; /* Pienempi marginaali pienemmillä näytöillä */
 			font-size: medium;
 		}
-		.rectangle-14 {
-			margin: 0 auto;
-		}
-	}
-
-	@media (max-width: 768px) {
-		p {
-			font-size: medium;
-		}
 		b {
 			font-size: medium;
+		}
+		.rectangle-14 {
+			margin: 0 auto;
 		}
 	}
 
@@ -193,7 +187,7 @@
 	.weather-split {
 		max-width: 100%;
 		display: flex;
-		gap: 0.5rem;
+		gap: 1rem;
 		margin-top: 0.5rem;
 		margin-left: 0.5rem;
 		margin-right: 0.5rem;
