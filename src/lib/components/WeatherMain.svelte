@@ -23,7 +23,7 @@
 			<!-- Vasen laatikko: kaupunki, otsikko, lämpötila ja kuva -->
 			<div class="weather-box">
 				<div class="rivi">
-					<h3 class:pitkanimi={weatherGlobal.selectedCity.length >= 12}>
+					<h3 class:pitkanimi={weatherGlobal.selectedCity.length >= 10}>
 						{weatherGlobal.selectedCity}
 					</h3>
 				</div>
@@ -144,7 +144,8 @@
 	}
 
 	.pitkanimi {
-		font-size: 25px;
+		font-size: 1.5em;
+		margin-top: 1em;
 	}
 	.rivi {
 		justify-content: flex-start;
