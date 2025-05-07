@@ -55,7 +55,6 @@
 <style>
 	.rain-info {
 		overflow: auto;
-		color: black;
 	}
 
 	.sataa-70 {
@@ -64,32 +63,34 @@
 	.sataa-20 {
 		color: darkblue;
 	}
-	.lamminta {
-		color: var(--lammin-color);
-	}
+
 	.pakkasta {
 		color: var(--pakkas-color);
+	}
+	.lamminta {
+		color: var(--lammin-color);
 	}
 	.weather-hour {
 		height: 100%;
 		transition: background-color 0.3s ease;
+
 		border: none;
 		background: none;
-		color: inherit;
+		color: var(--main-text);
 		padding: 0;
 		font: inherit;
+		font-size: large;
 		cursor: pointer;
 		outline: inherit;
 		flex: 1 1 12.5%;
-		border-top-left-radius: 8px;
-		border-top-right-radius: 8px;
+		border-radius: 20px;
 	}
-	.weather-hour:hover {
-		color: white;
-		background-color: var(--active-color);
-	}
+	.weather-hour:hover,
 	.active {
 		background-color: var(--active-color);
+	}
+	.weather-hour:hover {
+		color: var(--sec-text);
 	}
 
 	/* Responsiivisuus pienille näytöille */

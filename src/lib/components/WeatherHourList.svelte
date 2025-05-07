@@ -19,11 +19,14 @@
 
 <style>
 	.weather-hours {
+		padding: 0 0.5em;
+		padding-bottom: 0.5em;
 		width: 100%;
 		display: inline-flex;
 		flex-direction: row;
 		flex-wrap: nowrap;
 		justify-content: flex-end;
+		box-sizing: border-box;
 	}
 
 	/* Responsiivisuus pienille näytöille */

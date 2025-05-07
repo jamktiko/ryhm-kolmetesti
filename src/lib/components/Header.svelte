@@ -5,7 +5,7 @@
 
 <header>
 	<img class="logo" src={appInfo.logo} alt="Logo" />
-	<h1 style="transition: 1s;" class:yo={weatherGlobal.isNight}>{appInfo.name}</h1>
+	<h1 style="transition: color 1s;" class:yo={weatherGlobal.isNight}>{appInfo.name}</h1>
 </header>
 
 <style>
@@ -29,7 +29,7 @@
 	@media (max-width: 343px) {
 		.logo {
 			width: 120px;
-		} 
+		}
 		header {
 			padding: 0px;
 			padding-top: 1em;

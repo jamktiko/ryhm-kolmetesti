@@ -16,7 +16,7 @@
 
 <div>
 	<span>
-		<p>{weatherInfo.title}</p>
+		<p><b>{weatherInfo.title}</b></p>
 	</span>
 	<span>
 		<img src="/icons/{`${weatherInfo.icon}.svg`}" alt="Sääkuvake" />
@@ -24,24 +24,25 @@
 	<span>
 		{#if 'extraData' in weatherInfo}
 			<p>
-				{weatherInfo.data}
+				<b>{weatherInfo.data}</b>
 				{weatherInfo.unit}
 				{#if weatherInfo.title === 'Tuuli'}
 					<img class="wind-direction" src="/icons/{`${weatherInfo.extraData}_wind.svg`}" alt="Sääkuvake" />
 				{:else}
-					| {weatherInfo.extraData}
+					| <b>{weatherInfo.extraData}</b>
 					{weatherInfo.extraUnit}
 				{/if}
 			</p>
 		{:else}
-			<p>{weatherInfo.data} {weatherInfo.unit}</p>
+			<p><b>{weatherInfo.data}</b> {weatherInfo.unit}</p>
 		{/if}
 	</span>
 </div>
 
 <style>
 	div {
-		flex: 0 0 45%;
+		color: var(--main-text);
+		flex: 0 0 48.75%;
 		border-radius: 20px;
 		background-color: var(--sec-color);
 		display: flex;
