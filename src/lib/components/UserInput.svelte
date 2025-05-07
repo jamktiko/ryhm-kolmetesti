@@ -210,7 +210,7 @@ function handleKeydown(event: KeyboardEvent) {
 	.search-input {
 	  flex-grow: 1;
 	  padding: 0.75rem 3rem 0.75rem 1rem;
-	  border: 1px solid #ccc;
+	  border: 1px solid #ccccccd4;
 	  border-radius: 12px;
 	  font-size: 1rem;
 	  width: 100%;
@@ -253,16 +253,18 @@ function handleKeydown(event: KeyboardEvent) {
     margin: 0;
     padding: 0;
     position: absolute;
-    top: 83%;
-    left: 0;
+    top: 82%;
+    left: 4%;
     right: 0;
     border: 2px solid #100f0f;
-    border-radius: 0 0 12px 12px;
-    background: #ffffff;
+    border-radius: 5px 5px 12px 12px;
+    background: #ffffffda;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 999;
     max-height: 250px;
     overflow-y: auto;
+	max-width: 350px;
+	width: 91%;
   }
 
   .suggestion-list li {
@@ -271,7 +273,7 @@ function handleKeydown(event: KeyboardEvent) {
   }
 
   .suggestion-list li:hover {
-    background-color: #f5f5f5;
+    background-color: #00000021;
   }
 
   .suggestion-button {
