@@ -330,6 +330,7 @@
 		padding: 0;
 		width: 100%;
 		height: 100%;
+		overflow-x: hidden;
 	}
 	:global(body) {
 		margin: 0;
@@ -341,11 +342,13 @@
 		color: var(--night-color);
 	}
 	:root {
-		--main-color: #d4f3ff;
-		--sec-color: #ecf0f1;
+		--lammin-color: rgb(255, 0, 0);
+		--pakkas-color: blue;
+		--main-color: #d4f3ff49;
+		--sec-color: #a6d7ff9a;
 		--third-color: #777777;
 		--text-decoration-color: black;
-		--active-color: #00000022;
+		--active-color: var(--sec-color);
 		--night-color: #dddddd;
 	}
 	main {
