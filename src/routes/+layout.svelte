@@ -347,7 +347,7 @@
 		--lammin-color: var(--main-text);
 		--pakkas-color: rgb(3, 63, 153);
 		--main-color: #d1e9fd4f;
-		--sec-color: #acdaff9a;
+		--sec-color: #e7f4ff70;
 		--third-color: #777777;
 		--text-decoration-color: black;
 		--active-color: var(--sec-color);

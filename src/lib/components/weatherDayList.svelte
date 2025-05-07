@@ -38,7 +38,7 @@
 							// Jos valittu päivä on eka päivä, asettaa valituksi tunniksi ensimmäisen saatavilla olevan tunnin. Muuten laittaa nollan
 							weatherGlobal.selectedHour = weatherGlobal.saatietoTaulukko[0].Date.getHours();
 						} else {
-							weatherGlobal.selectedHour = 0;
+							//weatherGlobal.selectedHour = 0; //Poistettu käytöstä, että ei nollaakkaan tuntia
 						}
 					}}
 				>
