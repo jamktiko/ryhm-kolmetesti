@@ -63,10 +63,10 @@
 		float: right;
 	}
 	.lamminta {
-		color: red;
+		color: var(--lammin-color);
 	}
 	.pakkasta {
-		color: blue;
+		color: var(--pakkas-color);
 	}
 
 	.rivi {
@@ -82,7 +82,7 @@
 	}
 
 	h3 {
-		color: var(--text-decoration-color);
+		color: var(--main-text);
 		font-size: 30px;
 	}
 

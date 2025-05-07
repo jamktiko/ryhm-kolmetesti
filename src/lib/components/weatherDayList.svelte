@@ -60,13 +60,11 @@
 </div>
 
 <style>
-	.lamminta {
-		color: red;
-	}
 	.pakkasta {
-		color: blue;
+		color: var(--pakkas-color);
 	}
 	button {
+		color: var(--main-text);
 		padding-left: 1em;
 		padding-right: 1em;
 		width: 100%;
@@ -82,13 +80,12 @@
 		border-radius: 8px;
 	}
 
+	button:hover,
 	.active {
 		background-color: var(--active-color);
 	}
-
 	button:hover {
-		background-color: var(--active-color);
-		color: white;
+		color: var(--sec-text);
 	}
 
 	.button-container {

@@ -342,10 +342,12 @@
 		color: var(--night-color);
 	}
 	:root {
-		--lammin-color: rgb(255, 0, 0);
-		--pakkas-color: blue;
-		--main-color: #d4f3ff49;
-		--sec-color: #a6d7ff9a;
+		--main-text: #222222;
+		--sec-text: #f2f2f2;
+		--lammin-color: var(--main-text);
+		--pakkas-color: rgb(3, 63, 153);
+		--main-color: #d1e9fd4f;
+		--sec-color: #acdaff9a;
 		--third-color: #777777;
 		--text-decoration-color: black;
 		--active-color: var(--sec-color);

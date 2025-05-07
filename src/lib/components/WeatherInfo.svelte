@@ -41,6 +41,7 @@
 
 <style>
 	div {
+		color: var(--main-text);
 		flex: 0 0 45%;
 		border-radius: 20px;
 		background-color: var(--sec-color);
