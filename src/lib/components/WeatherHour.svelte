@@ -83,8 +83,7 @@
 		cursor: pointer;
 		outline: inherit;
 		flex: 1 1 12.5%;
-		border-top-left-radius: 8px;
-		border-top-right-radius: 8px;
+		border-radius: 20px;
 	}
 	.weather-hour:hover,
 	.active {

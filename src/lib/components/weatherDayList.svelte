@@ -77,7 +77,7 @@
 		align-items: center;
 		justify-content: space-between;
 		text-align: left;
-		border-radius: 8px;
+		border-radius: 20px;
 	}
 
 	button:hover,
@@ -89,11 +89,13 @@
 	}
 
 	.button-container {
+		padding: 0.5rem;
 		height: 100%;
 		display: flex;
 		flex-wrap: wrap; /* mahdollistaa painikkeiden siirtymisen seuraavalle riville */
 		justify-content: flex-start;
 		align-items: stretch;
+		box-sizing: border-box;
 	}
 
 	.weather-info {

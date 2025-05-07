@@ -157,7 +157,9 @@
 	}
 </script>
 
-<h2 style="transition: 1s;" class:yo={weatherGlobal.isNight}>Hae säätiedot paikkakunnan nimellä</h2>
+<h2 style="transition: color 1s;" class:yo={weatherGlobal.isNight}>
+	Hae säätiedot paikkakunnan nimellä
+</h2>
 <UserInput
 	onkeydown={handleKeydown}
 	type="text"
@@ -185,7 +187,7 @@
 	}
 	.weather-container {
 		display: flex;
-		gap: 2rem;
+		gap: 1rem;
 		justify-content: space-between;
 		flex-direction: row;
 	}

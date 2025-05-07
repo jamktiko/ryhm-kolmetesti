@@ -61,9 +61,9 @@
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
-		justify-content: center;
+		justify-content: space-between;
 		align-content: stretch;
-		gap: 5%;
+		gap: 2.5%;
 		overflow: hidden;
 	}
 </style>

@@ -42,7 +42,7 @@
 <style>
 	div {
 		color: var(--main-text);
-		flex: 0 0 45%;
+		flex: 0 0 48.75%;
 		border-radius: 20px;
 		background-color: var(--sec-color);
 		display: flex;
