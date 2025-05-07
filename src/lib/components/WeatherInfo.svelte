@@ -27,7 +27,7 @@
 				{weatherInfo.data}
 				{weatherInfo.unit}
 				{#if weatherInfo.title === 'Tuuli'}
-					<img src="/icons/{`${weatherInfo.extraData}_wind.svg`}" alt="Sääkuvake" />
+					<img class="wind-direction" src="/icons/{`${weatherInfo.extraData}_wind.svg`}" alt="Sääkuvake" />
 				{:else}
 					| {weatherInfo.extraData}
 					{weatherInfo.extraUnit}
@@ -49,9 +49,30 @@
 		justify-content: space-evenly;
 	}
 	p {
-		margin: 0.5em;
+		margin: 0em;
+		margin-left: 0.5em;
 	}
 	img {
 		margin-left: 0.5em;
+	}
+	@media (max-width: 405px) {
+		.wind-direction {
+			margin-left: 0em;
+		}
+		p {
+			margin: 0;
+			margin-left: 0.5em;
+			justify-content: flex-start;
+			font-size: 90%;
+		}
+		@media (max-width: 371px) {
+			p {
+				font-size: 80%;
+		}
+	}
+	@media (max-width: 342px) {
+		
+	}
+		
 	}
 </style>

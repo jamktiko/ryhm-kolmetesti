@@ -122,7 +122,6 @@
 	.weather-split {
 		max-width: 100%;
 		display: flex;
-
 		margin: 0.5rem 0rem;
 		flex-wrap: wrap;
 		align-items: stretch;
@@ -273,7 +272,7 @@
 			margin-left: 0px;
 		}
 		.weather-split {
-			gap: 0.5rem;
+			gap: 0.25rem;
 		}
 	}
 	@media (max-width: 370px) {
