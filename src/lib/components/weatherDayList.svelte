@@ -34,8 +34,11 @@
 					class:active={day.Date.getDate() === weatherGlobal.selectedDay}
 					onclick={() => {
 						weatherGlobal.selectedDay = day.Date.getDate();
-						if (weatherGlobal.saatietoTaulukko[0].Date.getDay() === day.Date.getDay()) {
-							// Jos valittu päivä on eka päivä, asettaa valituksi tunniksi ensimmäisen saatavilla olevan tunnin. Muuten laittaa nollan
+						if (
+							weatherGlobal.saatietoTaulukko[0].Date.getDay() === day.Date.getDay() &&
+							weatherGlobal.saatietoTaulukko[0].Date.getHours() > weatherGlobal.selectedHour
+						) {
+							// Jos valittu päivä on eka päivä ja eka saatavilla oleva tunti on enemmän kuin tämän hetkinen valittu tunti, asettaa valituksi tunniksi ensimmäisen saatavilla olevan tunnin.
 							weatherGlobal.selectedHour = weatherGlobal.saatietoTaulukko[0].Date.getHours();
 						} else {
 							//weatherGlobal.selectedHour = 0; //Poistettu käytöstä, että ei nollaakkaan tuntia
