@@ -4,6 +4,7 @@
 	import type { Parameters } from '$lib/types/parameters';
 	import { weatherGlobal } from '$lib/weatherGlobal.svelte';
 	import WeatherHour from '$lib/components/WeatherHour.svelte';
+	import WeatherInfoBox from './WeatherInfoBox.svelte';
 
 	let weather = $derived(weatherGlobal.selectedWeather);
 	let weatherDate = $derived(`${weather.Date.getDate()}.${weather.Date.getMonth() + 1}`);
@@ -32,37 +33,14 @@
 							class:lamminta={weather.Temperature >= 0}
 							class:pakkasta={weather.Temperature < 0}
 						>
-							{weather.Temperature} °C
+							{weather.Temperature}°
 						</strong>
 					</h2>
 				</div>
 
 				<img id="main-symbol" alt="Sääkuvake" src={`/SmartSymbol/${weather.SmartSymbol}.svg`} />
 			</div>
-
-			<!-- Oikea laatikko: lisätiedot -->
-			<div class="weather-box2">
-				<div class="weather-detail">
-					<p class="weather-title">Ilmankosteus</p>
-					<p class="weather-info"><b>{weather.Humidity}</b> %</p>
-
-					<p class="weather-title">Tuuli</p>
-					<p class="weather-info">
-						<img class="icon" src={`/icons/${weather.WindDirection}_wind.svg`} />
-						<b>{weather.WindSpeedMS}</b>
-						m/s
-					</p>
-
-					<p class="weather-title">Pilvipeite</p>
-					<p class="weather-info"><b>{weather.TotalCloudCover}</b> %</p>
-
-					<p class="weather-title">Sateen todennäköisyys</p>
-					<p class="weather-info"><b>{weather.PoP}</b> %</p>
-
-					<p class="weather-title">Sateen määrä</p>
-					<p class="weather-info"><b>{weather.Precipitation1h}</b> mm</p>
-				</div>
-			</div>
+			<WeatherInfoBox {weather} />
 		</div>
 	{:else}
 		<p>Ei säätietoja</p>
@@ -172,7 +150,7 @@
 		align-items: stretch;
 	}
 	.weather-box {
-		background-color: #47bcffb9;
+		background-color: var(--sec-color);
 		border-radius: 20px;
 		box-shadow: 0 4px 12px rgba(0, 0, 0, 0);
 		padding: 1rem;
