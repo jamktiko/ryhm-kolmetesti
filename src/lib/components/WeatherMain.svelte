@@ -95,8 +95,9 @@
 
 	h2 {
 		color: var(--text-decoration-color);
-		font-size: 38px;
+		font-size: 5rem;
 		text-align: center;
+		margin: 1rem 0rem;
 	}
 
 	p {
@@ -130,8 +131,8 @@
 
 	.rectangle-14 {
 		position: relative;
-		background: #d4f3ff;
-		box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+		background: var(--main-color);
+		box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
 		border-radius: 20px;
 		/*padding: 1rem;*/
 		width: 100%;
@@ -143,11 +144,11 @@
 	.weather-split {
 		max-width: 100%;
 		display: flex;
-		gap: 0.75rem;
-		margin-top: 0.5rem;
-		margin-left: 0.25rem;
+
+		margin: 0.5rem 0rem;
 		flex-wrap: wrap;
 		align-items: stretch;
+		justify-content: space-evenly;
 	}
 	.weather-box {
 		background-color: var(--sec-color);
@@ -210,7 +211,6 @@
 		font-size: 25px;
 	}
 	.weather-inline {
-		margin-left: 10px;
 	}
 	@media (max-width: 900px) {
 		.rectangle-14 {
