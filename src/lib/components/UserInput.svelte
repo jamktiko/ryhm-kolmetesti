@@ -205,6 +205,7 @@
 		transition: border-color 0.3s;
 		background-color: var(--main-color);
 		box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+		color: var(--main-text);
 	}
 
 	.search-input:focus {
@@ -221,7 +222,7 @@
 		border: none;
 		padding: 0;
 		cursor: pointer;
-		color: #666;
+		color: var(--main-text);
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -234,7 +235,7 @@
 	.search-button svg {
 		width: 1.25rem;
 		height: 1.25rem;
-		color: #666;
+		color: var(--main-text);
 		display: block;
 	}
 
