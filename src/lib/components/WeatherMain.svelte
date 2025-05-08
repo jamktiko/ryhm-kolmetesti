@@ -190,6 +190,9 @@
 		.pitkanimi {
 			font-size: 1.2em;
 		}
+		h2 {
+			font-size: 4em;
+		}
 	}
 	.rivi {
 		justify-content: flex-start;
