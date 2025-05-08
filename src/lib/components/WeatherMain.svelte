@@ -23,7 +23,7 @@
 			<!-- Vasen laatikko: kaupunki, otsikko, lämpötila ja kuva -->
 			<div class="weather-box">
 				<div class="rivi">
-					<h3 class:pitkanimi={weatherGlobal.selectedCity.length >= 10}>
+					<h3 class:pitkanimi={weatherGlobal.selectedCity.length > 8}>
 						{weatherGlobal.selectedCity}
 					</h3>
 				</div>
@@ -162,7 +162,7 @@
 
 	@media (max-width: 850px) {
 		.pitkanimi {
-			font-size: 20px;
+			font-size: 1.25em;
 		}
 		.rectangle-14 {
 			margin: 0 auto;
@@ -176,54 +176,46 @@
 		.rectangle-14 {
 			margin: 0 auto;
 		}
-		.weather-title,
-		.weather-info {
-			font-size: 85%;
+		.pitkanimi {
+			font-size: 1.5em;
 		}
 	}
+	@media (max-width: 550px) {
+		.pitkanimi {
+			font-size: 1.25em;
+		}
 
+	}
 	@media (max-width: 485px) {
 		/* Puhelimet ja pienemmät näytöt */
 		.pitkanimi {
-			font-size: 15px;
+			font-size: 1.20em;
 		}
-		.weather-title,
-		.weather-info {
-			font-size: 80%;
 		}
 		.rivi {
 			justify-content: flex-start;
 		}
 		h3 {
 			margin-left: 7px;
+			font-size: 165%
 		}
 		#main-symbol {
 			justify-content: flex-start;
 		}
 		@media (max-width: 420px) {
-			.weather-title,
-			.weather-info {
-				font-size: 75%;
-			}
+		.pitkanimi {
+			font-size: 1.15em;
 		}
 	}
 	@media (max-width: 400px) {
-		.pitkanimi {
-			font-size: 15px;
-		}
 		h2 {
-			font-size: 30px;
 			margin-left: 0px;
 		}
 		#main-symbol {
 			width: 75%;
 		}
-		.weather-title,
-		.weather-info {
-			font-size: 65%;
-		}
 		h3 {
-			font-size: 20px;
+			font-size: 140%;
 			margin-left: 0px;
 		}
 		.weather-inline {
@@ -232,33 +224,46 @@
 		.weather-split {
 			gap: 0.25rem;
 		}
-	}
-	@media (max-width: 370px) {
-		.weather-title,
-		.weather-info {
-			font-size: 60%;
+		.pitkanimi {
+			font-size: 1em;
 		}
 	}
 	@media (max-width: 380px) {
-		.pitkanimi {
-			font-size: 13px;
+		.pitkanimi { 
+		font-size: 0.95em;
 		}
 	}
-
 	@media (max-width: 350px) {
-		.weather-title,
-		.weather-info {
-			font-size: 55%;
-		}
 		h3 {
-			font-size: 15px;
+			font-size: 125%;
 			margin-left: 0px;
 		}
 		h2 {
-			font-size: 25px;
+			font-size: 45px;
 		}
 		.pitkanimi {
-			font-size: 10px;
+			font-size: 0.90em;
+		}
+	}
+	@media (max-width: 342px) {
+		.pitkanimi {
+			font-size: 0.85em;
+		}
+
+	}
+	@media (max-width: 325px) {
+		.pitkanimi {
+			font-size: 0.80em;
+		}
+	}
+	@media (max-width: 315px) {
+		.pitkanimi {
+			font-size: 0.75em;
+		}
+	}
+	@media (max-width: 300px) {
+		.pitkanimi {
+			font-size: 0.60em
 		}
 	}
 </style>

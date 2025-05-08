@@ -285,7 +285,7 @@
 		--night-color: #dddddd;
 	}
 	main {
-		padding: 1em;
+		padding: 0.5em;
 		max-width: 960px; /* Esimerkiksi 960px tai 100% */
 		width: 100%;
 		margin: 0 auto;
@@ -295,5 +295,11 @@
 	@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 	* {
 		font-family: 'Inter', sans-serif;
+	}
+	@media (max-width: 600px) {
+		.main {
+		padding: 0em;
+		max-width: 100%;
+		}
 	}
 </style>

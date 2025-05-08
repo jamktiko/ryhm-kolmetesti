@@ -68,7 +68,7 @@
 	}
 	@media (max-width: 400px) {
 		div {
-			gap: 3%
+			gap: 2%
 		}
 	}
 
