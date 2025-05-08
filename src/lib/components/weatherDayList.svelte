@@ -34,11 +34,14 @@
 					class:active={day.Date.getDate() === weatherGlobal.selectedDay}
 					onclick={() => {
 						weatherGlobal.selectedDay = day.Date.getDate();
-						if (weatherGlobal.saatietoTaulukko[0].Date.getDay() === day.Date.getDay()) {
-							// Jos valittu päivä on eka päivä, asettaa valituksi tunniksi ensimmäisen saatavilla olevan tunnin. Muuten laittaa nollan
+						if (
+							weatherGlobal.saatietoTaulukko[0].Date.getDay() === day.Date.getDay() &&
+							weatherGlobal.saatietoTaulukko[0].Date.getHours() > weatherGlobal.selectedHour
+						) {
+							// Jos valittu päivä on eka päivä ja eka saatavilla oleva tunti on enemmän kuin tämän hetkinen valittu tunti, asettaa valituksi tunniksi ensimmäisen saatavilla olevan tunnin.
 							weatherGlobal.selectedHour = weatherGlobal.saatietoTaulukko[0].Date.getHours();
 						} else {
-							weatherGlobal.selectedHour = 0;
+							//weatherGlobal.selectedHour = 0; //Poistettu käytöstä, että ei nollaakkaan tuntia
 						}
 					}}
 				>
@@ -71,7 +74,7 @@
 		background: none;
 		border: none;
 		cursor: pointer;
-		font-size: 16px;
+		font-size: 1.125em;
 		transition: background-color 0.3s ease;
 		display: inline-flex;
 		align-items: center;
@@ -107,7 +110,7 @@
 		box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
 		border-radius: 20px;
 		width: 100%;
-		max-width: 300px;
+
 		overflow-x: hidden;
 		background: var(--main-color);
 	}
@@ -116,6 +119,39 @@
 	@media (max-width: 768px) {
 		.rectangle-15 {
 			margin: 0 auto; /* keskittää vaakasuunnassa */
+		}
+		.button-container {
+			flex-direction: row;
+			flex-wrap: nowrap;
+		}
+		button {
+			flex-direction: column;
+			flex-wrap: nowrap;
+			text-align: center;
+			width: 14%;
+			flex: 1 1 14%;
+			padding: 0;
+		}
+		p {
+			margin-top: 1em;
+			margin-bottom: 0.5em;
+		}
+		span {
+			margin-top: 0.5em;
+			margin-bottom: 0.5em;
+		}
+	}
+	@media (min-width: 769px) {
+		.rectangle-15 {
+			max-width: 300px;
+		}
+	}
+	@media (max-width: 362px) {
+		button {
+			font-size: small;
+		}
+		img {
+			width: 36px;
 		}
 	}
 	h3 {

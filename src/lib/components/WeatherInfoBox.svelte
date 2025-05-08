@@ -66,4 +66,10 @@
 		gap: 2.5%;
 		overflow: hidden;
 	}
+	@media (max-width: 400px) {
+		div {
+			gap: 2%
+		}
+	}
+
 </style>

@@ -245,16 +245,19 @@
 		padding: 0;
 		position: absolute;
 		top: 83%;
-		left: 0;
+		left: 4.5%;
 		right: 0;
-		border: 2px solid #100f0f;
-		border-radius: 0 0 12px 12px;
-		background: #ffffff;
-		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-		z-index: 999;
+		border-radius: 12px 12px;
+		z-index: 1000;
 		max-height: 250px;
 		overflow-y: auto;
+		background-color: #dce8f3;
+		color: var(--main-text);
+		width: 91%;
+		box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+
 	}
+	
 
 	.suggestion-list li {
 		padding: 0.75rem;
@@ -262,7 +265,7 @@
 	}
 
 	.suggestion-list li:hover {
-		background-color: #f5f5f5;
+		color: #8a8b8b;
 	}
 
 	.suggestion-button {

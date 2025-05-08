@@ -106,4 +106,12 @@
 			width: 50%;
 		}
 	}
+	@media (max-width: 362px) {
+		.weather-hour {
+			font-size: small;
+		}
+		img {
+			width: 36px;
+		}
+	}
 </style>
