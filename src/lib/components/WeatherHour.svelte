@@ -106,17 +106,12 @@
 			width: 50%;
 		}
 	}
-	@media (max-width: 361px) {
+	@media (max-width: 362px) {
 		.weather-hour {
 			font-size: small;
 		}
-	}
-	@media (max-width: 350px) {
 		img {
-			width: 90%;
+			width: 36px;
 		}
-
 	}
-	
-	
 </style>
