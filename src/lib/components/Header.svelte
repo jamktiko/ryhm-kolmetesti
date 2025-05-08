@@ -5,14 +5,13 @@
 
 <header>
 	<img class="logo" src={appInfo.logo} alt="Logo" />
-	<h1 style="transition: color 1s;" class:yo={weatherGlobal.isNight}>{appInfo.name}</h1>
+	<!--<h1 style="transition: color 1s;" class:yo={weatherGlobal.isNight}>{appInfo.name}</h1>-->
 </header>
 
 <style>
 	.logo {
 		width: 200px;
 		height: auto;
-		float: left;
 	}
 	h1 {
 		font-size: 3em;
@@ -37,6 +36,11 @@
 			padding: 0px;
 			padding-top: 1em;
 			padding-bottom: 1em;
+		}
+	}
+	@media (max-width: 768px) {
+		header {
+			text-align: center;
 		}
 	}
 </style>

@@ -136,9 +136,9 @@
 	}
 </script>
 
-<h2 style="transition: color 1s;" class:yo={weatherGlobal.isNight}>
+<!--<h2 style="transition: color 1s;" class:yo={weatherGlobal.isNight}>
 	Hae säätiedot paikkakunnan nimellä
-</h2>
+</h2>-->
 <UserInput
 	onkeydown={handleKeydown}
 	type="text"
