@@ -184,25 +184,24 @@
 		.pitkanimi {
 			font-size: 1.25em;
 		}
-
 	}
 	@media (max-width: 485px) {
 		/* Puhelimet ja pienemmät näytöt */
 		.pitkanimi {
-			font-size: 1.20em;
+			font-size: 1.2em;
 		}
-		}
-		.rivi {
-			justify-content: flex-start;
-		}
-		h3 {
-			margin-left: 7px;
-			font-size: 165%
-		}
-		#main-symbol {
-			justify-content: flex-start;
-		}
-		@media (max-width: 420px) {
+	}
+	.rivi {
+		justify-content: flex-start;
+	}
+	h3 {
+		margin-left: 7px;
+		font-size: 165%;
+	}
+	#main-symbol {
+		justify-content: flex-start;
+	}
+	@media (max-width: 420px) {
 		.pitkanimi {
 			font-size: 1.15em;
 		}
@@ -229,8 +228,8 @@
 		}
 	}
 	@media (max-width: 380px) {
-		.pitkanimi { 
-		font-size: 0.95em;
+		.pitkanimi {
+			font-size: 0.95em;
 		}
 	}
 	@media (max-width: 350px) {
@@ -242,18 +241,17 @@
 			font-size: 45px;
 		}
 		.pitkanimi {
-			font-size: 0.90em;
+			font-size: 0.9em;
 		}
 	}
 	@media (max-width: 342px) {
 		.pitkanimi {
 			font-size: 0.85em;
 		}
-
 	}
 	@media (max-width: 325px) {
 		.pitkanimi {
-			font-size: 0.80em;
+			font-size: 0.8em;
 		}
 	}
 	@media (max-width: 315px) {
@@ -263,7 +261,7 @@
 	}
 	@media (max-width: 300px) {
 		.pitkanimi {
-			font-size: 0.60em
+			font-size: 0.6em;
 		}
 	}
 </style>
