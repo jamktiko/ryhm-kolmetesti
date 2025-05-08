@@ -34,11 +34,14 @@
 					class:active={day.Date.getDate() === weatherGlobal.selectedDay}
 					onclick={() => {
 						weatherGlobal.selectedDay = day.Date.getDate();
-						if (weatherGlobal.saatietoTaulukko[0].Date.getDay() === day.Date.getDay()) {
-							// Jos valittu päivä on eka päivä, asettaa valituksi tunniksi ensimmäisen saatavilla olevan tunnin. Muuten laittaa nollan
+						if (
+							weatherGlobal.saatietoTaulukko[0].Date.getDay() === day.Date.getDay() &&
+							weatherGlobal.saatietoTaulukko[0].Date.getHours() > weatherGlobal.selectedHour
+						) {
+							// Jos valittu päivä on eka päivä ja eka saatavilla oleva tunti on enemmän kuin tämän hetkinen valittu tunti, asettaa valituksi tunniksi ensimmäisen saatavilla olevan tunnin.
 							weatherGlobal.selectedHour = weatherGlobal.saatietoTaulukko[0].Date.getHours();
 						} else {
-							weatherGlobal.selectedHour = 0;
+							//weatherGlobal.selectedHour = 0; //Poistettu käytöstä, että ei nollaakkaan tuntia
 						}
 					}}
 				>
@@ -60,43 +63,42 @@
 </div>
 
 <style>
-	.lamminta {
-		color: red;
-	}
 	.pakkasta {
-		color: blue;
+		color: var(--pakkas-color);
 	}
 	button {
+		color: var(--main-text);
 		padding-left: 1em;
 		padding-right: 1em;
 		width: 100%;
 		background: none;
 		border: none;
 		cursor: pointer;
-		font-size: 16px;
+		font-size: 1.125em;
 		transition: background-color 0.3s ease;
 		display: inline-flex;
 		align-items: center;
 		justify-content: space-between;
 		text-align: left;
-		border-radius: 8px;
+		border-radius: 20px;
 	}
 
+	button:hover,
 	.active {
 		background-color: var(--active-color);
 	}
-
 	button:hover {
-		background-color: var(--active-color);
-		color: white;
+		color: var(--sec-text);
 	}
 
 	.button-container {
+		padding: 0.5rem;
 		height: 100%;
 		display: flex;
 		flex-wrap: wrap; /* mahdollistaa painikkeiden siirtymisen seuraavalle riville */
 		justify-content: flex-start;
 		align-items: stretch;
+		box-sizing: border-box;
 	}
 
 	.weather-info {

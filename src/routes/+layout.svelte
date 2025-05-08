@@ -181,23 +181,6 @@
 			sunGlareColor: 0xd75d35,
 			sunlightColor: 0xf58618
 		});
-		// FOG efekti
-		// taivas = FOG({
-		// 	el: '#background',
-		// 	THREE: THREE,
-		// 	mouseControls: false,
-		// 	touchControls: false,
-		// 	gyroControls: false,
-		// 	minHeight: 200.0,
-		// 	minWidth: 200.0,
-		// 	highlightColor: rgbToHex(highrTween.current, highgTween.current, highbTween.current),
-		// 	midtoneColor: rgbToHex(midrTween.current, midgTween.current, midbTween.current),
-		// 	lowlightColor: rgbToHex(lowrTween.current, lowgTween.current, lowbTween.current),
-		// 	baseColor: rgbToHex(baserTween.current, basegTween.current, basebTween.current),
-		// 	blurFactor: 0.61,
-		// 	speed: 0.5,
-		// 	zoom: 1.2
-		// });
 
 		// Päivittää taivasefektin värejä
 		$effect(() => {
@@ -269,58 +252,6 @@
 <Header />
 <main>
 	{@render children()}
-	<!-- Testi nappi taivaan värin ja nopeuden arpomiseen-->
-	<!-- <button
-		onclick={() => {
-			skyColors(
-				satunnaisVari(),
-				satunnaisVari(),
-				satunnaisVari(),
-				satunnaisVari(),
-				satunnaisVari(),
-				satunnaisVari()
-			);
-			setNopeus(Math.random() * 5);
-		}}>Arvo nopeus ja värit</button
-	> -->
-	<!-- <label>
-		Näytä info
-		<input type="checkbox" bind:checked={showInfo} />
-	</label>
-	{#if showInfo}
-		<p>Nopeus = {nopeusTween.current.toFixed(1)}</p>
-		<input type="range" min="0" max="5" bind:value={nopeusTween.target} />
-		<p>Sky RGB ({skyrTween.target}-{skygTween.target}-{skybTween.target})</p>
-		<input type="range" min="0" max="255" bind:value={skyrTween.target} />
-		<input type="range" min="0" max="255" bind:value={skygTween.target} />
-		<input type="range" min="0" max="255" bind:value={skybTween.target} /> <br />
-		#{rgbToHex(skyrTween.current, skygTween.current, skybTween.current).toString(16)}
-		<p>Cloud ({cloudrTween.target}-{cloudgTween.target}-{cloudbTween.target})</p>
-		<input type="range" min="0" max="255" bind:value={cloudrTween.target} />
-		<input type="range" min="0" max="255" bind:value={cloudgTween.target} />
-		<input type="range" min="0" max="255" bind:value={cloudbTween.target} /> <br />
-		#{rgbToHex(cloudrTween.current, cloudgTween.current, cloudbTween.current).toString(16)}
-		<p>Shadow RGB ({shadowrTween.target}-{shadowgTween.target}-{shadowbTween.target})</p>
-		<input type="range" min="0" max="255" bind:value={shadowrTween.target} />
-		<input type="range" min="0" max="255" bind:value={shadowgTween.target} />
-		<input type="range" min="0" max="255" bind:value={shadowbTween.target} /> <br />
-		#{rgbToHex(shadowrTween.current, shadowgTween.current, shadowbTween.current).toString(16)}
-		<p>Sun RGB ({sunrTween.target}-{sungTween.target}-{sunbTween.target})</p>
-		<input type="range" min="0" max="255" bind:value={sunrTween.target} />
-		<input type="range" min="0" max="255" bind:value={sungTween.target} />
-		<input type="range" min="0" max="255" bind:value={sunbTween.target} /> <br />
-		#{rgbToHex(sunrTween.current, sungTween.current, sunbTween.current).toString(16)}
-		<p>Glare RGB ({sunGlarerTween.target}-{sunGlaregTween.target}-{sunGlarebTween.target})</p>
-		<input type="range" min="0" max="255" bind:value={sunGlarerTween.target} />
-		<input type="range" min="0" max="255" bind:value={sunGlaregTween.target} />
-		<input type="range" min="0" max="255" bind:value={sunGlarebTween.target} /> <br />
-		#{rgbToHex(sunGlarerTween.current, sunGlaregTween.current, sunGlarebTween.current).toString(16)}
-		<p>SunLight RGB ({sunLightrTween.target}-{sunLightgTween.target}-{sunLightbTween.target})</p>
-		<input type="range" min="0" max="255" bind:value={sunLightrTween.target} />
-		<input type="range" min="0" max="255" bind:value={sunLightgTween.target} />
-		<input type="range" min="0" max="255" bind:value={sunLightbTween.target} /> <br />
-		#{rgbToHex(sunLightrTween.current, sunLightgTween.current, sunLightbTween.current).toString(16)}
-	{/if} -->
 </main>
 <Footer />
 
@@ -342,10 +273,12 @@
 		color: var(--night-color);
 	}
 	:root {
-		--lammin-color: rgb(255, 0, 0);
-		--pakkas-color: blue;
-		--main-color: #d4f3ff49;
-		--sec-color: #a6d7ff9a;
+		--main-text: #222222;
+		--sec-text: #f2f2f2;
+		--lammin-color: var(--main-text);
+		--pakkas-color: rgb(3, 63, 153);
+		--main-color: #d1e9fd4f;
+		--sec-color: #e7f4ff70;
 		--third-color: #777777;
 		--text-decoration-color: black;
 		--active-color: var(--sec-color);
