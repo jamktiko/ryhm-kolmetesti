@@ -23,7 +23,7 @@
 			<!-- Vasen laatikko: kaupunki, otsikko, lämpötila ja kuva -->
 			<div class="weather-box">
 				<div class="rivi">
-					<h3 class:pitkanimi={weatherGlobal.selectedCity.length >= 10}>
+					<h3 class:pitkanimi={weatherGlobal.selectedCity.length >= 8}>
 						{weatherGlobal.selectedCity}
 					</h3>
 				</div>

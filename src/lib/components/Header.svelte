@@ -10,9 +10,12 @@
 
 <style>
 	.logo {
-		width: 150px;
+		width: 200px;
 		height: auto;
 		float: left;
+	}
+	h1 {
+		font-size: 3em;
 	}
 	header {
 		box-sizing: border-box;
@@ -21,7 +24,7 @@
 		left: 0;
 		width: 100%;
 		/*background-color: var(--main-color);*/
-		color: var(--text-decoration-color);
+		color: var(--main-text);
 		padding: 1em;
 		padding-bottom: 0px;
 		width: 100%;
