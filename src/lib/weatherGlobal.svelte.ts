@@ -23,6 +23,7 @@ class WeatherGlobal {
 		}
 		return false;
 	}
+	// Asettaa sääefektin sääsymbolin numeron mukaan
 	private setCurrentWeatherEffect() {
 		switch (this.selectedWeather.SmartSymbol) {
 			case '0':
@@ -176,8 +177,8 @@ class WeatherGlobal {
 				}
 				loop = true;
 			}
-			console.log('PäiväTaulukko:');
-			console.log(tietoTaulukko);
+			// console.log('PäiväTaulukko:');
+			// console.log(tietoTaulukko);
 			return tietoTaulukko;
 		}
 		return [];

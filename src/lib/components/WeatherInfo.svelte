@@ -50,8 +50,8 @@
 		justify-content: space-evenly;
 	}
 	p {
-		margin: 0em;
-		margin-left: 0.5em;
+		font-size: 1.125em;
+		margin: 0.5em;
 	}
 	img {
 		margin-left: 0.5em;
