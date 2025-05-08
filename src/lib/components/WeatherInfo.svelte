@@ -56,6 +56,11 @@
 	img {
 		margin-left: 0.5em;
 	}
+	@media (max-width: 436px) {
+		p {
+			font-size: 95%;
+		}
+	}
 	@media (max-width: 405px) {
 		.wind-direction {
 			margin-left: 0em;

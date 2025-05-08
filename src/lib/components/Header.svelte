@@ -30,7 +30,7 @@
 	}
 	@media (max-width: 343px) {
 		.logo {
-			width: 120px;
+			width: 150px;
 		}
 		header {
 			padding: 0px;
