@@ -110,7 +110,7 @@
 		box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
 		border-radius: 20px;
 		width: 100%;
-		max-width: 300px;
+
 		overflow-x: hidden;
 		background: var(--main-color);
 	}
@@ -119,6 +119,39 @@
 	@media (max-width: 768px) {
 		.rectangle-15 {
 			margin: 0 auto; /* keskittää vaakasuunnassa */
+		}
+		.button-container {
+			flex-direction: row;
+			flex-wrap: nowrap;
+		}
+		button {
+			flex-direction: column;
+			flex-wrap: nowrap;
+			text-align: center;
+			width: 14%;
+			flex: 1 1 14%;
+			padding: 0;
+		}
+		p {
+			margin-top: 1em;
+			margin-bottom: 0.5em;
+		}
+		span {
+			margin-top: 0.5em;
+			margin-bottom: 0.5em;
+		}
+	}
+	@media (min-width: 769px) {
+		.rectangle-15 {
+			max-width: 300px;
+		}
+	}
+	@media (max-width: 362px) {
+		button {
+			font-size: small;
+		}
+		img {
+			width: 36px;
 		}
 	}
 	h3 {
