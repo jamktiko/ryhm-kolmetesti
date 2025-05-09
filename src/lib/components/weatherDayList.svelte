@@ -87,9 +87,6 @@
 	.active {
 		background-color: var(--active-color);
 	}
-	button:hover {
-		color: var(--sec-text);
-	}
 
 	.button-container {
 		padding: 0.5rem;

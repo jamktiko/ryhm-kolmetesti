@@ -5,19 +5,20 @@
 
 <footer style="transition: 1s;" class:yo={weatherGlobal.isNight}>
 	<span
-		>© 2025 Sade Haarala, Konsta Poikolainen, Jarkko Remes, Matias Vairama. License: CC BY-SA 4.0</span
+		>© 2025 Sade Haarala, Konsta Poikolainen, Jarkko Remes, Matias Vairama. <a
+			style="transition: 1s;"
+			class:yo={weatherGlobal.isNight}
+			href="https://github.com/jamktiko/ryhma-kolme">GitHub</a
+		></span
 	><br />
 	<span
-		>Säätiedot ja symbolit: <a href="https://www.ilmatieteenlaitos.fi/avoin-data"
-			>Ilmatieteen laitoksen avoin data</a
+		>Säätiedot ja symbolit: <a
+			style="transition: 1s;"
+			class:yo={weatherGlobal.isNight}
+			href="https://www.ilmatieteenlaitos.fi/avoin-data">Ilmatieteen laitoksen avoin data</a
 		></span
 	>
 	<br />
-	<span
-		>Includes Vanta.js by Teng Bao, licensed under the MIT License. <a
-			href="https://github.com/tengbao/vanta">https://github.com/tengbao/vanta</a
-		></span
-	>
 </footer>
 
 <style>
