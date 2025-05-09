@@ -4,47 +4,76 @@
 	import GameButton from '$lib/components/GameButton.svelte';
 	interface Props {
 		game: IGame | null;
+		games: IGame[];
 	}
-	let { game }: Props = $props();
+	let { game, games }: Props = $props();
 	let vastattu: boolean = $state(false);
 	let oikein: boolean = $state(false);
 	let vastausVaihtoehdot = ['A', 'B', 'C', 'D'];
+	let gameId = $state(0);
+	let pisteet = $state(0);
+	let maksPisteet = $derived(games.length);
+	let loppu = $state(false);
 </script>
 
 <div class="window">
 	<button class="exit" onclick={() => goto('/')}>X</button>
-	<h1>Säätietovisa</h1>
-	{#if game}
-		<div class="game-area">
-			<h2>{game.question}</h2>
+	<h1>Sää-tietovisa</h1>
+	{#if games.length > 0}
+		{#if !loppu}
+			<div class="game-area">
+				<h3>Kysymys {gameId + 1}/{games.length}</h3>
+				<h2>{games[gameId].question}</h2>
 
-			<div class="button-container">
-				{#each game.answers as answer, index}
-					<GameButton
-						onclick={() => {
-							if (!vastattu) {
-								if (answer === game.correctAnswer) {
-									oikein = true;
-									vastattu = true;
-								} else {
-									oikein = false;
-									vastattu = true;
+				<div class="button-container">
+					{#each games[gameId].answers as answer, index}
+						<GameButton
+							onclick={() => {
+								if (!vastattu) {
+									if (answer === games[gameId].correctAnswer) {
+										oikein = true;
+										vastattu = true;
+										pisteet++;
+									} else {
+										oikein = false;
+										vastattu = true;
+									}
+
+									if (gameId >= games.length - 1) {
+										setTimeout(() => {
+											vastattu = false;
+											loppu = true;
+										}, 2000);
+									} else {
+										setTimeout(() => {
+											gameId++;
+											oikein = false;
+											vastattu = false;
+										}, 2000);
+									}
 								}
-								setTimeout(() => goto('/'), 2000);
-							}
-						}}
-						text={answer}
-						vaihtoehto={vastausVaihtoehdot[index]}
-					/>{/each}
+							}}
+							text={answer}
+							vaihtoehto={vastausVaihtoehdot[index]}
+						/>{/each}
+				</div>
 			</div>
-		</div>
-		{#if vastattu}
-			{#if oikein}
-				<p class="oikein">OIKEIN! &#128512</p>
-			{:else}
-				<p class="vaarin">VÄÄRIN! &#128542</p>{/if}
+
+			{#if vastattu}
+				{#if oikein}
+					<p class="oikein">OIKEIN! &#128512</p>
+				{:else}
+					<p class="vaarin">VÄÄRIN! &#128542</p>{/if}
+			{/if}
+		{:else}
+			<div class="score-area">
+				<h3>Pisteet</h3>
+				<h2>{pisteet}/{maksPisteet}</h2>
+				<h3>{Math.round((pisteet / maksPisteet) * 100)} %</h3>
+			</div>
 		{/if}
-	{/if}
+	{:else}
+		<h1>Pelejä ei löytynyt</h1>{/if}
 </div>
 
 <style>
@@ -85,7 +114,6 @@
 		background-color: var(--active-color);
 	}
 	.game-area {
-		padding-top: 4em;
 		background-color: var(--sec-color);
 		border-radius: 20px;
 
@@ -93,6 +121,16 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
+		width: 100%;
+	}
+	.score-area {
+		background-color: var(--sec-color);
+		border-radius: 20px;
+
+		min-height: 25em;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
 		width: 100%;
 	}
 	.button-container {
@@ -105,11 +143,14 @@
 		justify-content: space-evenly;
 		row-gap: 1em;
 	}
+	h1 {
+		color: var(--main-text);
+	}
 	h3 {
 		color: var(--main-text);
 		float: left;
 		font-size: 2em;
-		margin-top: 0.5em;
+		margin: 0.5em 0em;
 	}
 	div {
 		position: relative;
@@ -119,14 +160,14 @@
 	}
 
 	h2 {
-		color: var(--text-decoration-color);
+		color: var(--main-text);
 		font-size: 2.5em;
 		text-align: center;
 		margin: 1rem 0rem;
 	}
 
 	p {
-		color: var(--text-decoration-color);
+		color: var(--main-text);
 		text-align: center;
 		margin-top: 1rem; /* Perus marginaali */
 		padding-top: 1.5;

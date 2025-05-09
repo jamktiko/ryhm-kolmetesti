@@ -7,6 +7,7 @@
 	function randomGame(numberOfGames: number) {
 		return Math.floor(Math.random() * numberOfGames);
 	}
+	let games: IGame[] = $state([]);
 
 	onMount(async () => {
 		const pelit = await fetch('games.json')
@@ -19,10 +20,11 @@
 				}
 			});
 		todaysGame = pelit[randomGame(pelit.length)];
+		games = pelit;
 		//console.log(pelit);
 	});
 </script>
 
-<Game game={todaysGame} />
+<Game game={todaysGame} {games} />
 
 <style></style>
