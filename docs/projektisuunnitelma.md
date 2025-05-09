@@ -18,7 +18,8 @@
 
 ## Projektin tiedot
 
-Sääappi
+
+Sääsovellus --- CloudCast
 
 
 
@@ -30,8 +31,8 @@ Ensimmäisenä vuonna opitun tiedon hyödyntäminen käytännössä
 ### Kuvaus
 
 Sääapplikaatio, joka näyttää halutun maan tai paikkakunnan sään.
-Hakee ip-osoitteen kautta käyttäjän paikkakunnan ja hakee apin kautta kaupungin nimellä koordinaatteja.
-Koordinaateilla toisen apin kautta säätietoja.
+
+Hakee kaupungin tai paikkakunnan avulla säätiedot. Apina toimii FMi open data (ilmatieteen laitos).
 
 ### Projektiryhmä
 
@@ -56,7 +57,10 @@ Toimia ryhmänä yhteisen tavoitteen eteen.
 | Projekti alkaa   | 22.04.2025 | Ohjelmistoprojekti 1 alkaa               |
 | Idean valinta    | 24.04.2025 | Valitaan tuotantoon menevä projekti-idea 
 | Projektisuunnitelma | 25.04.2025 | Esitellään projektisuunnitelma |
-| Projektin tuotanto | Viikot 18-19 | Projektin tuotannollinen osa         |
+| Projektin tuotanto | Viikko 18 | Projektin perus toiminnallisuudet        |
+| Projektin tuotanto | Viikko 19 | Projektin viimeistely esim. responsiivisuus ja toiminnallisuuksien hiominen |
+| Projektin julkaisu | 09.05.2025 | Projekti saatava valmiiksi |
+| Projektin esittely | Viikko 20 | Sovelluksen esittämiseen liittyvien materiaalien tuotanto |
 | Projektin lopullinen julkaisu | 09.05.2025 | Sovelluksen pitäisi olla valmis |
 | Projekti päättyy | 16.05.2025 | Ohjelmistoprojekti 1 päättyy + sovelluksen esittely |
 
@@ -81,8 +85,7 @@ Yleiset ryhmän kommunikointikanavat ovat Teams, trello ja Whatsapp.
 
 ### Dokumentointi
 
-Viikoittain kirjataan tekemiset tekstinä, joka ladataan Githubin projekti repositorion /docs kansioon.
-Lisäksi viikkopalavereistä koostetaan palaveripöytäkirjat.
+Viikoittain kirjataan tekemiset tekstinä viikkoraporttiin, joka tallennetaan Githubin projekti repositorion /docs kansioon.
 
 ### Dokumenttien hallinta
 
@@ -91,7 +94,7 @@ Backupit löytyy paikallisesti dokumentaatio-päällikkön koneelta.
 
 ## Riskien hallinta
 
--Ryhmä pyrkii hallitsemaan riskejä, määrittämällä mahdolliset riskit ennalta ja keksimällä niihin ratkaisut.
+Ryhmä pyrkii hallitsemaan riskejä, määrittämällä mahdolliset riskit ennalta ja keksimällä niihin ratkaisut.
 
 
 | Riskit                                                       | Todennäköisyys |  Impakti | Minimointi                             |

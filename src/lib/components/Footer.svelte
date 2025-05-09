@@ -4,7 +4,21 @@
 </script>
 
 <footer style="transition: 1s;" class:yo={weatherGlobal.isNight}>
-	{appInfo.name}, 2025
+	<span
+		>© 2025 Sade Haarala, Konsta Poikolainen, Jarkko Remes, Matias Vairama. <a
+			style="transition: 1s;"
+			class:yo={weatherGlobal.isNight}
+			href="https://github.com/jamktiko/ryhma-kolme">GitHub</a
+		></span
+	><br />
+	<span
+		>Säätiedot ja symbolit: <a
+			style="transition: 1s;"
+			class:yo={weatherGlobal.isNight}
+			href="https://www.ilmatieteenlaitos.fi/avoin-data">Ilmatieteen laitoksen avoin data</a
+		></span
+	>
+	<br />
 </footer>
 
 <style>
@@ -22,5 +36,8 @@
 		bottom: 0;
 		width: 100%;
 		opacity: 1;
+	}
+	a {
+		color: var(--text-decoration-color);
 	}
 </style>
