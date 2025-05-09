@@ -52,4 +52,9 @@
 			font-size: 1em;
 		}
 	}
+	@media (max-width: 450px) {
+		button {
+			font-size: 0.875em;
+		}
+	}
 </style>

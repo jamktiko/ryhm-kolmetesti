@@ -51,6 +51,7 @@
 	.oikein {
 		color: darkgreen;
 		padding: 0.5em;
+		margin: 1em 0em 0 0em;
 		background-color: var(--sec-color);
 		width: 25%;
 		border-radius: 20px;
@@ -58,6 +59,7 @@
 	.vaarin {
 		color: darkred;
 		padding: 0.5em;
+		margin: 1em 0em 0 0em;
 		background-color: var(--sec-color);
 		width: 25%;
 		border-radius: 20px;
@@ -86,11 +88,12 @@
 		padding-top: 4em;
 		background-color: var(--sec-color);
 		border-radius: 20px;
-		margin: 1em;
+
 		min-height: 25em;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
+		width: 100%;
 	}
 	.button-container {
 		padding: 2em;
@@ -117,7 +120,7 @@
 
 	h2 {
 		color: var(--text-decoration-color);
-		font-size: 3rem;
+		font-size: 2.5em;
 		text-align: center;
 		margin: 1rem 0rem;
 	}
@@ -135,7 +138,7 @@
 		box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
 		border-radius: 20px;
 		/*padding: 1rem;*/
-		width: 100%;
+		width: 95%;
 		text-align: center;
 		box-sizing: border-box;
 		overflow-x: hidden;
@@ -143,6 +146,8 @@
 		flex-wrap: nowrap;
 		flex-direction: column;
 		align-items: center;
+		padding: 1em;
+		margin: 2.5%;
 	}
 	/* UUSI: säälaatikot rinnakkain */
 	@media (max-width: 600px) {
@@ -151,6 +156,16 @@
 		}
 		.button-container {
 			padding: 1em 0em;
+		}
+		.window {
+			margin-left: 0;
+			margin-right: 0;
+			width: 100%;
+		}
+	}
+	@media (max-width: 450px) {
+		h2 {
+			font-size: 1.75em;
 		}
 	}
 </style>
