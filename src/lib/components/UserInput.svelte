@@ -79,26 +79,21 @@
 
 			suggestions = results.slice(0, 5); // Limitoi ehdotukset 5 ja lisää ne taulukkoon
 			selectedIndex = results.length > 0 ? 0 : null; // Asettaa valitun indeksin ensimmäiseksi ehdotukseksi tai null jos ei ehdotuksia
-			console.log('Fetched suggestions:', suggestions);
 		} catch (error) {
 			console.error('Failed to fetch city suggestions:', error);
 			suggestions = []; // Reseto9i ehdotukset jos error
 		}
 	}
 
-	onDestroy(() => {
-		clearTimeout(timeoutId); // Tyhjentää timeoutin kun komponentti tuhotaan
-	});
-
 	// Input handler etsintäpalikalle
 	// kutsuu fetchSuggestions funktiota, joka hakee kaupungin nimen
 	function handleInput(event: Event) {
+		searchListVisible = true;
 		if (oninput) {
 			oninput();
 		}
-		const value = (event.target as HTMLInputElement).value;
-		clearTimeout(timeoutId);
-		timeoutId = setTimeout(() => fetchSuggestions(value), 300); // 300ms debounce
+
+		fetchSuggestions(value);
 	}
 
 	function selectsuggestion(city: string) {
@@ -130,6 +125,7 @@
 			onkeydown(event);
 		}
 	}
+	let searchListVisible: boolean = $state(false);
 </script>
 
 <div class="search-container">
@@ -142,6 +138,8 @@
 				{disabled}
 				oninput={handleInput}
 				onkeydown={handleKeydown}
+				onblur={() => setTimeout(() => (searchListVisible = false), 100)}
+				onfocus={() => (searchListVisible = true)}
 				class="search-input"
 			/>
 			<button onclick={search} class="search-button">
@@ -153,7 +151,7 @@
 		</div>
 	</div>
 
-	{#if suggestions.length > 0}
+	{#if searchListVisible}
 		<ul class="suggestion-list">
 			{#each suggestions as suggestion, index}
 				<li class:selected={selectedIndex === index}>

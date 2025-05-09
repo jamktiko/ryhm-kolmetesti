@@ -88,9 +88,6 @@
 	.active {
 		background-color: var(--active-color);
 	}
-	.weather-hour:hover {
-		color: var(--sec-text);
-	}
 
 	/* Responsiivisuus pienille näytöille */
 	@media (max-width: 879px) {

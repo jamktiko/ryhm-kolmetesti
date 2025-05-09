@@ -277,7 +277,7 @@
 		--sec-text: #f2f2f2;
 		--lammin-color: var(--main-text);
 		--pakkas-color: rgb(3, 63, 153);
-		--main-color: #d1e9fd4f;
+		--main-color: #d1e9fd75;
 		--sec-color: #e7f4ff70;
 		--third-color: #777777;
 		--text-decoration-color: black;
