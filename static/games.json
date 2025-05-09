@@ -1,0 +1,114 @@
+[
+	{
+		"id": 1,
+		"question": "Mikä aiheuttaa salaman?",
+		"answers": [
+			"Staattinen varaus ilmakehässä",
+			"Kemiallinen reaktio pilvissä",
+			"Äkillinen lämpötilan muutos",
+			"Ilmamassojen törmäys"
+		],
+		"correctAnswer": "Staattinen varaus ilmakehässä"
+	},
+	{
+		"id": 2,
+		"question": "Mistä ilmanpaineen vaihtelu johtuu?",
+		"answers": [
+			"Maan magneettikentän muutoksista",
+			"Kuun vetovoiman vaikutuksesta",
+			"Ilman lämmetessä, se alkaa kohota ylöspäin muuttaen ilmanpainetta",
+			"Pilvien värin vaihtelusta"
+		],
+		"correctAnswer": "Ilman lämmetessä, se alkaa kohota ylöspäin muuttaen ilmanpainetta"
+	},
+	{
+		"id": 3,
+		"question": "Mikä on aurinkokuntamme suurin planeetta?",
+		"answers": ["Maa", "Jupiter", "Mars", "Saturnus"],
+		"correctAnswer": "Jupiter"
+	},
+	{
+		"id": 4,
+		"question": "Mistä johtuu sade?",
+		"answers": [
+			"Pilvien värin tummumisesta",
+			"Maan pyörimisliikkeestä",
+			"Vesihöyryn noustessa ilmakehään, se tiivistyy vesipisaroiksi ja tippuu alas",
+			"Auringonvalon heijastumisesta pilvistä"
+		],
+		"correctAnswer": "Vesihöyryn noustessa ilmakehään, se tiivistyy vesipisaroiksi ja tippuu alas"
+	},
+	{
+		"id": 5,
+		"question": "Mikä on trombi?",
+		"answers": [
+			"Huvipuistolaite",
+			"Raju, suppea-alainen pyörretuuli",
+			"Merenalainen maanjäristys",
+			"Ilmakehän paineaalto"
+		],
+		"correctAnswer": "Raju, suppea-alainen pyörretuuli"
+	},
+	{
+		"id": 6,
+		"question": "Mitä on sumu?",
+		"answers": [
+			"Lähellä maanpintaa oleva pilvi",
+			"Ilmakehän aiheuttama sähkövaraus",
+			"Maan pinnan heijastama valo",
+			"Pilvien muodostama jääkerros"
+		],
+		"correctAnswer": "Lähellä maanpintaa oleva pilvi"
+	},
+	{
+		"id": 7,
+		"question": "Kuinka kauan auringonvalolla kestää, että se osuu maahan?",
+		"answers": ["Noin 4 minuutti", "Noin 8 minuuttia", "Noin 12 minuuttia", "Noin 16 minuuttia"],
+		"correctAnswer": "Noin 8 minuuttia"
+	},
+	{
+		"id": 8,
+		"question": "Mistä johtuu auringonpimennys?",
+		"answers": [
+			"Auringon sammumisesta hetkellisesti",
+			"Maan pyörimisliikkeen hidastumisesta",
+			"Kuun asettuessa täydellisesti maan ja auringon väliin",
+			"Pilvien kasaantumisesta auringon eteen"
+		],
+		"correctAnswer": "Kuun asettuessa täydellisesti maan ja auringon väliin"
+	},
+	{
+		"id": 9,
+		"question": "Kuinka kuuma on auringon pinta?",
+		"answers": ["Noin 2500°C", "Noin 5000 °C", "Noin 15000 °C", "Noin 30000 °C"],
+		"correctAnswer": "Noin 5000 °C"
+	},
+	{
+		"id": 10,
+		"question": "Kuinka kuuma on auringon ydin?",
+		"answers": [
+			"Noin 150 tuhatta astetta",
+			"Noin 1 miljoonaa astetta",
+			"Noin 15 miljoonaa astetta",
+			"Noin 50 miljoonaa astetta"
+		],
+		"correctAnswer": "Noin 15 miljoonaa astetta"
+	},
+	{
+		"id": 11,
+		"question": "Mikä on merkittävin auringosta tuleva säteily?",
+		"answers": ["Infrapunasäteily", "Gammasäteily", "Röntgensäteily", "UV-säteily"],
+		"correctAnswer": "UV-säteily"
+	},
+	{
+		"id": 12,
+		"question": "Mistä syntyy happi?",
+		"answers": [
+			"Fotosynteesistä",
+			"Veden haihtumisesta",
+			"Ilmakehän sähkövarauksista",
+			"Maan magneettikentästä"
+		],
+		"correctAnswer": "Fotosynteesistä"
+	}
+]
