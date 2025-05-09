@@ -73,7 +73,6 @@
 	.weather-hour {
 		height: 100%;
 		transition: background-color 0.3s ease;
-
 		border: none;
 		background: none;
 		color: var(--main-text);

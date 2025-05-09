@@ -286,7 +286,7 @@
 	}
 	main {
 		padding: 0.5em;
-		max-width: 960px; /* Esimerkiksi 960px tai 100% */
+		max-width: 960px;
 		width: 100%;
 		margin: 0 auto;
 		box-sizing: border-box;
@@ -298,8 +298,8 @@
 	}
 	@media (max-width: 600px) {
 		.main {
-		padding: 0em;
-		max-width: 100%;
+			padding: 0em;
+			max-width: 100%;
 		}
 	}
 </style>

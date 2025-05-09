@@ -255,9 +255,7 @@
 		color: var(--main-text);
 		width: 91%;
 		box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
-
 	}
-	
 
 	.suggestion-list li {
 		padding: 0.75rem;
