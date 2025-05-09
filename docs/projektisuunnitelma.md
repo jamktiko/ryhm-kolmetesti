@@ -18,7 +18,9 @@
 
 ## Projektin tiedot
 
+
 Sääsovellus --- CloudCast
+
 
 
 ## Projektin sisältö
@@ -29,6 +31,7 @@ Ensimmäisenä vuonna opitun tiedon hyödyntäminen käytännössä
 ### Kuvaus
 
 Sääapplikaatio, joka näyttää halutun maan tai paikkakunnan sään.
+
 Hakee kaupungin tai paikkakunnan avulla säätiedot. Apina toimii FMi open data (ilmatieteen laitos).
 
 ### Projektiryhmä
@@ -58,13 +61,14 @@ Toimia ryhmänä yhteisen tavoitteen eteen.
 | Projektin tuotanto | Viikko 19 | Projektin viimeistely esim. responsiivisuus ja toiminnallisuuksien hiominen |
 | Projektin julkaisu | 09.05.2025 | Projekti saatava valmiiksi |
 | Projektin esittely | Viikko 20 | Sovelluksen esittämiseen liittyvien materiaalien tuotanto |
+| Projektin lopullinen julkaisu | 09.05.2025 | Sovelluksen pitäisi olla valmis |
 | Projekti päättyy | 16.05.2025 | Ohjelmistoprojekti 1 päättyy + sovelluksen esittely |
 
 ## Raportointi, kommunikointi ja dokumentointi
 
 ### Raportointi
 
--Ryhmän jäsenet raportoivat viikkoraportin kirjoittajalle omista tekemistään viikkopalaverissa.
+Ryhmän jäsenet raportoivat viikkoraportin kirjoittajalle omista tekemistään viikkopalaverissa tai muutoin sopivalla hetkellä.
 
 ### Tuntikirjaukset
 
@@ -73,7 +77,7 @@ Tehtäväkohtaista tuntityömäärää voidaan pohtia yhteisesti.
 
 ### Palaverikäytänteet
 
-Projektin viikkopalaveri pidetään perjantaisin luokassa AP10 ja dokumentaatio-päällikkö kirjoittaa palaveripöytäkirjan.
+Projektin viikkopalaveri pidetään perjantaisin iltapäivällä luokassa AP10 ja dokumentaatio-päällikkö kirjoittaa palaveripöytäkirjan.
 
 ### Kommunikointitavat
 
