@@ -1,14 +1,22 @@
 <script lang="ts">
 	import { appInfo } from '$lib/appInfo';
+	import { page } from '$app/stores';
 	import { weatherGlobal } from '$lib/weatherGlobal.svelte';
 </script>
 
 <header>
 	<img class="logo" src={appInfo.logo} alt="Logo" />
+	<nav>
+		<!--<a class:active={$page.url.pathname === '/'} href="/">Etusivu</a>-->
+		<a class:active={$page.url.pathname === '/tietovisa'} href="/tietovisa">Päivän Tietovisa</a>
+	</nav>
 	<!--<h1 style="transition: color 1s;" class:yo={weatherGlobal.isNight}>{appInfo.name}</h1>-->
 </header>
 
 <style>
+	.active {
+		color: black;
+	}
 	.logo {
 		width: 200px;
 		height: auto;
