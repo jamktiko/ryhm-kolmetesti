@@ -5,14 +5,16 @@
 
 <header>
 	<img class="logo" src={appInfo.logo} alt="Logo" />
-	<h1 style="transition: 1s;" class:yo={weatherGlobal.isNight}>{appInfo.name}</h1>
+	<!--<h1 style="transition: color 1s;" class:yo={weatherGlobal.isNight}>{appInfo.name}</h1>-->
 </header>
 
 <style>
 	.logo {
-		width: 150px;
+		width: 200px;
 		height: auto;
-		float: left;
+	}
+	h1 {
+		font-size: 3em;
 	}
 	header {
 		box-sizing: border-box;
@@ -21,19 +23,24 @@
 		left: 0;
 		width: 100%;
 		/*background-color: var(--main-color);*/
-		color: var(--text-decoration-color);
+		color: var(--main-text);
 		padding: 1em;
 		padding-bottom: 0px;
 		width: 100%;
 	}
 	@media (max-width: 343px) {
 		.logo {
-			width: 120px;
-		} 
+			width: 150px;
+		}
 		header {
 			padding: 0px;
 			padding-top: 1em;
 			padding-bottom: 1em;
+		}
+	}
+	@media (max-width: 768px) {
+		header {
+			text-align: center;
 		}
 	}
 </style>

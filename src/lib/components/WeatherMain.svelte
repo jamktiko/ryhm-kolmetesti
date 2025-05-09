@@ -23,7 +23,7 @@
 			<!-- Vasen laatikko: kaupunki, otsikko, lämpötila ja kuva -->
 			<div class="weather-box">
 				<div class="rivi">
-					<h3 class:pitkanimi={weatherGlobal.selectedCity.length >= 8}>
+					<h3 class:pitkanimi={weatherGlobal.selectedCity.length > 8}>
 						{weatherGlobal.selectedCity}
 					</h3>
 				</div>
@@ -51,22 +51,11 @@
 </div>
 
 <style>
-	.icon {
-		width: 1em;
-	}
-	.weather-title {
-		clear: both;
-		float: left;
-	}
-	.weather-info {
-		font-size: 1em;
-		float: right;
-	}
 	.lamminta {
-		color: red;
+		color: var(--lammin-color);
 	}
 	.pakkasta {
-		color: blue;
+		color: var(--pakkas-color);
 	}
 
 	.rivi {
@@ -82,10 +71,11 @@
 	}
 
 	h3 {
-		color: var(--text-decoration-color);
-		font-size: 30px;
+		color: var(--main-text);
+		float: left;
+		font-size: 2em;
+		margin-top: 0.5em;
 	}
-
 	div {
 		position: relative;
 		box-sizing: border-box;
@@ -136,7 +126,7 @@
 		border-radius: 20px;
 		/*padding: 1rem;*/
 		width: 100%;
-		max-width: 600px;
+
 		box-sizing: border-box;
 		overflow-x: hidden;
 	}
@@ -144,7 +134,6 @@
 	.weather-split {
 		max-width: 100%;
 		display: flex;
-
 		margin: 0.5rem 0rem;
 		flex-wrap: wrap;
 		align-items: stretch;
@@ -160,17 +149,6 @@
 		text-align: center; /* Voit säätää leveyttä tarvittaessa */
 	}
 
-	.weather-box2 {
-		background-color: #47bcffb9;
-		border-radius: 20px;
-		box-shadow: 0 4px 12px rgba(0, 0, 0, 0);
-		padding: 1rem; /* Oikean laatikon leveys pienemmäksi */
-		text-align: center;
-		max-width: 58%;
-		flex: 1 1 60%;
-		overflow: hidden;
-	}
-
 	#main-symbol {
 		width: 100%;
 		max-width: 80px; /* Voit säätää tätä isommaksi tai pienemmäksi */
@@ -178,25 +156,17 @@
 		object-fit: contain;
 		overflow: hidden;
 	}
-	.weather-detail {
-		font-size: large;
-		/*padding-top: 4rem;*/
-	}
+
 	.pitkanimi {
 		margin-left: 0 !important;
 	}
 	.weather-box {
 		text-align: left;
 	}
-	.weather-box2 {
-		margin: 0;
-	}
-	.weather-title,
-	.weather-info {
-		font-size: 95%;
-	}
+
 	.pitkanimi {
-		font-size: 25px;
+		font-size: 1.5em;
+		margin-top: 1em;
 	}
 	.rivi {
 		justify-content: flex-start;
@@ -205,13 +175,7 @@
 		float: left;
 		margin-left: 5px;
 	}
-	h3 {
-		float: left;
-		margin-left: 7px;
-		font-size: 25px;
-	}
-	.weather-inline {
-	}
+
 	@media (max-width: 900px) {
 		.rectangle-14 {
 			margin: 0 auto;
@@ -220,20 +184,13 @@
 
 	@media (max-width: 850px) {
 		.pitkanimi {
-			font-size: 20px;
+			font-size: 1.25em;
 		}
 		.rectangle-14 {
 			margin: 0 auto;
 		}
-		.weather-title,
-		.weather-info {
-			font-size: 90%;
-		}
+
 		@media (max-width: 820px) {
-			.weather-title,
-			.weather-info {
-				font-size: 80%;
-			}
 		}
 	}
 	@media (max-width: 768px) {
@@ -241,89 +198,95 @@
 		.rectangle-14 {
 			margin: 0 auto;
 		}
-		.weather-title,
-		.weather-info {
-			font-size: 85%;
+		.pitkanimi {
+			font-size: 1.5em;
 		}
 	}
-
+	@media (max-width: 550px) {
+		.pitkanimi {
+			font-size: 1.25em;
+		}
+	}
 	@media (max-width: 485px) {
 		/* Puhelimet ja pienemmät näytöt */
 		.pitkanimi {
-			font-size: 15px;
+			font-size: 1.2em;
 		}
-		.weather-title,
-		.weather-info {
-			font-size: 80%;
+		h2 {
+			font-size: 4em;
 		}
-		.rivi {
-			justify-content: flex-start;
-		}
-		h3 {
-			margin-left: 7px;
-		}
-		#main-symbol {
-			justify-content: flex-start;
-		}
-		@media (max-width: 420px) {
-			.weather-title,
-			.weather-info {
-				font-size: 75%;
-			}
+	}
+	.rivi {
+		justify-content: flex-start;
+	}
+	h3 {
+		margin-left: 7px;
+		font-size: 165%;
+	}
+	#main-symbol {
+		justify-content: flex-start;
+	}
+	@media (max-width: 420px) {
+		.pitkanimi {
+			font-size: 1.15em;
 		}
 	}
 	@media (max-width: 400px) {
-		.pitkanimi {
-			font-size: 15px;
-		}
 		h2 {
-			font-size: 30px;
 			margin-left: 0px;
 		}
 		#main-symbol {
 			width: 75%;
 		}
-		.weather-title,
-		.weather-info {
-			font-size: 65%;
-		}
 		h3 {
-			font-size: 20px;
+			font-size: 140%;
 			margin-left: 0px;
 		}
 		.weather-inline {
 			margin-left: 0px;
 		}
 		.weather-split {
-			gap: 0.5rem;
+			gap: 0.25rem;
 		}
-	}
-	@media (max-width: 370px) {
-		.weather-title,
-		.weather-info {
-			font-size: 60%;
+		.pitkanimi {
+			font-size: 1em;
 		}
 	}
 	@media (max-width: 380px) {
 		.pitkanimi {
-			font-size: 13px;
+			font-size: 0.95em;
 		}
 	}
-
 	@media (max-width: 350px) {
-		.weather-title,
-		.weather-info {
-			font-size: 55%;
-		}
 		h3 {
-			font-size: 15px;
+			font-size: 125%;
 			margin-left: 0px;
 		}
 		h2 {
-			font-size: 25px;
+			font-size: 45px;
 		}
 		.pitkanimi {
-			font-size: 10px;
+			font-size: 0.9em;
+		}
+	}
+	@media (max-width: 342px) {
+		.pitkanimi {
+			font-size: 0.85em;
+		}
+	}
+	@media (max-width: 325px) {
+		.pitkanimi {
+			font-size: 0.8em;
+		}
+	}
+	@media (max-width: 315px) {
+		.pitkanimi {
+			font-size: 0.75em;
+		}
+	}
+	@media (max-width: 300px) {
+		.pitkanimi {
+			font-size: 0.6em;
 		}
 	}
 </style>

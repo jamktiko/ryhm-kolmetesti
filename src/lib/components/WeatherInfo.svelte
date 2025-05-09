@@ -16,7 +16,7 @@
 
 <div>
 	<span>
-		<p>{weatherInfo.title}</p>
+		<p><b>{weatherInfo.title}</b></p>
 	</span>
 	<span>
 		<img src="/icons/{`${weatherInfo.icon}.svg`}" alt="Sääkuvake" />
@@ -24,24 +24,25 @@
 	<span>
 		{#if 'extraData' in weatherInfo}
 			<p>
-				{weatherInfo.data}
+				<b>{weatherInfo.data}</b>
 				{weatherInfo.unit}
 				{#if weatherInfo.title === 'Tuuli'}
-					<img src="/icons/{`${weatherInfo.extraData}_wind.svg`}" alt="Sääkuvake" />
+					<img class="wind-direction" src="/icons/{`${weatherInfo.extraData}_wind.svg`}" alt="Sääkuvake" />
 				{:else}
-					| {weatherInfo.extraData}
+					| <b>{weatherInfo.extraData}</b>
 					{weatherInfo.extraUnit}
 				{/if}
 			</p>
 		{:else}
-			<p>{weatherInfo.data} {weatherInfo.unit}</p>
+			<p><b>{weatherInfo.data}</b> {weatherInfo.unit}</p>
 		{/if}
 	</span>
 </div>
 
 <style>
 	div {
-		flex: 0 0 45%;
+		color: var(--main-text);
+		flex: 0 0 48.75%;
 		border-radius: 20px;
 		background-color: var(--sec-color);
 		display: flex;
@@ -49,9 +50,35 @@
 		justify-content: space-evenly;
 	}
 	p {
+		font-size: 1.125em;
 		margin: 0.5em;
 	}
 	img {
 		margin-left: 0.5em;
+	}
+	@media (max-width: 436px) {
+		p {
+			font-size: 95%;
+		}
+	}
+	@media (max-width: 405px) {
+		.wind-direction {
+			margin-left: 0em;
+		}
+		p {
+			margin: 0;
+			margin-left: 0.5em;
+			justify-content: flex-start;
+			font-size: 90%;
+		}
+		@media (max-width: 371px) {
+			p {
+				font-size: 80%;
+		}
+	}
+	@media (max-width: 342px) {
+		
+	}
+		
 	}
 </style>

@@ -61,9 +61,15 @@
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
-		justify-content: center;
+		justify-content: space-between;
 		align-content: stretch;
-		gap: 5%;
+		gap: 2.5%;
 		overflow: hidden;
 	}
+	@media (max-width: 400px) {
+		div {
+			gap: 2%
+		}
+	}
+
 </style>

@@ -19,23 +19,29 @@
 
 <style>
 	.weather-hours {
+		padding: 0 0.5em;
+		padding-bottom: 0.5em;
 		width: 100%;
 		display: inline-flex;
 		flex-direction: row;
 		flex-wrap: nowrap;
 		justify-content: flex-end;
+		box-sizing: border-box;
 	}
 
 	/* Responsiivisuus pienille näytöille */
 	@media (max-width: 879px) {
 		.weather-hours {
 			position: relative;
-			flex-wrap: wrap;
+			flex-wrap: nowrap;
 			justify-content: center;
 			/*padding: 10px 0;  Voit lisätä takaisin jos tärkeä*/
 		}
 	}
 
-	@media (max-width: 480px) {
+	@media (max-width: 361px) {
+		.weather-hours {
+			font-size: 95%;
+		}
 	}
 </style>
