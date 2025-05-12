@@ -138,7 +138,7 @@
 				{disabled}
 				oninput={handleInput}
 				onkeydown={handleKeydown}
-				onblur={() => setTimeout(() => (searchListVisible = false), 100)}
+				onblur={() => setTimeout(() => (searchListVisible = false), 500)}
 				onfocus={() => (searchListVisible = true)}
 				class="search-input"
 			/>
