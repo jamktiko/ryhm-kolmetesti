@@ -154,7 +154,6 @@
 	}
 	h2 {
 		float: left;
-		margin-left: 5px;
 	}
 
 	@media (max-width: 900px) {
@@ -174,6 +173,11 @@
 		@media (max-width: 820px) {
 		}
 	}
+	@media (max-width: 790px) {
+		h2 {
+			font-size: 4.5rem;
+		}
+	}
 	@media (max-width: 768px) {
 		/* Tabletit ja pienemmät näytöt */
 		.rectangle-14 {
@@ -181,6 +185,9 @@
 		}
 		.pitkanimi {
 			font-size: 1.5em;
+		}
+		h2 {
+			font-size: 5rem;
 		}
 	}
 	@media (max-width: 550px) {
@@ -213,9 +220,6 @@
 		}
 	}
 	@media (max-width: 400px) {
-		h2 {
-			margin-left: 0px;
-		}
 		#main-symbol {
 			width: 75%;
 		}
@@ -232,6 +236,9 @@
 		.pitkanimi {
 			font-size: 1em;
 		}
+		h2 {
+			font-size: 3em;
+		}
 	}
 	@media (max-width: 380px) {
 		.pitkanimi {
@@ -242,9 +249,6 @@
 		h3 {
 			font-size: 125%;
 			margin-left: 0px;
-		}
-		h2 {
-			font-size: 45px;
 		}
 		.pitkanimi {
 			font-size: 0.9em;
@@ -259,15 +263,22 @@
 		.pitkanimi {
 			font-size: 0.8em;
 		}
+		h2 {
+			font-size: 2.5em
+		}
 	}
 	@media (max-width: 315px) {
 		.pitkanimi {
 			font-size: 0.75em;
 		}
+		h3 {
+			font-size: 110%;
+		}
 	}
 	@media (max-width: 300px) {
 		.pitkanimi {
 			font-size: 0.6em;
+		
 		}
 	}
 </style>
