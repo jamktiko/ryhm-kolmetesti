@@ -91,6 +91,8 @@
 		font-size: 5rem;
 		text-align: center;
 		margin: 1rem 0rem;
+		float: left;
+		margin-left: 5px;
 	}
 
 	p {
@@ -129,7 +131,6 @@
 		border-radius: 20px;
 		/*padding: 1rem;*/
 		width: 100%;
-
 		box-sizing: border-box;
 		overflow-x: hidden;
 	}
@@ -173,10 +174,6 @@
 	}
 	.rivi {
 		justify-content: flex-start;
-	}
-	h2 {
-		float: left;
-		margin-left: 5px;
 	}
 
 	@media (max-width: 900px) {

@@ -56,7 +56,6 @@
 <style>
 	div {
 		flex: 1 1 60%;
-
 		max-width: 58%;
 		display: flex;
 		flex-direction: row;
@@ -68,8 +67,7 @@
 	}
 	@media (max-width: 400px) {
 		div {
-			gap: 2%
+			gap: 2%;
 		}
 	}
-
 </style>
