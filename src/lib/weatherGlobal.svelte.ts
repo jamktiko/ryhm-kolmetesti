@@ -164,7 +164,7 @@ class WeatherGlobal {
 			let loop = false;
 			const tietoTaulukko: Weather[] = [];
 			for (const tieto of this.saatietoTaulukko) {
-				if (new Date().getUTCHours() < 12 || new Date().getHours() >= 21) {
+				if (new Date().getUTCHours() < 12 || new Date().getUTCHours() >= 21) {
 					if (tieto.Date.getUTCHours() === 12) {
 						tietoTaulukko.push(tieto);
 					}
