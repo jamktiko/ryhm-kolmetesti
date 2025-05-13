@@ -12,8 +12,6 @@
 		{#if weatherHour.Date.getDate() === weatherGlobal.selectedDay}
 			<WeatherHour {weatherHour} />
 		{/if}
-	{:else}
-		<p>Ei sää tietoja</p>
 	{/each}
 </div>
 

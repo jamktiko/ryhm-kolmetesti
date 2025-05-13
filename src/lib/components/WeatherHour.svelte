@@ -56,6 +56,7 @@
 	img {
 		width: 40px;
 		height: 40px;
+		color: #00000000; /** To make alt text invisible when symbol not loaded **/
 	}
 	.rain-info {
 		overflow: auto;

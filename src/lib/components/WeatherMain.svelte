@@ -43,7 +43,7 @@
 			<WeatherInfoBox {weather} />
 		</div>
 	{:else}
-		<p>Ei säätietoja</p>
+		<p style="font-size:2em">Haetaan säätietoja...</p>
 	{/if}
 
 	<div></div>
@@ -51,6 +51,9 @@
 </div>
 
 <style>
+	img {
+		color: #00000000; /** To make alt text invisible when symbol not loaded **/
+	}
 	.lamminta {
 		color: var(--lammin-color);
 	}
