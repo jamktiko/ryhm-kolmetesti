@@ -51,6 +51,9 @@
 </div>
 
 <style>
+	img {
+		color: #00000000; /** To make alt text invisible when symbol not loaded **/
+	}
 	.lamminta {
 		color: var(--lammin-color);
 	}
