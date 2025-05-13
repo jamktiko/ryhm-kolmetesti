@@ -53,6 +53,10 @@
 </button>
 
 <style>
+	img {
+		width: 40px;
+		height: 40px;
+	}
 	.rain-info {
 		overflow: auto;
 	}
@@ -109,6 +113,7 @@
 		}
 		img {
 			width: 36px;
+			height: 36px;
 		}
 	}
 </style>
