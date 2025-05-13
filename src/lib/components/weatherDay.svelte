@@ -98,7 +98,7 @@
 		}
 		img {
 			width: 36px;
-			heigth: 40px;
+			heigth: 36px;
 		}
 	}
 </style>
