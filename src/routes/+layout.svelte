@@ -184,15 +184,6 @@
 
 		// Päivittää taivasefektin värejä
 		$effect(() => {
-			nopeusTween.target = Number(weatherGlobal.selectedWeather.WindSpeedMS) / 4;
-			skyColors(
-				weatherGlobal.currentWeatherEffect.SkyColor,
-				weatherGlobal.currentWeatherEffect.CloudColor,
-				weatherGlobal.currentWeatherEffect.ShadowColor,
-				weatherGlobal.currentWeatherEffect.SunColor,
-				weatherGlobal.currentWeatherEffect.GlareColor,
-				weatherGlobal.currentWeatherEffect.LightColor
-			);
 			taivas.setOptions({
 				skyColor: rgbToHex(skyrTween.current, skygTween.current, skybTween.current),
 				cloudColor: rgbToHex(cloudrTween.current, cloudgTween.current, cloudbTween.current),
@@ -214,7 +205,23 @@
 				),
 				speed: nopeusTween.current.toFixed(1)
 			});
+			//console.log('Taivas setoption effect');
 		});
+	});
+	$effect(() => {
+		nopeusTween.target = Number(weatherGlobal.selectedWeather.WindSpeedMS) / 4;
+		//console.log('Nopeus effect');
+	});
+	$effect(() => {
+		skyColors(
+			weatherGlobal.currentWeatherEffect.SkyColor,
+			weatherGlobal.currentWeatherEffect.CloudColor,
+			weatherGlobal.currentWeatherEffect.ShadowColor,
+			weatherGlobal.currentWeatherEffect.SunColor,
+			weatherGlobal.currentWeatherEffect.GlareColor,
+			weatherGlobal.currentWeatherEffect.LightColor
+		);
+		//console.log('skycolor effect');
 	});
 
 	// Tällä asetetaan taivaalle värit hex koodeilla ja se muuntaa ne rgb:ksi
@@ -244,6 +251,7 @@
 		href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,300,0,0"
 	/>
 </svelte:head>
+
 <!--Asettaa taustalle taivaan-->
 <div
 	id="background"
