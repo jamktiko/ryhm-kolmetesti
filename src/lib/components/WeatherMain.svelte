@@ -7,8 +7,6 @@
 	import WeatherInfoBox from './WeatherInfoBox.svelte';
 
 	let weather = $derived(weatherGlobal.selectedWeather);
-	let weatherDate = $derived(`${weather.Date.getDate()}.${weather.Date.getMonth() + 1}`);
-	let weatherTime = $derived(`${weather.Date.getHours()}.00`);
 </script>
 
 <svelte:head>
