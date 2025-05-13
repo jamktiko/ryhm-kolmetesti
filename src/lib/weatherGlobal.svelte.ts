@@ -6,7 +6,7 @@ class WeatherGlobal {
 	// private _currentWeather: string = $derived(
 	// 	this.saatietoTaulukko[this.selectedDay - 1][this.selectedHour - 1].WeatherSymbol3
 	// );
-	private _weatherDayList: Weather[] = $derived(this.setWeatherDayList()); // Lista missä joka päivän klo 15 säätieto
+	private _weatherDayList: Weather[] = $derived(this.setWeatherDayList()); // Lista missä joka päivän klo 12 säätieto
 	private _hakuPaivat: number = $state(7); // Kuinka monen päivän sää haetaan
 	private _paivienMaara: number = $state(7);
 	private _saatietoTaulukko: Weather[] = $state([]); // Taulukko joka sisältää kaikki säätiedot objekteina
@@ -158,20 +158,20 @@ class WeatherGlobal {
 	}
 
 	private setWeatherDayList() {
-		// Laittaa taulukkoon joka päivältä kello 15 sään, paitsi ekaltam jos kello on yli 15. Jos kello on yli 21, se laittaa vasta seuraavan päivän listaan.
+		// Laittaa taulukkoon joka päivältä kello 12 sään, paitsi ekaltam jos kello on yli 12. Jos kello on yli 21, se laittaa vasta seuraavan päivän listaan.
 		if (this.saatietoTaulukko.length > 0) {
 			let loop = false;
 			const tietoTaulukko: Weather[] = [];
 			for (const tieto of this.saatietoTaulukko) {
-				if (new Date().getHours() < 15 || new Date().getHours() >= 21) {
-					if (tieto.Date.getHours() === 15) {
+				if (new Date().getUTCHours() < 12 || new Date().getUTCHours() >= 21) {
+					if (tieto.Date.getUTCHours() === 12) {
 						tietoTaulukko.push(tieto);
 					}
 				} else {
 					if (!loop) {
 						tietoTaulukko.push(tieto);
 					}
-					if (tieto.Date.getHours() === 15 && tieto.Date.getDay() !== new Date().getDay()) {
+					if (tieto.Date.getUTCHours() === 12 && tieto.Date.getDay() !== new Date().getDay()) {
 						tietoTaulukko.push(tieto);
 					}
 				}
@@ -193,7 +193,7 @@ class WeatherGlobal {
 			this.saatietoTaulukko.find(
 				(weather) =>
 					weather.Date.getDate() === this.selectedDay &&
-					weather.Date.getHours() === this.selectedHour
+					weather.Date.getUTCHours() === this.selectedHour
 			) ?? {
 				Date: new Date(),
 				Temperature: 0,
