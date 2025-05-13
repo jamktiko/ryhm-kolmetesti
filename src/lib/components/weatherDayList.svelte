@@ -9,13 +9,11 @@
 
 <!-- ui juttuja -->
 <div class="rectangle-15">
-	{#if weatherGlobal.saatietoTaulukko.length > 0}
-		<div class="button-container">
-			{#each weatherDayList as day, index}
-				<WeatherDay weather={day} />
-			{/each}
-		</div>
-	{/if}
+	<div class="button-container">
+		{#each weatherDayList as day, index}
+			<WeatherDay weather={day} />
+		{/each}
+	</div>
 </div>
 
 <style>
