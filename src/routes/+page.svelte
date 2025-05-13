@@ -103,8 +103,8 @@
 					});
 				}
 				weatherGlobal.saatietoTaulukko = saatietoTaulukko; // Vie säätietotaulukon globaaliin muuttujaan
-				weatherGlobal.selectedDay = weatherGlobal.saatietoTaulukko[0].Date.getDate(); // Asettaa valituksi päiväksi ensimmäisen päivän
-				weatherGlobal.selectedHour = weatherGlobal.saatietoTaulukko[0].Date.getHours(); // Asettaa valituksi tunniksi ensimmäisen saatavilla olevan tunnin
+				weatherGlobal.selectedDay = weatherGlobal.saatietoTaulukko[0].Date.getUTCDate(); // Asettaa valituksi päiväksi ensimmäisen päivän
+				weatherGlobal.selectedHour = weatherGlobal.saatietoTaulukko[0].Date.getUTCHours(); // Asettaa valituksi tunniksi ensimmäisen saatavilla olevan tunnin
 			})
 			.catch((error) => {
 				if (error instanceof Error) {

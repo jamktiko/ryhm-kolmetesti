@@ -11,9 +11,9 @@
 </script>
 
 <button
-	class:active={weatherHour.Date.getHours() === weatherGlobal.selectedHour}
+	class:active={weatherHour.Date.getUTCHours() === weatherGlobal.selectedHour}
 	onclick={() => {
-		weatherGlobal.selectedHour = weatherHour.Date.getHours();
+		weatherGlobal.selectedHour = weatherHour.Date.getUTCHours();
 	}}
 	class="weather-hour"
 >
