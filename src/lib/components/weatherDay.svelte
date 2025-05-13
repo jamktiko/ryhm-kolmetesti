@@ -17,15 +17,15 @@
 </script>
 
 <button
-	class:active={weather.Date.getDate() === weatherGlobal.selectedDay}
+	class:active={weather.Date.getUTCDate() === weatherGlobal.selectedDay}
 	onclick={() => {
-		weatherGlobal.selectedDay = weather.Date.getDate();
+		weatherGlobal.selectedDay = weather.Date.getUTCDate();
 		if (
-			weatherGlobal.saatietoTaulukko[0].Date.getDay() === weather.Date.getDay() &&
-			weatherGlobal.saatietoTaulukko[0].Date.getHours() > weatherGlobal.selectedHour
+			weatherGlobal.saatietoTaulukko[0].Date.getUTCDay() === weather.Date.getUTCDay() &&
+			weatherGlobal.saatietoTaulukko[0].Date.getUTCHours() > weatherGlobal.selectedHour
 		) {
 			// Jos valittu päivä on eka päivä ja eka saatavilla oleva tunti on enemmän kuin tämän hetkinen valittu tunti, asettaa valituksi tunniksi ensimmäisen saatavilla olevan tunnin.
-			weatherGlobal.selectedHour = weatherGlobal.saatietoTaulukko[0].Date.getHours();
+			weatherGlobal.selectedHour = weatherGlobal.saatietoTaulukko[0].Date.getUTCHours();
 		} else {
 			//weatherGlobal.selectedHour = 0; //Poistettu käytöstä, että ei nollaakkaan tuntia
 		}

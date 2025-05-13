@@ -192,7 +192,7 @@ class WeatherGlobal {
 		return (
 			this.saatietoTaulukko.find(
 				(weather) =>
-					weather.Date.getDate() === this.selectedDay &&
+					weather.Date.getUTCDate() === this.selectedDay &&
 					weather.Date.getUTCHours() === this.selectedHour
 			) ?? {
 				Date: new Date(),
