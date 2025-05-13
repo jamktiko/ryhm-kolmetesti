@@ -43,7 +43,7 @@
 			<WeatherInfoBox {weather} />
 		</div>
 	{:else}
-		<p>Ei säätietoja</p>
+		<p style="font-size:2em">Haetaan säätietoja...</p>
 	{/if}
 
 	<div></div>

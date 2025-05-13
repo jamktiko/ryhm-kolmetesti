@@ -73,7 +73,7 @@
 			</div>
 		{/if}
 	{:else}
-		<h1>Pelejä ei löytynyt</h1>{/if}
+		<p style="font-size:2em">Haetaan tietovisaa...</p>{/if}
 </div>
 
 <style>
