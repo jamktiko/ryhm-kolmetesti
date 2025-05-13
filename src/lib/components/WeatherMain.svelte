@@ -27,6 +27,11 @@
 						{weatherGlobal.selectedCity}
 					</h3>
 				</div>
+
+				<h4>
+					{weatherGlobal.selectedRegion}
+				</h4>
+
 				<div class="weather-inline">
 					<h2>
 						<strong
@@ -51,6 +56,10 @@
 </div>
 
 <style>
+	h4 {
+		margin: 0;
+		color: #444444;
+	}
 	img {
 		color: #00000000; /** To make alt text invisible when symbol not loaded **/
 	}
@@ -61,6 +70,9 @@
 		color: var(--pakkas-color);
 	}
 
+	:global(:root) {
+		font-family: 'Inter', sans-serif;
+	}
 	.rivi {
 		display: flex;
 		justify-content: center;
@@ -69,15 +81,12 @@
 		align-items: center;
 	}
 
-	:global(:root) {
-		font-family: 'Inter', sans-serif;
-	}
-
 	h3 {
 		color: var(--main-text);
 		float: left;
 		font-size: 2em;
 		margin-top: 0.5em;
+		margin-bottom: 0.5em;
 	}
 	div {
 		position: relative;
@@ -154,7 +163,6 @@
 	}
 	h2 {
 		float: left;
-		margin-left: 5px;
 	}
 
 	@media (max-width: 900px) {
@@ -174,6 +182,11 @@
 		@media (max-width: 820px) {
 		}
 	}
+	@media (max-width: 790px) {
+		h2 {
+			font-size: 4.5rem;
+		}
+	}
 	@media (max-width: 768px) {
 		/* Tabletit ja pienemmät näytöt */
 		.rectangle-14 {
@@ -181,6 +194,9 @@
 		}
 		.pitkanimi {
 			font-size: 1.5em;
+		}
+		h2 {
+			font-size: 5rem;
 		}
 	}
 	@media (max-width: 550px) {
@@ -196,12 +212,14 @@
 		h2 {
 			font-size: 4em;
 		}
+		h4 {
+			font-size: 0.875em;
+		}
 	}
 	.rivi {
 		justify-content: flex-start;
 	}
 	h3 {
-		margin-left: 7px;
 		font-size: 165%;
 	}
 	#main-symbol {
@@ -213,9 +231,6 @@
 		}
 	}
 	@media (max-width: 400px) {
-		h2 {
-			margin-left: 0px;
-		}
 		#main-symbol {
 			width: 75%;
 		}
@@ -232,6 +247,9 @@
 		.pitkanimi {
 			font-size: 1em;
 		}
+		h2 {
+			font-size: 3em;
+		}
 	}
 	@media (max-width: 380px) {
 		.pitkanimi {
@@ -242,9 +260,6 @@
 		h3 {
 			font-size: 125%;
 			margin-left: 0px;
-		}
-		h2 {
-			font-size: 45px;
 		}
 		.pitkanimi {
 			font-size: 0.9em;
@@ -259,10 +274,16 @@
 		.pitkanimi {
 			font-size: 0.8em;
 		}
+		h2 {
+			font-size: 2.5em;
+		}
 	}
 	@media (max-width: 315px) {
 		.pitkanimi {
 			font-size: 0.75em;
+		}
+		h3 {
+			font-size: 110%;
 		}
 	}
 	@media (max-width: 300px) {
