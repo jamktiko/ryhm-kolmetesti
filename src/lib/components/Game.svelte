@@ -2,6 +2,7 @@
 	import { goto } from '$app/navigation';
 	import type { IGame } from '$lib/types/game';
 	import GameButton from '$lib/components/GameButton.svelte';
+	import { slide, blur } from 'svelte/transition';
 	interface Props {
 		game: IGame | null;
 		games: IGame[];
@@ -21,7 +22,7 @@
 	<h1>Sää-tietovisa</h1>
 	{#if games.length > 0}
 		{#if !loppu}
-			<div class="game-area">
+			<div in:blur class="game-area">
 				<h3>Kysymys {gameId + 1}/{games.length}</h3>
 				<h2>{games[gameId].question}</h2>
 
@@ -60,16 +61,26 @@
 			</div>
 
 			{#if vastattu}
-				{#if oikein}
-					<p class="oikein">OIKEIN! &#128512</p>
-				{:else}
-					<p class="vaarin">VÄÄRIN! &#128542</p>{/if}
+				<div class="vastattu" transition:slide>
+					{#if oikein}
+						<p class="oikein">OIKEIN! &#128512</p>
+					{:else}
+						<p class="vaarin">VÄÄRIN! &#128542</p>{/if}
+				</div>
 			{/if}
 		{:else}
-			<div class="score-area">
+			<div in:blur class="score-area">
 				<h3>Pisteet</h3>
 				<h2>{pisteet}/{maksPisteet}</h2>
 				<h3>{Math.round((pisteet / maksPisteet) * 100)} %</h3>
+				<button
+					class="uudelleen"
+					onclick={() => {
+						loppu = false;
+						pisteet = 0;
+						gameId = 0;
+					}}>Pelaa uudelleen</button
+				>
 			</div>
 		{/if}
 	{:else}
@@ -77,6 +88,28 @@
 </div>
 
 <style>
+	.uudelleen {
+		padding: 0.5em 0.75em;
+		margin: 1em;
+		color: var(--main-text);
+		background-color: var(--main-color);
+		border: none;
+		cursor: pointer;
+		font-size: 1.125em;
+		transition: background-color 0.3s ease;
+		flex: 0 0 45%;
+		border: solid 2px var(--sec-color);
+		box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+		border-radius: 20px;
+	}
+	.uudelleen:hover {
+		background-color: var(--active-color);
+	}
+	.vastattu {
+		display: flex;
+		justify-content: center;
+		width: 100%;
+	}
 	.oikein {
 		color: darkgreen;
 		padding: 0.5em;
