@@ -8,7 +8,7 @@
 </script>
 
 <div class="weather-hours">
-	{#each weatherHours as weatherHour, index (weatherHour)}
+	{#each weatherHours as weatherHour, index}
 		{#if weatherHour.Date.getDate() === weatherGlobal.selectedDay}
 			<WeatherHour {weatherHour} />
 		{/if}
