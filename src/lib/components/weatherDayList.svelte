@@ -3,7 +3,7 @@
 	import type { Weather } from '$lib/types/weather';
 	import { weatherGlobal } from '$lib/weatherGlobal.svelte';
 	import WeatherHour from '$lib/components/WeatherHour.svelte';
-	let weatherDayList = $derived(weatherGlobal.weatherDayList);
+	let weatherDayList: Weather[] = $derived(weatherGlobal.weatherDayList);
 	import WeatherDay from './weatherDay.svelte';
 </script>
 
@@ -11,7 +11,7 @@
 <div class="rectangle-15">
 	{#if weatherGlobal.saatietoTaulukko.length > 0}
 		<div class="button-container">
-			{#each weatherDayList as day, index}
+			{#each weatherDayList as day, index (day)}
 				<WeatherDay weather={day} />
 			{/each}
 		</div>
