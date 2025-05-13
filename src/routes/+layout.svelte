@@ -181,36 +181,31 @@
 			sunGlareColor: 0xd75d35,
 			sunlightColor: 0xf58618
 		});
-
-		// Päivittää taivasefektin värejä
-		$effect(() => {
-			taivas.setOptions({
-				skyColor: rgbToHex(skyrTween.current, skygTween.current, skybTween.current),
-				cloudColor: rgbToHex(cloudrTween.current, cloudgTween.current, cloudbTween.current),
-				cloudShadowColor: rgbToHex(
-					shadowrTween.current,
-					shadowgTween.current,
-					shadowbTween.current
-				),
-				sunColor: rgbToHex(sunrTween.current, sungTween.current, sunbTween.current),
-				sunGlareColor: rgbToHex(
-					sunGlarerTween.current,
-					sunGlaregTween.current,
-					sunGlarebTween.current
-				),
-				sunlightColor: rgbToHex(
-					sunLightrTween.current,
-					sunLightgTween.current,
-					sunLightbTween.current
-				),
-				speed: nopeusTween.current.toFixed(1)
-			});
-			//console.log('Taivas setoption effect');
+	});
+	// Päivittää taivasefektin värejä
+	$effect(() => {
+		taivas.setOptions({
+			skyColor: rgbToHex(skyrTween.current, skygTween.current, skybTween.current),
+			cloudColor: rgbToHex(cloudrTween.current, cloudgTween.current, cloudbTween.current),
+			cloudShadowColor: rgbToHex(shadowrTween.current, shadowgTween.current, shadowbTween.current),
+			sunColor: rgbToHex(sunrTween.current, sungTween.current, sunbTween.current),
+			sunGlareColor: rgbToHex(
+				sunGlarerTween.current,
+				sunGlaregTween.current,
+				sunGlarebTween.current
+			),
+			sunlightColor: rgbToHex(
+				sunLightrTween.current,
+				sunLightgTween.current,
+				sunLightbTween.current
+			),
+			speed: nopeusTween.current.toFixed(1)
 		});
+		// console.log('Taivas setoption effect');
 	});
 	$effect(() => {
 		nopeusTween.target = Number(weatherGlobal.selectedWeather.WindSpeedMS) / 4;
-		//console.log('Nopeus effect');
+		// console.log('Nopeus effect');
 	});
 	$effect(() => {
 		skyColors(
@@ -221,7 +216,7 @@
 			weatherGlobal.currentWeatherEffect.GlareColor,
 			weatherGlobal.currentWeatherEffect.LightColor
 		);
-		//console.log('skycolor effect');
+		// console.log('skycolor effect');
 	});
 
 	// Tällä asetetaan taivaalle värit hex koodeilla ja se muuntaa ne rgb:ksi
