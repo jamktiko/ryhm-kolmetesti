@@ -10,7 +10,7 @@
 <!-- ui juttuja -->
 <div class="rectangle-15">
 	<div class="button-container">
-		{#each weatherDayList as day, index}
+		{#each weatherGlobal.weatherDayList as day, index}
 			<WeatherDay weather={day} />
 		{/each}
 	</div>
