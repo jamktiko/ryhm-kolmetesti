@@ -63,7 +63,7 @@
 	{
 		"id": 7,
 		"question": "Kuinka kauan auringonvalolla kestää, että se osuu maahan?",
-		"answers": ["Noin 4 minuutti", "Noin 8 minuuttia", "Noin 12 minuuttia", "Noin 16 minuuttia"],
+		"answers": ["Noin 4 minuuttia", "Noin 8 minuuttia", "Noin 12 minuuttia", "Noin 16 minuuttia"],
 		"correctAnswer": "Noin 8 minuuttia"
 	},
 	{
