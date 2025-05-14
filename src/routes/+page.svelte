@@ -8,6 +8,7 @@
 	import type { IpGeo } from '$lib/types/ip';
 	import type { Weather } from '$lib/types/weather';
 	import type { Parameters } from '$lib/types/parameters';
+	import { fade, scale, blur, slide, fly } from 'svelte/transition';
 
 	let parameters: Parameters[] = [
 		'Temperature',
@@ -142,20 +143,22 @@
 <!--<h2 style="transition: color 1s;" class:yo={weatherGlobal.isNight}>
 	Hae säätiedot paikkakunnan nimellä
 </h2>-->
-<UserInput
-	onkeydown={handleKeydown}
-	type="text"
-	placeholder="Hae paikkakunnan nimellä..."
-	bind:value={city}
-	disabled={false}
-	search={() => {
-		haeSaatiedot();
-	}}
-/>
+<div in:fade={{ duration: 500 }}>
+	<UserInput
+		onkeydown={handleKeydown}
+		type="text"
+		placeholder="Hae paikkakunnan nimellä..."
+		bind:value={city}
+		disabled={false}
+		search={() => {
+			haeSaatiedot();
+		}}
+	/>
 
-<div class="weather-container">
-	<WeatherMain />
-	<WeatherDayList />
+	<div class="weather-container">
+		<WeatherMain />
+		<WeatherDayList />
+	</div>
 </div>
 
 <style>
