@@ -178,8 +178,8 @@ class WeatherGlobal {
 				}
 				loop = true;
 			}
-			console.log('PäiväTaulukko:');
-			console.log(tietoTaulukko);
+			//console.log('PäiväTaulukko:');
+			//console.log(tietoTaulukko);
 			return tietoTaulukko;
 		}
 		return [];
