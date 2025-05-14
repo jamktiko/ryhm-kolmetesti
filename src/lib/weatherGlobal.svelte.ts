@@ -13,6 +13,7 @@ class WeatherGlobal {
 	private _selectedDay: number = $state(0); // Muuttuja joka sisältää valitun päivän päivämäärän
 	private _selectedHour: number = $state(0); // Muuttuja joka sisältää valitun säätiedon tunnin
 	private _selectedCity: string = $state(''); // Muuttuja joka sitältää valitun kaupungin
+	private _selectedRegion: string = $state('');
 	private _selectedWeather: Weather = $derived(this.setSelectedWeather()); // Muuttuja joka sisältää valitun sään
 	private _currentWeatherEffect: WeatherEffect = $derived(this.setCurrentWeatherEffect()); // Muuttuja joka pitää sisällään tämän hetkisen sääefektin
 	private _isNight: boolean = $derived(this.setNight());
@@ -177,8 +178,8 @@ class WeatherGlobal {
 				}
 				loop = true;
 			}
-			// console.log('PäiväTaulukko:');
-			// console.log(tietoTaulukko);
+			console.log('PäiväTaulukko:');
+			console.log(tietoTaulukko);
 			return tietoTaulukko;
 		}
 		return [];
@@ -192,7 +193,7 @@ class WeatherGlobal {
 		return (
 			this.saatietoTaulukko.find(
 				(weather) =>
-					weather.Date.getDate() === this.selectedDay &&
+					weather.Date.getUTCDate() === this.selectedDay &&
 					weather.Date.getUTCHours() === this.selectedHour
 			) ?? {
 				Date: new Date(),
@@ -217,6 +218,12 @@ class WeatherGlobal {
 	}
 	set selectedCity(city: string) {
 		this._selectedCity = city;
+	}
+	get selectedRegion() {
+		return this._selectedRegion;
+	}
+	set selectedRegion(region: string) {
+		this._selectedRegion = region;
 	}
 	get hakuPaivat() {
 		return this._hakuPaivat;

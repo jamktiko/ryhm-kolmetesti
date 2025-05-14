@@ -56,7 +56,10 @@
 				const saatiedotXML = xmlDoc.getElementsByTagName('wml2:value'); // Nappaa xml tiedostosta kaiken säädatan
 				const saatiedotAjatXML = xmlDoc.getElementsByTagName('wml2:time'); // Nappaa xml tiedostoista säädatan aikaleimat
 				const cityXML = xmlDoc.getElementsByTagName('gml:name'); // Nappaa apin palauttaman kaupungin nimen
+				const regionXML = xmlDoc.getElementsByTagName('target:region'); // Nappaa apin palauttaman kaupungin nimen, jos haettupaikka ei ole oma kuntansa
+
 				weatherGlobal.selectedCity = cityXML[0].childNodes[0].nodeValue ?? ''; // Asettaa kaupungin nimen globaaliin muuttujaan
+				weatherGlobal.selectedRegion = regionXML[0].childNodes[0].nodeValue ?? ''; // Asettaa kaupungin nimer globaaliin muuttujaan
 				localStorage.setItem('city', cityXML[0].childNodes[0].nodeValue ?? ''); // Tallentaa kaupungin nimen localstorageen
 
 				const tietojaPerParametri = saatiedotXML.length / parameters.length; // Laskee kuinka paljon säätietoja on per parametri
@@ -103,8 +106,8 @@
 					});
 				}
 				weatherGlobal.saatietoTaulukko = saatietoTaulukko; // Vie säätietotaulukon globaaliin muuttujaan
-				weatherGlobal.selectedDay = weatherGlobal.saatietoTaulukko[0].Date.getDate(); // Asettaa valituksi päiväksi ensimmäisen päivän
-				weatherGlobal.selectedHour = weatherGlobal.saatietoTaulukko[0].Date.getHours(); // Asettaa valituksi tunniksi ensimmäisen saatavilla olevan tunnin
+				weatherGlobal.selectedDay = weatherGlobal.saatietoTaulukko[0].Date.getUTCDate(); // Asettaa valituksi päiväksi ensimmäisen päivän
+				weatherGlobal.selectedHour = weatherGlobal.saatietoTaulukko[0].Date.getUTCHours(); // Asettaa valituksi tunniksi ensimmäisen saatavilla olevan tunnin
 			})
 			.catch((error) => {
 				if (error instanceof Error) {
