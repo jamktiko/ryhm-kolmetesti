@@ -6,6 +6,10 @@ A weather app that show forecast informatino about cities in Finland.
 
 An in-depth paragraph about your project and overview of use.
 
+The app fetches weather forecast data for the next 7 days for the selected city and saves the selected city in local storage. It uses a timestep of 180 minutes to get weather data every 3 hours. Forecast data inculudes: temperature, humidity, wind direction and speed, total cloud cover, propability and amount of precipitation.
+
+Main page has a list of days and a list of hours with weather info. Days and hours are selectable. Selected hour is shown in more detail.
+
 ## Getting Started
 
 ### Dependencies
