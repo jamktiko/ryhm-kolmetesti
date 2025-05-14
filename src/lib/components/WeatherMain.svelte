@@ -7,8 +7,6 @@
 	import WeatherInfoBox from './WeatherInfoBox.svelte';
 
 	let weather = $derived(weatherGlobal.selectedWeather);
-	let weatherDate = $derived(`${weather.Date.getDate()}.${weather.Date.getMonth() + 1}`);
-	let weatherTime = $derived(`${weather.Date.getHours()}.00`);
 </script>
 
 <svelte:head>
@@ -27,6 +25,11 @@
 						{weatherGlobal.selectedCity}
 					</h3>
 				</div>
+
+				<h4>
+					{weatherGlobal.selectedRegion}
+				</h4>
+
 				<div class="weather-inline">
 					<h2>
 						<strong
@@ -51,6 +54,10 @@
 </div>
 
 <style>
+	h4 {
+		margin: 0;
+		color: #444444;
+	}
 	img {
 		color: #00000000; /** To make alt text invisible when symbol not loaded **/
 	}
@@ -61,6 +68,9 @@
 		color: var(--pakkas-color);
 	}
 
+	:global(:root) {
+		font-family: 'Inter', sans-serif;
+	}
 	.rivi {
 		display: flex;
 		justify-content: center;
@@ -69,15 +79,12 @@
 		align-items: center;
 	}
 
-	:global(:root) {
-		font-family: 'Inter', sans-serif;
-	}
-
 	h3 {
 		color: var(--main-text);
 		float: left;
 		font-size: 2em;
 		margin-top: 0.5em;
+		margin-bottom: 0.5em;
 	}
 	div {
 		position: relative;
@@ -226,12 +233,14 @@
 		h2 {
 			font-size: 4em;
 		}
+		h4 {
+			font-size: 0.875em;
+		}
 	}
 	.rivi {
 		justify-content: flex-start;
 	}
 	h3 {
-		margin-left: 7px;
 		font-size: 165%;
 	}
 	#main-symbol {

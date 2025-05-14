@@ -19,13 +19,18 @@
 >
 	<p>
 		<b>
-			{(() => {
-				if (weatherHour.Date.getHours() < 10) {
-					return '0';
-				}
-				return '';
-			})()}{weatherHour.Date.getHours()}</b
+			{#if weatherHour.Date.getHours() !== 0}
+				{(() => {
+					if (weatherHour.Date.getHours() < 10) {
+						return '0';
+					}
+					return '';
+				})()}{weatherHour.Date.getHours()}
+			{:else}
+				24
+			{/if}</b
 		>
+
 		<!-- Jos kello on alle 10, lisää 0 eteen-->
 	</p>
 	<img alt="Sääsymboli" src={`/SmartSymbol/${weatherHour.SmartSymbol}.svg`} />
