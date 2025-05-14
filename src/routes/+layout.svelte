@@ -183,7 +183,7 @@
 					taivas = null;
 				}
 					if (el) {
-						el.style.background = 'gray'; // vaihtaa taustan valkoiseksi nappia painaessa
+						el.style.background = "url('/tausta.jpg')"; // vaihtaa taustan valkoiseksi nappia painaessa
 					}	
 				}
 		});
