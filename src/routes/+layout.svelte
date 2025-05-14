@@ -8,6 +8,7 @@
 	//import FOG from 'vanta/dist/vanta.fog.min.js';
 	import CLOUDS from 'vanta/dist/vanta.clouds.min.js';
 	import { weatherGlobal } from '$lib/weatherGlobal.svelte';
+	import { onDestroy } from 'svelte';
 
 	interface Props {
 		children: Snippet;
@@ -183,16 +184,10 @@
 					taivas = null;
 				}
 					if (el) {
-						el.style.background = "url('/tausta.jpg')"; // vaihtaa taustan valkoiseksi nappia painaessa
+						el.style.background = "url('/tausta.jpg')"; // vaihtaa taustan nappia painaessa
 					}	
 				}
 		});
-
-		onMount(() => {
-		if (background) {
-			initbackground();
-		}
-	});
 
 		function initbackground() {
 		taivas = CLOUDS({
@@ -211,6 +206,13 @@
 			sunlightColor: 0xf58618
 		});
 	};
+
+	onDestroy(() => {
+		if (taivas) {
+			taivas.destroy();
+			taivas = null;
+		}
+	});
 
 	// Päivittää taivasefektin värejä
 	$effect(() => {
