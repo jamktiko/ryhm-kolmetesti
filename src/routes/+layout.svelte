@@ -184,7 +184,8 @@
 				taivas = null;
 			}
 			if (el) {
-				el.style.background = "url('/tausta.jpg')"; // vaihtaa taustan nappia painaessa
+				el.style.background = "url('/background/sky.jpg')"; // vaihtaa taustan nappia painaessa
+				el.style.backgroundSize = 'cover';
 			}
 		}
 	});
@@ -293,9 +294,6 @@
 <Footer />
 
 <style>
-	#background {
-		background-size: cover;
-	}
 	.toggle-button {
 		position: absolute;
 		top: 8%;
