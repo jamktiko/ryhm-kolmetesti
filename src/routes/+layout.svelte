@@ -8,6 +8,7 @@
 	//import FOG from 'vanta/dist/vanta.fog.min.js';
 	import CLOUDS from 'vanta/dist/vanta.clouds.min.js';
 	import { weatherGlobal } from '$lib/weatherGlobal.svelte';
+	import { onDestroy } from 'svelte';
 
 	interface Props {
 		children: Snippet;
@@ -168,33 +169,28 @@
 
 	// Asettaa taivas efektin taivas -muuttujaan
 	// alla toggle taivaalle
-		$effect(() => {
-			const el = document.getElementById('background');
-			if (background) {
-				requestAnimationFrame(() => {
-					if (el && !taivas) {
-						initbackground();
-						el.style.background = '';
-					}
-				});
-			} else {
-				if (taivas) {
-					taivas.destroy();
-					taivas = null;
-				}
-					if (el) {
-						el.style.background = "url('/tausta.jpg')"; // vaihtaa taustan valkoiseksi nappia painaessa
-					}	
-				}
-		});
-
-		onMount(() => {
+	$effect(() => {
+		const el = document.getElementById('background');
 		if (background) {
-			initbackground();
+			requestAnimationFrame(() => {
+				if (el && !taivas) {
+					initbackground();
+					el.style.background = '';
+				}
+			});
+		} else {
+			if (taivas) {
+				taivas.destroy();
+				taivas = null;
+			}
+			if (el) {
+				el.style.background = "url('/background/sky.jpg')"; // vaihtaa taustan nappia painaessa
+				el.style.backgroundSize = 'cover';
+			}
 		}
 	});
 
-		function initbackground() {
+	function initbackground() {
 		taivas = CLOUDS({
 			el: '#background',
 			THREE: THREE,
@@ -210,8 +206,24 @@
 			sunGlareColor: 0xd75d35,
 			sunlightColor: 0xf58618
 		});
-	};
+	}
 
+	onDestroy(() => {
+		if (taivas) {
+			taivas.destroy();
+			taivas = null;
+		}
+	});
+
+	onMount(() => {
+		if (localStorage.getItem('background')) {
+			if (localStorage.getItem('background') === 'true') {
+				background = true;
+			} else {
+				background = false;
+			}
+		}
+	});
 	// Päivittää taivasefektin värejä
 	$effect(() => {
 		if (!taivas) return;
@@ -279,15 +291,22 @@
 	/>
 </svelte:head>
 
-	<button class ="toggle-button" onclick={() => (background = !background)}>
-		{background ? 'Taivas off' : 'Taivas on'}</button>
-
 <!--Asettaa taustalle taivaan-->
 <div
 	id="background"
 	style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;"
-	></div>
-<Header />
+></div>
+<Header
+	{background}
+	onclick={() => {
+		background = !background;
+		if (background) {
+			localStorage.setItem('background', 'true');
+		} else {
+			localStorage.setItem('background', 'false');
+		}
+	}}
+/>
 <main>
 	{@render children()}
 </main>
@@ -295,28 +314,25 @@
 
 <style>
 	.toggle-button {
-	position: absolute;
-	top: 8%;
-	
-	right: 2%;
-	z-index: 10;
-	padding: 0.6em;
-	background: var(--main-color);
-	border: solid 2px var(--sec-color);
-	border-radius: 20px;
-	font-size: 1rem;
-	display: flex;
-	align-items: center;
-	flex-wrap: nowrap;
-	justify-content: center;
-	gap: 0.5rem;
-	cursor: pointer;
-	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
-	margin: 1%;
+		position: absolute;
+		top: 8%;
+
+		right: 2%;
+		z-index: 10;
+		padding: 0.6em;
+		background: var(--main-color);
+		border: solid 2px var(--sec-color);
+		border-radius: 20px;
+		font-size: 1rem;
+		display: flex;
+		align-items: center;
+		flex-wrap: nowrap;
+		justify-content: center;
+		gap: 0.5rem;
+		cursor: pointer;
+		box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+		margin: 1%;
 	}
-
-	
-
 
 	:global(html, body) {
 		margin: 0;
@@ -340,6 +356,7 @@
 		--lammin-color: var(--main-text);
 		--pakkas-color: rgb(3, 63, 153);
 		--main-color: #d1e9fd75;
+		--inset-color: #a0b3c275;
 		--sec-color: #e7f4ff70;
 		--third-color: #777777;
 		--text-decoration-color: black;
@@ -365,32 +382,28 @@
 		}
 	}
 	@media (max-width: 1500px) {
-	.toggle-button {
-		top: 8%;
-		right: 3%;
-
+		.toggle-button {
+			top: 8%;
+			right: 3%;
+		}
 	}
-}
-@media (max-width: 1100px) {
-	.toggle-button {
-		top: 8%;
-		right: 4%;
-
+	@media (max-width: 1100px) {
+		.toggle-button {
+			top: 8%;
+			right: 4%;
+		}
 	}
-}
 
-@media (max-width: 850px) {
-	.toggle-button {
-		top: 8%;
-		right: 5%;
-
+	@media (max-width: 850px) {
+		.toggle-button {
+			top: 8%;
+			right: 5%;
+		}
 	}
-}
-@media (max-width: 768px) {
-	.toggle-button {
-		top: 2%;
-		right: 6%;
-
+	@media (max-width: 768px) {
+		.toggle-button {
+			top: 2%;
+			right: 6%;
+		}
 	}
-}
 </style>

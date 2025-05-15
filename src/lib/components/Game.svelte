@@ -3,6 +3,7 @@
 	import type { IGame } from '$lib/types/game';
 	import GameButton from '$lib/components/GameButton.svelte';
 	import { slide, blur } from 'svelte/transition';
+	import { fade } from 'svelte/transition';
 	interface Props {
 		game: IGame | null;
 		games: IGame[];
@@ -17,7 +18,7 @@
 	let loppu = $state(false);
 </script>
 
-<div class="window">
+<div in:fade={{ duration: 500 }} class="window">
 	<button class="exit" onclick={() => goto('/')}>X</button>
 	<h1>Sää-tietovisa</h1>
 	{#if games.length > 0}
