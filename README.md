@@ -1,6 +1,6 @@
 # CloudCast -Weather App
 
-A weather app that show forecast informatino about cities in Finland.
+A weather app that show forecast information about cities in Finland.
 
 ## Description
 
