@@ -98,6 +98,8 @@
 		font-size: 5rem;
 		text-align: center;
 		margin: 1rem 0rem;
+		float: left;
+		margin-left: 5px;
 	}
 
 	p {
@@ -107,6 +109,28 @@
 		padding-top: 1.5;
 	}
 
+	@media (max-width: 768px) {
+		/* Tabletit ja pienemmät näytöt */
+		p {
+			margin-top: 0.5rem; /* Pienempi marginaali pienemmillä näytöillä */
+			font-size: medium;
+		}
+		b {
+			font-size: medium;
+		}
+		.rectangle-14 {
+			margin: 0 auto;
+		}
+	}
+
+	@media (max-width: 480px) {
+		/* Puhelimet ja pienemmät näytöt */
+		p {
+			margin-top: 0.25rem; /* Vielä pienempi marginaali */
+			font-size: small;
+		}
+	}
+
 	.rectangle-14 {
 		position: relative;
 		background: var(--main-color);
@@ -114,7 +138,6 @@
 		border-radius: 20px;
 		/*padding: 1rem;*/
 		width: 100%;
-
 		box-sizing: border-box;
 		overflow-x: hidden;
 	}
