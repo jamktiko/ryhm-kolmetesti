@@ -2,28 +2,58 @@
 	import { appInfo } from '$lib/appInfo';
 	import { page } from '$app/stores';
 	import { weatherGlobal } from '$lib/weatherGlobal.svelte';
+	import { fade } from 'svelte/transition';
+	import { goto } from '$app/navigation';
+	interface Props {
+		onclick: () => void;
+		background: boolean;
+	}
+	let { onclick, background }: Props = $props();
 </script>
 
 <header>
 	<img class="logo" src={appInfo.logo} alt="Logo" />
-	{#if $page.url.pathname === '/'}
-		<nav>
-			<!--<a class:active={$page.url.pathname === '/'} href="/">Etusivu</a>-->
-			<a href="/tietovisa">Sää-tietovisa</a>
-		</nav>
-	{/if}
+
+	<nav>
+		<button
+			class:active={$page.url.pathname === '/tietovisa'}
+			in:fade={{ duration: 500 }}
+			onclick={() => {
+				if ($page.url.pathname === '/') {
+					goto('/tietovisa');
+				} else {
+					goto('/');
+				}
+			}}>Sää-tietovisa</button
+		>
+		<button class:active={background} id="effect" {onclick}
+			><img src="/icons/clouds.svg" />{background ? 'On' : 'Off'}</button
+		>
+	</nav>
+
 	<!--<h1 style="transition: color 1s;" class:yo={weatherGlobal.isNight}>{appInfo.name}</h1>-->
 </header>
 
 <style>
+	.active {
+		background-color: var(--inset-color);
+		box-shadow: inset 0px 4px 6px rgba(0, 0, 0, 0.5);
+		transition: background-color 0s ease;
+		border: solid 1px var(--sec-color);
+	}
 	.logo {
 		width: 200px;
-		height: auto;
 	}
 	nav {
-		padding: 2em;
+		padding: 1em;
+		display: flex;
+		justify-content: end;
+		flex-wrap: nowrap;
+		align-items: stretch;
+		gap: 0.5rem;
 	}
-	a {
+
+	button {
 		color: var(--main-text);
 		text-decoration: none;
 		padding: 0.5em 1em;
@@ -32,9 +62,20 @@
 		cursor: pointer;
 		font-size: 1.125em;
 		transition: background-color 0.3s ease;
-		border: solid 2px var(--sec-color);
+
 		box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 		border-radius: 20px;
+	}
+	button {
+		display: flex;
+		align-items: center;
+		flex-wrap: nowrap;
+		justify-content: center;
+		gap: 0.5rem;
+		cursor: pointer;
+	}
+	button:hover:not(.active) {
+		background-color: var(--active-color);
 	}
 	h1 {
 		font-size: 3em;
@@ -52,6 +93,7 @@
 		color: var(--main-text);
 		padding: 1em;
 		padding-bottom: 0px;
+		align-items: start;
 	}
 	@media (max-width: 343px) {
 		.logo {
@@ -72,6 +114,19 @@
 		nav {
 			padding-top: 1em;
 			padding-bottom: 0em;
+		}
+		#effect {
+			position: absolute;
+			margin: 1em;
+			top: 0;
+			right: 0;
+		}
+	}
+	@media (max-width: 480px) {
+		#effect {
+			padding: 0.5em 0.25em 0.5em 0em;
+			font-size: 0.875em;
+			gap: 0.25em;
 		}
 	}
 </style>
