@@ -215,6 +215,15 @@
 		}
 	});
 
+	onMount(() => {
+		if (localStorage.getItem('background')) {
+			if (localStorage.getItem('background') === 'true') {
+				background = true;
+			} else {
+				background = false;
+			}
+		}
+	});
 	// Päivittää taivasefektin värejä
 	$effect(() => {
 		if (!taivas) return;
@@ -287,7 +296,17 @@
 	id="background"
 	style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;"
 ></div>
-<Header {background} onclick={() => (background = !background)} />
+<Header
+	{background}
+	onclick={() => {
+		background = !background;
+		if (background) {
+			localStorage.setItem('background', 'true');
+		} else {
+			localStorage.setItem('background', 'false');
+		}
+	}}
+/>
 <main>
 	{@render children()}
 </main>
